@@ -1,0 +1,113 @@
+#battleplan-icon1 {
+    color: white;
+}
+
+.scoring-accordion {
+    width: 100%;
+}
+
+.scoring-row {
+
+    display: flex;
+}
+
+.scoring-column {
+    flex: 50%;
+}
+
+.column-score-left {
+    width: 50%;
+    padding: 5px;
+    float: left;
+    margin-right: 20px;
+}
+
+.column-score-right {
+    width: 50%;
+    padding: 5px;
+    float: right;
+    margin-left: 20px;
+}
+
+.player-heading {
+    color: black;
+}
+
+.points-heading {
+    color: black;
+}
+
+.scoring-center {
+    text-align: center;
+}
+
+.scoring-label {
+    color: black;
+}
+
+.scoring-priority {
+    margin: 10px;
+}
+
+label {
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+    color: black;
+}
+
+.checkbox {
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.other-battle-tactic {
+    width: 300px;
+    color: black;
+    position: relative;
+    border-style: solid;
+    border-color: black;
+}
+
+.dropbtn {
+    color: black;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: rgb(128, 128, 211);
+}
