@@ -51,14 +51,13 @@
                     height: 80px;
                     line-height: 80px;
 
-                    img {}
                 }
 
                 .accor-title {
                     @extend %text-midium;
                     @include font-size($fs-h3);
                     @extend %white-color;
-                    font-family: $oswald;
+                    font-family: 'mistlock_regular';
                     text-transform: uppercase;
                 }
             }

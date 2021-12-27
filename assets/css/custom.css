@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'mistlock_regular';
+    src: url('mistlock_regular-webfont.woff2') format('woff2'),
+        url('mistlock_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 #battleplan-icon1 {
     color: white;
 }
@@ -29,12 +38,24 @@
     margin-left: 20px;
 }
 
-.player-heading {
-    color: black;
+.player-heading1 {
+    color: #000080;
+    font-family: 'mistlock_regular';
 }
 
-.points-heading {
-    color: black;
+.player-heading2 {
+    color: darkred;
+    font-family: 'mistlock_regular';
+}
+
+.victory-points-heading1 {
+    color: #000080;
+    font-family: 'mistlock_regular';
+}
+
+.victory-points-heading2 {
+    color: darkred;
+    font-family: 'mistlock_regular';
 }
 
 .scoring-center {
@@ -54,6 +75,9 @@ label {
     padding-left: 15px;
     text-indent: -15px;
     color: black;
+    font-family: 'mistlock_regular';
+    font-weight: 800;
+    font-size: 14pt;
 }
 
 .checkbox {
@@ -64,7 +88,23 @@ label {
     position: relative;
 }
 
+.checkbox-large {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 10px;
+    position: relative;
+}
+
 .other-battle-tactic {
+    width: 300px;
+    color: black;
+    position: relative;
+    border-style: solid;
+    border-color: black;
+}
+
+.setup-text-fields {
     width: 300px;
     color: black;
     position: relative;
@@ -77,6 +117,10 @@ label {
     font-size: 16px;
     border: none;
     cursor: pointer;
+    font-family: 'mistlock_regular';
+    font-weight: 800;
+    font-size: 14pt;
+    width: 200px;
 }
 
 .dropdown {
@@ -91,6 +135,8 @@ label {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    font-family: 'mistlock_regular';
+    font-weight: 800;
 }
 
 .dropdown-content a {
@@ -98,10 +144,14 @@ label {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    font-family: 'mistlock_regular';
+    font-weight: 800;
 }
 
 .dropdown-content a:hover {
     background-color: white;
+    font-family: 'mistlock_regular';
+    font-weight: 800;
 }
 
 .dropdown:hover .dropdown-content {
@@ -110,4 +160,10 @@ label {
 
 .dropdown:hover .dropbtn {
     background-color: rgb(128, 128, 211);
+}
+
+.logo-display {
+    height: 60px;
+    width: 80px;
+    margin-bottom: 30px;
 }
