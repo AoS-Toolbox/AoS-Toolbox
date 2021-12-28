@@ -19,7 +19,7 @@ function init() {
 
     // Global event listeners
     stage.addEventListener("stagemousedown", clearObjectSelection);
-    //document.addEventListener("keypress", keyboardHandler);
+    document.addEventListener("keydown", keyboardHandler);
 }
 
 // APPLY BACKGROUND IMAGE
@@ -274,6 +274,23 @@ function endRulerLine(event) {
 
 // EVENT FUNCTIONS
 
+function keyboardHandler(event) {
+  // Delete objects with DEL key
+  if (event.code === "Delete" && selectedObject != null) {
+    deleteObject();
+  }
+  
+  // Rotate objects left/right with Q/E
+  if (event.code === "KeyQ") {
+    rotate("L");
+  } else if (event.code === "KeyE") {
+    rotate("R");
+  }
+  
+  // Toggle ruler with R
+  if (event.code === "KeyR") toggleRuler();
+}
+
 function drag(event) {
     if (!rulerOn) {
         event.target.x = event.stageX;
@@ -282,9 +299,10 @@ function drag(event) {
     }
 }
 
-function deleteObject(event) {
+function deleteObject() {
     if (!rulerOn) {
-        stage.removeChild(event.target);
+        stage.removeChild(selectedObject);
+        clearObjectSelection();
         stage.update();
     }
 }
@@ -320,11 +338,11 @@ function rotate(dir) {
     if (selectedObject != null) {
         switch (dir) {
             case "L":
-                selectedObject.rotation += 15;
+                selectedObject.rotation -= 10;
                 stage.update();
                 break;
             case "R":
-                selectedObject.rotation -= 15;
+                selectedObject.rotation += 10;
                 stage.update();
                 break;
         }
