@@ -1,0 +1,218 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <title>AOS Toolbox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/icofont.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/lightcase.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/fonts/stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/e95bd3114f.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+    <script src="battle-sim-script.js"></script>
+    <link rel="stylesheet" href="../assets/css/battle-sim.css">
+
+</head>
+
+<body>
+
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="scrollToTop"><i class="icofont-rounded-up"></i></a>
+
+    <div class="body-shape">
+        <img src="assets/images/shape/body-shape.png" alt="shape">
+    </div>
+
+
+    <header class="header-section">
+        <div class="container">
+            <div class="header-holder d-flex flex-wrap justify-content-between align-items-center">
+                <div class="brand-logo d-none d-lg-inline-block">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo/aos-toolbox-logo-tr.png" alt="logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="header-menu-part">
+                    <div class="header-top">
+                        <div class="header-top-area">
+                            <ul class="left">
+                                <li>
+                                    <i class="icofont-ui-call"></i> <span>+61 0000 000 000</span>
+                                </li>
+                                <li>
+                                    <i class="icofont-location-pin"></i> Australia
+                                </li>
+                            </ul>
+                            <ul class="social-icons d-flex align-items-center">
+                                <li>
+                                    <a href="#" class="fb"><i class="icofont-facebook-messenger"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header-bottom">
+                        <div class="header-wrapper justify-content-lg-end">
+                            <div class="mobile-logo d-lg-none">
+                                <a href="index.html"><img src="assets/images/logo/aos-toolbox-logo-tr.png"
+                                        alt="logo"></a>
+                            </div>
+                            <div class="menu-area">
+                                <ul class="menu">
+                                    <li>
+                                        <a href="index.html">Home</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="scoring-sheet.html">Scoring</a>
+                                        <ul class="submenu">
+                                            <li><a href="#">Blank</a></li>
+                                            <li><a href="#">Blank</a></li>
+                                            <li>
+                                                <a href="#0">Blank</a>
+                                                <ul class="submenu">
+                                                    <li><a href="#">Blank</a></li>
+                                                    <li><a href="#">Blank</a></li>
+                                                </ul>
+                                        </ul>
+                                    </li>
+                                    <li><a href="battle-sim.html">Battle Sim</a></li>
+                                    <li>
+                                        <a href="#0">Tools</a>
+                                        <ul class="submenu">
+                                            <li><a href="#">Blank</a></li>
+                                            <li><a href="#">Blank</a></li>
+                                            <li><a href="@">Patch Notes</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                                <a href="login.html" class="login"><i class="icofont-user"></i> <span>LOG IN</span> </a>
+                                <a href="signup.html" class="signup"><i class="icofont-users"></i> <span>SIGN
+                                        UP</span></a>
+
+
+                                <div class="header-bar d-lg-none">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="ellepsis-bar d-lg-none">
+                                    <i class="icofont-info-square"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <body>
+        <div>
+            <div class="battle-sim-left">
+
+
+
+            </div>
+
+            <div class="battle-sim-middle">
+
+                <body onload="init()">
+                    <canvas id="game-board" width="1200" height="880"></canvas>
+                    <div id="unit-focus-field">(No Unit Selected)</div>
+                    <button onclick='toggleRuler()' id="btn-ruler">[R] RULER</button>
+                    <button onclick='rotate("L")' id="btn-rotate-L">[Q] ROTATE LEFT</button>
+                    <button onclick='rotate("R")' id="btn-rotate-R">[E] ROTATE RIGHT</button>
+                    <br>
+                    <button onclick='togglePlacement("305MM")' id="btn-305mm">OBJ</button>
+                    <br>
+
+                    <input type="color" id="base-color" />
+                    <input type="text" id="unit-name" placeholder="UNIT NAME" />
+                    <span id="base-buttons">
+                        <button onclick='togglePlacement("25MM")' id="btn-25mm">25MM</button>
+                        <button onclick='togglePlacement("32MM")' id="btn-32mm">32MM</button>
+                        <button onclick='togglePlacement("40MM")' id="btn-40mm">40MM</button>
+                        <button onclick='togglePlacement("50MM")' id="btn-50mm">50MM</button>
+                        <button onclick='togglePlacement("60MM")' id="btn-60mm">60MM</button>
+                        <button onclick='togglePlacement("80MM")' id="btn-80mm">80MM</button>
+                        <button onclick='togglePlacement("100MM")' id="btn-100mm">100MM</button>
+                        <button onclick='togglePlacement("130MM")' id="btn-130mm">130MM</button>
+                        <button onclick='togglePlacement("160MM")' id="btn-160mm">160MM</button>
+                        <br>
+                        <button onclick='togglePlacement("60x35MM")' id="btn-60x35mm">60x35MM</button>
+                        <button onclick='togglePlacement("75x42MM")' id="btn-75x42mm">75x42MM</button>
+                        <button onclick='togglePlacement("90x52MM")' id="btn-90x52mm">90x52MM</button>
+                        <button onclick='togglePlacement("105x70MM")' id="btn-105x70mm">105x70MM</button>
+                        <button onclick='togglePlacement("120x92MM")' id="btn-120x92mm">120x92MM</button>
+                        <button onclick='togglePlacement("170x105MM")' id="btn-170x105mm">170x105MM</button>
+                        <button onclick='togglePlacement("280x210MM")' id="btn-280x210mm">280x210MM</button>
+                    </span>
+                    <br>
+                    <select name="tokens" id="tokens-select">
+                        <option </select>
+
+
+            </div>
+        </div>
+
+
+
+
+
+        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+        <script src="assets/js/circularProgressBar.min.js"></script>
+        <script src="assets/js/isotope.pkgd.min.js"></script>
+        <script src="assets/js/swiper.min.js"></script>
+        <script src="assets/js/lightcase.js"></script>
+        <script src="assets/js/wayVictory Points.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
+
+        <script>
+            window.ga = function () {
+                ga.q.push(arguments)
+            };
+            ga.q = [];
+            ga.l = +new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('set', 'anonymizeIp', true);
+            ga('set', 'transport', 'beacon');
+            ga('send', 'pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+
+    </body>
+
+</html>

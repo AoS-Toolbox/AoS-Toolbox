@@ -75,9 +75,9 @@ label {
     padding-left: 15px;
     text-indent: -15px;
     color: black;
-    font-family: 'mistlock_regular';
+    font-family: 'lightcase';
     font-weight: 800;
-    font-size: 14pt;
+    font-size: 11pt;
 }
 
 .checkbox {
@@ -117,7 +117,7 @@ label {
     font-size: 16px;
     border: none;
     cursor: pointer;
-    font-family: 'mistlock_regular';
+    font-family: 'lightcase';
     font-weight: 800;
     font-size: 14pt;
     width: 200px;
@@ -135,7 +135,7 @@ label {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    font-family: 'mistlock_regular';
+    font-family: 'lightcase';
     font-weight: 800;
 }
 
@@ -144,13 +144,13 @@ label {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    font-family: 'mistlock_regular';
+    font-family: 'lightcase';
     font-weight: 800;
 }
 
 .dropdown-content a:hover {
     background-color: white;
-    font-family: 'mistlock_regular';
+    font-family: 'lightcase';
     font-weight: 800;
 }
 
@@ -166,4 +166,52 @@ label {
     height: 60px;
     width: 80px;
     margin-bottom: 30px;
+}
+
+.checkbox-large input:checked {
+    background-color: green;
+}
+
+.text-field-align-other {
+    margin-left: 55px;
+}
+
+.text-field-align-setup {
+    margin-left: 30px;
+}
+
+.vp-separate {
+    margin-top: 50px;
+}
+
+.name-separate {
+    margin-bottom: 30px;
+}
+
+.battle-sim-left {
+    width: 149px;
+    height: 1000px;
+    background-color: lightblue;
+    float: left;
+}
+
+.battle-sim-middle {
+    width: 1200px;
+    height: 1000px;
+    background-color: lightgreen;
+    float: right;
+}
+
+.battle-sim-right {
+    width: 100px;
+    height: 1000px;
+    background-color: lightpink;
+}
+
+canvas#game-board {
+    background-color: #6e8f46;
+}
+
+.button-on {
+    color: red;
 }
