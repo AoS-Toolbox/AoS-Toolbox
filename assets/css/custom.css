@@ -190,15 +190,13 @@ label {
 
 .battle-sim-left {
     width: 149px;
-    height: 1000px;
-    background-color: lightblue;
+    height: 1200px;
     float: left;
 }
 
 .battle-sim-middle {
     width: 1200px;
-    height: 1000px;
-    background-color: lightgreen;
+    height: 1200px;
     float: right;
 }
 
@@ -208,10 +206,6 @@ label {
     background-color: lightpink;
 }
 
-canvas#game-board {
-    background-color: #6e8f46;
-}
-
-.button-on {
-    color: red;
+.battle-sim-padding {
+    padding-top: 200px;
 }

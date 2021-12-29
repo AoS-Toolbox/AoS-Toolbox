@@ -19,8 +19,8 @@
     <script src="https://kit.fontawesome.com/e95bd3114f.js" crossorigin="anonymous"></script>
 
     <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
-    <script src="battle-sim-script.js"></script>
-    <link rel="stylesheet" href="../assets/css/battle-sim.css">
+    <script src="assets/js/battle-sim-script.js"></script>
+    <link rel="stylesheet" href="assets/css/battle-sim.css">
 
 </head>
 
@@ -133,51 +133,57 @@
 
     </header>
 
+
     <body>
         <div>
             <div class="battle-sim-left">
 
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div id="unit-focus-field">(No Unit Selected)</div>
 
+                <button onclick='toggleRuler()' id="btn-ruler">[R] RULER</button>
+                <button onclick='rotate("L")' id="btn-rotate-L">[Q] ROTATE LEFT</button>
+                <button onclick='rotate("R")' id="btn-rotate-R">[E] ROTATE RIGHT</button>
+                <br>
+                <button onclick='togglePlacement("305MM")' id="btn-305mm">OBJ</button>
+                <br>
+
+                <input type="color" id="base-color" />
+                <input type="text" id="unit-name" placeholder="UNIT NAME" />
+                <span id="base-buttons">
+                    <button onclick='togglePlacement("25MM")' id="btn-25mm">25MM</button>
+                    <button onclick='togglePlacement("32MM")' id="btn-32mm">32MM</button>
+                    <button onclick='togglePlacement("40MM")' id="btn-40mm">40MM</button>
+                    <button onclick='togglePlacement("50MM")' id="btn-50mm">50MM</button>
+                    <button onclick='togglePlacement("60MM")' id="btn-60mm">60MM</button>
+                    <button onclick='togglePlacement("80MM")' id="btn-80mm">80MM</button>
+                    <button onclick='togglePlacement("100MM")' id="btn-100mm">100MM</button>
+                    <button onclick='togglePlacement("130MM")' id="btn-130mm">130MM</button>
+                    <button onclick='togglePlacement("160MM")' id="btn-160mm">160MM</button>
+                    <br>
+                    <button onclick='togglePlacement("60x35MM")' id="btn-60x35mm">60x35MM</button>
+                    <button onclick='togglePlacement("75x42MM")' id="btn-75x42mm">75x42MM</button>
+                    <button onclick='togglePlacement("90x52MM")' id="btn-90x52mm">90x52MM</button>
+                    <button onclick='togglePlacement("105x70MM")' id="btn-105x70mm">105x70MM</button>
+                    <button onclick='togglePlacement("120x92MM")' id="btn-120x92mm">120x92MM</button>
+                    <button onclick='togglePlacement("170x105MM")' id="btn-170x105mm">170x105MM</button>
+                    <button onclick='togglePlacement("280x210MM")' id="btn-280x210mm">280x210MM</button>
+                </span>
 
             </div>
 
             <div class="battle-sim-middle">
 
+
+
                 <body onload="init()">
                     <canvas id="game-board" width="1200" height="880"></canvas>
-                    <div id="unit-focus-field">(No Unit Selected)</div>
-                    <button onclick='toggleRuler()' id="btn-ruler">[R] RULER</button>
-                    <button onclick='rotate("L")' id="btn-rotate-L">[Q] ROTATE LEFT</button>
-                    <button onclick='rotate("R")' id="btn-rotate-R">[E] ROTATE RIGHT</button>
-                    <br>
-                    <button onclick='togglePlacement("305MM")' id="btn-305mm">OBJ</button>
-                    <br>
-
-                    <input type="color" id="base-color" />
-                    <input type="text" id="unit-name" placeholder="UNIT NAME" />
-                    <span id="base-buttons">
-                        <button onclick='togglePlacement("25MM")' id="btn-25mm">25MM</button>
-                        <button onclick='togglePlacement("32MM")' id="btn-32mm">32MM</button>
-                        <button onclick='togglePlacement("40MM")' id="btn-40mm">40MM</button>
-                        <button onclick='togglePlacement("50MM")' id="btn-50mm">50MM</button>
-                        <button onclick='togglePlacement("60MM")' id="btn-60mm">60MM</button>
-                        <button onclick='togglePlacement("80MM")' id="btn-80mm">80MM</button>
-                        <button onclick='togglePlacement("100MM")' id="btn-100mm">100MM</button>
-                        <button onclick='togglePlacement("130MM")' id="btn-130mm">130MM</button>
-                        <button onclick='togglePlacement("160MM")' id="btn-160mm">160MM</button>
-                        <br>
-                        <button onclick='togglePlacement("60x35MM")' id="btn-60x35mm">60x35MM</button>
-                        <button onclick='togglePlacement("75x42MM")' id="btn-75x42mm">75x42MM</button>
-                        <button onclick='togglePlacement("90x52MM")' id="btn-90x52mm">90x52MM</button>
-                        <button onclick='togglePlacement("105x70MM")' id="btn-105x70mm">105x70MM</button>
-                        <button onclick='togglePlacement("120x92MM")' id="btn-120x92mm">120x92MM</button>
-                        <button onclick='togglePlacement("170x105MM")' id="btn-170x105mm">170x105MM</button>
-                        <button onclick='togglePlacement("280x210MM")' id="btn-280x210mm">280x210MM</button>
-                    </span>
-                    <br>
-                    <select name="tokens" id="tokens-select">
-                        <option </select>
-
 
             </div>
         </div>
