@@ -42,21 +42,25 @@
 .player-heading1 {
     color: #000080;
     font-family: 'mistlock_regular';
+    font-size: 30px;
 }
 
 .player-heading2 {
     color: darkred;
     font-family: 'mistlock_regular';
+    font-size: 30px;
 }
 
 .victory-points-heading1 {
     color: #000080;
     font-family: 'mistlock_regular';
+    font-size: 40px;
 }
 
 .victory-points-heading2 {
     color: darkred;
     font-family: 'mistlock_regular';
+    font-size: 40px;
 }
 
 .scoring-center {
