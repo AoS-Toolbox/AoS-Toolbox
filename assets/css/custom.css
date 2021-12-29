@@ -7,6 +7,7 @@
 
 }
 
+
 #battleplan-icon1 {
     color: white;
 }
@@ -189,23 +190,96 @@ label {
 }
 
 .battle-sim-left {
-    width: 149px;
+    padding-top: 165px;
+    width: 124px;
     height: 1200px;
     float: left;
+
 }
 
 .battle-sim-middle {
-    width: 1200px;
+    padding-top: 165px;
+    width: 1225px;
     height: 1200px;
     float: right;
+
 }
 
-.battle-sim-right {
-    width: 100px;
-    height: 1000px;
-    background-color: lightpink;
+.battle-sim-bottom {
+    width: 1349px;
+    height: 500px;
+    margin-top: 750px;
+    padding-left: 280px;
 }
 
 .battle-sim-padding {
-    padding-top: 200px;
+    padding-top: 165px;
+    background-color: yellow;
+}
+
+.unit-title {
+    font-family: 'mistlock_regular';
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+    float: left;
+}
+
+.battle-sim-btn {
+    margin: 10px auto;
+    width: 120px;
+    border-top: 4px ridge #ffd700;
+    border-left: 4px groove #ffd700;
+    border-right: 4px ridge #ffd700;
+    border-bottom: 4px groove #ffd700;
+    box-shadow: inset 0px 0px 5px 3px rgba(1, 1, 1, 0.3);
+    border-radius: 8px;
+    font-family: 'Merriweather', serif;
+    color: black;
+    font-size: 12px;
+    font-weight: 500;
+    text-shadow: 0 1px 1px #000;
+    text-align: center;
+    padding: 10px 0;
+    background: radial-gradient(circle, #ff6347, #fe2712);
+
+}
+
+.battle-sim-btn:hover {
+    background: radial-gradient(circle, white, #333399);
+    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2)
+}
+
+.battle-sim-btn:active {
+    background: radial-gradient(circle, white, #333399);
+    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2)
+}
+
+.battle-sim-buttons {
+    padding-top: 1px;
+    margin-left: 1px;
+
+}
+
+.canvas-border {
+    margin-top: 10px;
+    border-top: 4px ridge #ffd700;
+    border-left: 4px groove #ffd700;
+    border-right: 4px ridge #ffd700;
+    border-bottom: 4px groove #ffd700;
+}
+
+.battle-sim-images {
+    width: 50px;
+    height: 50px;
+    margin-left: 25%;
+}
+
+.input-color {
+    width: 40px;
+    height: 40px;
+    margin-left: 23px;
+    margin-right: 23px;
+    margin-top: 10px;
+    float: left;
 }

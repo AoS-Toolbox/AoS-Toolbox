@@ -22,6 +22,10 @@
     <script src="assets/js/battle-sim-script.js"></script>
     <link rel="stylesheet" href="assets/css/battle-sim.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -134,58 +138,80 @@
     </header>
 
 
+
     <body>
+
+
         <div>
+
             <div class="battle-sim-left">
 
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
                 <div id="unit-focus-field">(No Unit Selected)</div>
 
-                <button onclick='toggleRuler()' id="btn-ruler">[R] RULER</button>
-                <button onclick='rotate("L")' id="btn-rotate-L">[Q] ROTATE LEFT</button>
-                <button onclick='rotate("R")' id="btn-rotate-R">[E] ROTATE RIGHT</button>
-                <br>
-                <button onclick='togglePlacement("305MM")' id="btn-305mm">OBJ</button>
+                <button class="battle-sim-btn" onclick='toggleRuler()' id="btn-ruler">[R] RULER</button>
+                <button class="battle-sim-btn" onclick='rotate("L")' id="btn-rotate-L">[Q] ROTATE LEFT</button>
+                <button class="battle-sim-btn" onclick='rotate("R")' id="btn-rotate-R">[E] ROTATE RIGHT</button>
+
+                <img class="battle-sim-images" src="assets/images/obj-icon.png"><button class="battle-sim-btn"
+                    onclick='togglePlacement("305MM")' id="btn-305mm">Objectives</button></img>
                 <br>
 
-                <input type="color" id="base-color" />
+
                 <input type="text" id="unit-name" placeholder="UNIT NAME" />
-                <span id="base-buttons">
-                    <button onclick='togglePlacement("25MM")' id="btn-25mm">25MM</button>
-                    <button onclick='togglePlacement("32MM")' id="btn-32mm">32MM</button>
-                    <button onclick='togglePlacement("40MM")' id="btn-40mm">40MM</button>
-                    <button onclick='togglePlacement("50MM")' id="btn-50mm">50MM</button>
-                    <button onclick='togglePlacement("60MM")' id="btn-60mm">60MM</button>
-                    <button onclick='togglePlacement("80MM")' id="btn-80mm">80MM</button>
-                    <button onclick='togglePlacement("100MM")' id="btn-100mm">100MM</button>
-                    <button onclick='togglePlacement("130MM")' id="btn-130mm">130MM</button>
-                    <button onclick='togglePlacement("160MM")' id="btn-160mm">160MM</button>
-                    <br>
-                    <button onclick='togglePlacement("60x35MM")' id="btn-60x35mm">60x35MM</button>
-                    <button onclick='togglePlacement("75x42MM")' id="btn-75x42mm">75x42MM</button>
-                    <button onclick='togglePlacement("90x52MM")' id="btn-90x52mm">90x52MM</button>
-                    <button onclick='togglePlacement("105x70MM")' id="btn-105x70mm">105x70MM</button>
-                    <button onclick='togglePlacement("120x92MM")' id="btn-120x92mm">120x92MM</button>
-                    <button onclick='togglePlacement("170x105MM")' id="btn-170x105mm">170x105MM</button>
-                    <button onclick='togglePlacement("280x210MM")' id="btn-280x210mm">280x210MM</button>
-                </span>
 
+                <!--<h3 class="unit-title">Add Units</h3>
+                <input type="color" class="input-color" id="base-color" />-->
             </div>
 
             <div class="battle-sim-middle">
 
-
-
                 <body onload="init()">
-                    <canvas id="game-board" width="1200" height="880"></canvas>
+                    <canvas class="canvas-border" id="game-board" width="1200" height="880"></canvas>
 
+                    <div class="battle-sim-buttons">
+                        <div>
+
+                            <h2 class="unit-title">Add Units</h2>
+                            <input type="color" class="input-color" id="base-color" />
+                        </div>
+                        <span id="base-buttons">
+
+                            <button class="battle-sim-btn" onclick='togglePlacement("25MM")' id="btn-25mm">25mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("32MM")' id="btn-32mm">32mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("40MM")' id="btn-40mm">40mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("50MM")' id="btn-50mm">50mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("60MM")' id="btn-60mm">60mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("80MM")' id="btn-80mm">80mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("100MM")'
+                                id="btn-100mm">100mm</button>
+                            <br>
+                            <button class="battle-sim-btn" onclick='togglePlacement("130MM")'
+                                id="btn-130mm">130mm</button>
+
+                            <button class="battle-sim-btn" onclick='togglePlacement("160MM")'
+                                id="btn-160mm">160mm</button>
+
+                            <button class="battle-sim-btn" onclick='togglePlacement("60x35MM")'
+                                id="btn-60x35mm">60x35mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("75x42MM")'
+                                id="btn-75x42mm">75x42mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("90x52MM")'
+                                id="btn-90x52mm">90x52mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("105x70MM")'
+                                id="btn-105x70mm">105x70mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("120x92MM")'
+                                id="btn-120x92mm">120x92mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("170x105MM")'
+                                id="btn-170x105mm">170x105mm</button>
+                            <button class="battle-sim-btn" onclick='togglePlacement("280x210MM")'
+                                id="btn-280x210mm">280x210mm</button>
+                        </span>
+
+                    </div>
             </div>
+
+
+
         </div>
 
 
