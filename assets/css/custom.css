@@ -194,18 +194,19 @@ label {
 }
 
 .battle-sim-left {
-    padding-top: 165px;
-    width: 124px;
+    margin-top: 165px;
+    width: 280px;
     height: 1200px;
     float: left;
 
 }
 
 .battle-sim-middle {
-    padding-top: 165px;
+    margin-top: 165px;
     width: 1225px;
     height: 1200px;
-    float: right;
+    float: left;
+    margin-left: 5px;
 
 }
 
@@ -223,14 +224,14 @@ label {
 
 .unit-title {
     font-family: 'mistlock_regular';
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 30px;
-    float: left;
+    margin-top: 15px;
+    margin-right: 10px;
+
 }
 
 .battle-sim-btn {
     margin: 10px auto;
+
     width: 120px;
     border-top: 4px ridge #ffd700;
     border-left: 4px groove #ffd700;
@@ -251,13 +252,16 @@ label {
 
 .battle-sim-btn:hover {
     background: radial-gradient(circle, white, #333399);
-    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2)
+    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2);
+
 }
 
 .battle-sim-btn:active {
     background: radial-gradient(circle, white, #333399);
-    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2)
+    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2);
+
 }
+
 
 .battle-sim-buttons {
     padding-top: 1px;
@@ -266,7 +270,7 @@ label {
 }
 
 .canvas-border {
-    margin-top: 10px;
+    margin-top: 5px;
     border-top: 4px ridge #ffd700;
     border-left: 4px groove #ffd700;
     border-right: 4px ridge #ffd700;
@@ -276,14 +280,33 @@ label {
 .battle-sim-images {
     width: 50px;
     height: 50px;
-    margin-left: 25%;
+    margin-left: 1px;
 }
 
 .input-color {
-    width: 40px;
-    height: 40px;
-    margin-left: 23px;
-    margin-right: 23px;
-    margin-top: 10px;
-    float: left;
+    width: 45px;
+    height: 45px;
+    margin-left: 5px;
+    margin-top: 1px;
+
+}
+
+.wrap-flex-top {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+}
+
+.wrap-flex-bottom {
+    margin-top: 5px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+}
+
+.unit-text {
+    width: 300px;
+    margin-right: 10px;
 }
