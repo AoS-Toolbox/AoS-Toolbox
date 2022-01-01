@@ -25,8 +25,7 @@ function init() {
 // APPLY BACKGROUND IMAGE
 function loadBackground() {
     const bgImg = new Image(1200, 880);
-    //bgImg.src = "https://i.pinimg.com/originals/07/97/64/0797645e945ae611cca110d1cd002d46.jpg";
-    bgImg.src = "../images/battle-mat.jpg";
+    bgImg.src = "https://i.pinimg.com/originals/07/97/64/0797645e945ae611cca110d1cd002d46.jpg";
     const bgBitmap = new createjs.Bitmap(bgImg);
     bgBitmap.cache(0, 0, 1200, 880);
     stage.addChild(bgBitmap);
