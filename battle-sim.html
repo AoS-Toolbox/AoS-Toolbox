@@ -20,6 +20,7 @@
 
     <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
     <script src="assets/js/battle-sim-script.js"></script>
+    <script src="assets/js/diceroller.js"></script>
     <link rel="stylesheet" href="assets/css/battle-sim.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -189,7 +190,8 @@
 
             <div class="battle-sim-middle">
 
-                <body onload="init()">
+                <body onload="init(); dicerollerInit();">
+                    <canvas id="rolling-tray" width="280" height="600" style="background-color: #85a3a6;"></canvas>
                     <canvas class="canvas-border" id="game-board" width="1200" height="880"></canvas>
                     <div class="wrap-flex-top">
 
