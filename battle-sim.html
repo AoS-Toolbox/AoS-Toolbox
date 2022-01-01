@@ -26,6 +26,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
 
+
 </head>
 
 <body>
@@ -146,11 +147,43 @@
 
             <div class="battle-sim-left">
 
-                <div id="unit-focus-field">(No Unit Selected)</div>
+                <div class="ribbon-container">
+                    <img class="ribbon-img" src="assets/images/blueribbon.png"></img>
+                    <div id="unit-focus-field" class="ribbon-text">
+                        <p class="battle-sim-unit-text">(No Unit Selected)</p>
+                    </div>
+                </div>
 
-                <button class="battle-sim-btn" onclick='toggleRuler()' id="btn-ruler">[R] RULER</button>
-                <button class="battle-sim-btn" onclick='rotate("L")' id="btn-rotate-L">[Q] ROTATE LEFT</button>
-                <button class="battle-sim-btn" onclick='rotate("R")' id="btn-rotate-R">[E] ROTATE RIGHT</button>
+
+                <div class="wrap-flex-bottom">
+                    <img class="battle-sim-images battle-sim-control-ruler" src="assets/images/ruler.png"><button
+                        class="battle-sim-btn" onclick='toggleRuler()' id="btn-ruler">[R] RULER</button></img>
+                </div>
+
+                <div class="wrap-flex-bottom">
+                    <button class="battle-sim-small-control-btn" onclick='rotate("L")' id="btn-rotate-L">
+                        < </button>
+                            <button class="battle-sim-btn-nf">ROTATE</button>
+                            <button class="battle-sim-small-control-btn" onclick='rotate("R")'
+                                id="btn-rotate-R">></button>
+                </div>
+
+                <div class="wrap-flex-bottom">
+                    <button class="battle-sim-small-control-btn" onclick='rotate("L")' id="btn-rotate-L">
+                        < </button>
+                            <button class="battle-sim-btn-nf">DELETE</button>
+                            <button class="battle-sim-small-control-btn" onclick='rotate("R")'
+                                id="btn-rotate-R">></button>
+                </div>
+
+                <div class="dropdown">
+                    <button class="battle-sim-btn battle-sim-control-center">TOKENS</button>
+                    <div class="dropdown-content">
+                        <a href="" onclick=id="">EMPTY</a>
+
+                    </div>
+                </div>
+
 
             </div>
 

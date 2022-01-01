@@ -7,7 +7,6 @@
 
 }
 
-
 #battleplan-icon1 {
     color: white;
 }
@@ -231,7 +230,6 @@ label {
 
 .battle-sim-btn {
     margin: 10px auto;
-
     width: 120px;
     border-top: 4px ridge #ffd700;
     border-left: 4px groove #ffd700;
@@ -309,4 +307,94 @@ label {
 .unit-text {
     width: 300px;
     margin-right: 10px;
+}
+
+.battle-sim-small-control-btn {
+    margin: 10px auto;
+    width: 40px;
+    border-top: 4px ridge #ffd700;
+    border-left: 4px groove #ffd700;
+    border-right: 4px ridge #ffd700;
+    border-bottom: 4px groove #ffd700;
+    box-shadow: inset 0px 0px 5px 3px rgba(1, 1, 1, 0.3);
+    border-radius: 8px;
+    font-family: 'Merriweather', serif;
+    color: black;
+    font-size: 12px;
+    font-weight: 500;
+    text-shadow: 0 1px 1px #000;
+    text-align: center;
+    padding: 10px 0;
+    background: radial-gradient(circle, #ff6347, #fe2712);
+}
+
+.battle-sim-small-control-btn:hover {
+    background: radial-gradient(circle, white, #333399);
+    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2);
+
+}
+
+.battle-sim-small-control-btn:active {
+    background: radial-gradient(circle, white, #333399);
+    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2);
+
+}
+
+.battle-sim-control-center {
+    margin-left: 80px;
+    margin-right: 100px;
+}
+
+.battle-sim-control-ruler {
+    margin-left: 40px;
+}
+
+.ribbon-img {
+    height: 50px;
+    width: 260px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.ribbon-container {
+    position: relative;
+}
+
+.ribbon-text {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    top: 12px;
+    left: 15px;
+    color: black;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Mysteria';
+}
+
+.battle-sim-unit-text {
+    font-family: 'mistlock_regular';
+    font-size: 16pt;
+
+}
+
+.battle-sim-btn-nf {
+    margin: 10px auto;
+    width: 120px;
+    border-top: 4px ridge #ffd700;
+    border-left: 4px groove #ffd700;
+    border-right: 4px ridge #ffd700;
+    border-bottom: 4px groove #ffd700;
+    box-shadow: inset 0px 0px 5px 3px rgba(1, 1, 1, 0.3);
+    border-radius: 8px;
+    font-family: 'Merriweather', serif;
+    color: black;
+    font-size: 12px;
+    font-weight: 500;
+    text-shadow: 0 1px 1px #000;
+    text-align: center;
+    padding: 10px 0;
+    background: radial-gradient(circle, #ff6347, #fe2712);
+
 }

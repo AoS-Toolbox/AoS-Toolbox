@@ -1,0 +1,9 @@
+/* Webfont: NorthDragon-Regular */@font-face {
+    font-family: 'NorthDragon';
+    src: url('new North Dragon.woff2') format('woff2'), /* Modern Browsers */
+         url('new North Dragon.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

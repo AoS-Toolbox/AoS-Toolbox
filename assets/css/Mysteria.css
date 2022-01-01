@@ -1,0 +1,9 @@
+/* Webfont: Mysteria-Regular */@font-face {
+    font-family: 'Mysteria';
+    src: url('Mysteria.woff2') format('woff2'), /* Modern Browsers */
+         url('Mysteria.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

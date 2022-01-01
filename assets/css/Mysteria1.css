@@ -1,0 +1,11 @@
+/* Webfont: Mysteria-Regular */@font-face {
+    font-family: 'Mysteria';
+    src: url('Mysteria.eot'); /* IE9 Compat Modes */
+    src: url('Mysteria.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Mysteria.woff') format('woff'), /* Modern Browsers */
+         url('Mysteria.ttf') format('truetype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
