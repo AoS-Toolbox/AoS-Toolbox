@@ -7,6 +7,7 @@
 
 }
 
+
 #battleplan-icon1 {
     color: white;
 }
@@ -33,9 +34,13 @@
 
 .scoring-tiles {
     padding: 20px;
+    font-family: fantasy;
 }
 
-
+.fantasy-font {
+    font-family: fantasy;
+    font-weight: normal;
+}
 
 .column-score-right {
     width: 50%;
@@ -90,20 +95,21 @@ label {
     font-size: 11pt;
 }
 
+/*
 .checkbox {
     width: 15px;
     height: 15px;
     padding: 0;
     margin: 0;
-    position: relative;
+    position: absolute;
 }
-
+*/
 .checkbox-large {
     width: 30px;
     height: 30px;
     padding: 0;
     margin: 10px;
-    position: relative;
+    /* position: relative;*/
 }
 
 .other-battle-tactic {
@@ -127,8 +133,8 @@ label {
     font-size: 16px;
     border: none;
     cursor: pointer;
-    font-family: 'lightcase';
-    font-weight: 800;
+    font-family: fantasy;
+    font-weight: normal;
     font-size: 14pt;
     width: 200px;
 }
@@ -145,8 +151,8 @@ label {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    font-family: 'lightcase';
-    font-weight: 800;
+    font-family: fantasy;
+    font-weight: normal;
 }
 
 .dropdown-content a {
@@ -154,8 +160,8 @@ label {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    font-family: 'lightcase';
-    font-weight: 800;
+    font-family: fantasy;
+    font-weight: normal;
 }
 
 .dropdown-content a:hover {
