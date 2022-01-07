@@ -14,8 +14,8 @@ let measurementObj = null;
 // INIIIALISE STAGE
 function init() {
     stage = new createjs.Stage("game-board");
-    stage.enableMouseOver();
     loadBackground();
+    stage.enableMouseOver();
 
     // Global event listeners
     stage.addEventListener("stagemousedown", clearObjectSelection);
@@ -27,7 +27,6 @@ function loadBackground() {
     const bgImg = new Image(1200, 880);
     bgImg.src = "https://i.pinimg.com/originals/07/97/64/0797645e945ae611cca110d1cd002d46.jpg";
     const bgBitmap = new createjs.Bitmap(bgImg);
-    bgBitmap.cache(0, 0, 1200, 880);
     stage.addChild(bgBitmap);
     stage.setChildIndex(bgBitmap, 0);
     stage.update();
@@ -71,7 +70,7 @@ function toggleRuler() {
         // Turn ruler on, force placement to toggle off, listen for mouse on stage,
         // show ruler button status
         rulerOn = true;
-        if (placingOn) togglePlacement(null, "forceToggleOff");
+        if (placingOn) toggleCirclePlacement(null, "forceToggleOff");
         stage.addEventListener("stagemousedown", beginRuler);
         document.getElementById('btn-ruler').classList.toggle("button-on");
     } else if (rulerOn) {
