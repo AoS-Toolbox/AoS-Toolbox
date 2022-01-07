@@ -30,7 +30,7 @@
 
 </head>
 
-<body>
+<body onload="init(); dicerollerInit();">
 
     <div class="preloader">
         <div class="preloader-inner">
@@ -139,11 +139,6 @@
 
     </header>
 
-
-
-    <body>
-
-
         <div>
 
             <div class="battle-sim-left">
@@ -184,14 +179,10 @@
 
                     </div>
                 </div>
-
-                <body onload="dicerollerInit();">
                     <canvas id="rolling-tray" width="280" height="590" class="canvas-border">
             </div>
 
             <div class=" battle-sim-middle">
-
-                <body onload="init()">
 
                     <canvas class="canvas-border" id="game-board" width="1200" height="880"></canvas>
                     <div class="wrap-flex-top">
@@ -313,9 +304,5 @@
             ga('send', 'pageview')
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async></script>
-
-
-
-    </body>
 
 </html>
