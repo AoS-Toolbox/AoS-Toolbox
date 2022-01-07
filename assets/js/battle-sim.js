@@ -34,45 +34,35 @@ function loadBackground() {
 }
 
 // PLACEMENT & DRAWING TOGGLES
-function togglePlacement(baseSize, forceArg) {
+function toggleCirclePlacement(baseSize, forceArg) {
+    const baseButton = document.getElementById("base-size-btn").classList;
+    const objButton = document.getElementById("btn-305mm").classList;
+
+
     if ((baseSizeSelected === null || baseSizeSelected != baseSize) && forceArg == undefined) {
         placingOn = true;
         baseSizeSelected = baseSize;
         stage.addEventListener("stagemousedown", makeCircle);
 
+        let button = (baseSizeSelected != "305MM") ? baseButton : objButton;
+        let otherButton = (baseSizeSelected != "305MM") ? objButton : baseButton;
+        button.toggle("button-on");
+        otherButton.remove("button-on");
+        
         if (rulerOn) toggleRuler();
     } else {
         placingOn = false;
         baseSizeSelected = null;
         stage.removeEventListener("stagemousedown", makeCircle);
+
+        baseButton.remove("button-on");
+        objButton.remove("button-on");
     }
 
-    const baseSizeClassLists = {
-        "25MM": document.getElementById("btn-25mm").classList,
-        "32MM": document.getElementById("btn-32mm").classList,
-        "40MM": document.getElementById("btn-40mm").classList,
-        "50MM": document.getElementById("btn-50mm").classList,
-        "60MM": document.getElementById("btn-60mm").classList,
-        "80MM": document.getElementById("btn-80mm").classList,
-        "100MM": document.getElementById("btn-100mm").classList,
-        "130MM": document.getElementById("btn-130mm").classList,
-        "160MM": document.getElementById("btn-160mm").classList,
-        "305MM": document.getElementById("btn-305mm").classList,
-        "60x35MM": document.getElementById("btn-60x35mm").classList,
-        "75x42MM": document.getElementById("btn-75x42mm").classList,
-        "90x52MM": document.getElementById("btn-90x52mm").classList,
-        "105x70MM": document.getElementById("btn-105x70mm").classList,
-        "120x92MM": document.getElementById("btn-120x92mm").classList,
-        "170x105MM": document.getElementById("btn-170x105mm").classList,
-        "280x210MM": document.getElementById("btn-280x210mm").classList
-    }
+    if (baseSizeSelected != "305MM") {
+        baseButton 
+    } else {
 
-    for (const key of Object.keys(baseSizeClassLists)) {
-        if (key != baseSize) {
-            baseSizeClassLists[key].remove("button-on");
-        } else {
-            baseSizeClassLists[key].toggle("button-on");
-        }
     }
 }
 
