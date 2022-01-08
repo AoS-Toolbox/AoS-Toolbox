@@ -43,7 +43,7 @@ function toggleBasePlacement(forceArg) {
         stage.addEventListener("stagemousedown", makeCircle);
       
         baseButton.classList.add("button-on");
-        baseButton.innerText = "PLACE: ON";
+        baseButton.innerText = "[P] PLACE:  ON";
         
         if (rulerOn) toggleRuler();
     } else {
@@ -52,7 +52,7 @@ function toggleBasePlacement(forceArg) {
         stage.removeEventListener("stagemousedown", makeCircle);
       
         baseButton.classList.remove("button-on");
-        baseButton.innerText = "PLACE: OFF";
+        baseButton.innerText = "[P] PLACE: OFF";
     }
 }
 
@@ -177,7 +177,8 @@ function makeCircle(event) {
     circle.y = event.stageY;
 
     circle.on("pressmove", drag);
-    circle.on("dblclick", selectObject);
+    circle.on("pressmove", selectObject);
+    circle.on("click", selectObject);
     circle.on("mouseover", showName);
 
     stage.addChild(circle);
@@ -273,6 +274,9 @@ function keyboardHandler(event) {
 
     // Toggle ruler with R
     if (event.code === "KeyR") toggleRuler();
+  
+    // Toggle base placement with P
+    if (event.code === "KeyP") toggleBasePlacement();
 }
 
 function drag(event) {
@@ -301,6 +305,9 @@ function showName(event) {
 }
 
 function selectObject(event) {
+    stage.removeChild(selectionMarker);
+    selectionMarker = null;
+  
     let selectionDot = new createjs.Shape();
     selectionDot.graphics.ss(3).s("grey").dc(event.target.x, event.target.y, 5);
     stage.addChild(selectionDot);
