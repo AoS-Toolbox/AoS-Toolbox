@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -188,36 +188,27 @@
                         <input type="text" class="unit-text canvas-border" id="unit-name" placeholder="UNIT NAME" />
 
                         <span id="base-buttons">
-
-                            <div class="dropdown">
-                                <button class="battle-sim-btn" id="base-size-btn" onclick='toggleCirclePlacement(null, "forceToggleOff")'>BASE SIZE</button>
-                                <div class="dropdown-content">
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("25MM")' id="btn-25mm">25mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("32MM")' id="btn-32mm">32mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("40MM")' id="btn-40mm">40mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("50MM")' id="btn-50mm">50mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("60MM")' id="btn-60mm">60mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("80MM")' id="btn-80mm">80mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("100MM")' id="btn-100mm">100mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("130MM")' id="btn-130mm">130mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("160MM")' id="btn-160mm">160mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("60x35MM")'
-                                        id="btn-60x35mm">60x35mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("75x42MM")'
-                                        id="btn-75x42mm">75x42mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("90x52MM")'
-                                        id="btn-90x52mm">90x52mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("105x70MM")'
-                                        id="btn-105x70mm">105x70mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("120x92MM")'
-                                        id="btn-120x92mm">120x92mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("170x105MM")'
-                                        id="btn-170x105mm">170x105mm</a>
-                                    <a href="#unit-title" onclick='toggleCirclePlacement("280x210MM")'
-                                        id="btn-280x210mm">280x210mm</a>
-                                </div>
-                            </div>
-
+                          
+                          <label for="baseSelect">BASE SIZE:</label>
+                            <select name="baseSelect" id="baseSelect" onfocus="this.selectedIndex = -1;" onchange="toggleBasePlacement()">
+                              <option value="25mm">25mm</option>
+                              <option value="32mm">32mm</option>
+                              <option value="40mm">40mm</option>
+                              <option value="50mm">50mm</option>
+                              <option value="60mm">60mm</option>
+                              <option value="80mm">80mm</option>
+                              <option value="100mm">100mm</option>
+                              <option value="130mm">130mm</option>
+                              <option value="160mm">160mm</option>
+                              <option value="60x35mm">60x35mm</option>
+                              <option value="75x42mm">75x42mm</option>
+                              <option value="90x52mm">90x52mm</option>
+                              <option value="105x70mm">105x70mm</option>
+                              <option value="120x92mm">120x92mm</option>
+                              <option value="170x105mm">170x105mm</option>
+                              <option value="280x210mm">280x210mm</option>
+                            </select>
+                          <button id="place-base-btn" onclick="toggleBasePlacement()">PLACE: OFF</button>
                         </span>
 
                         <div class="input-color">
@@ -228,43 +219,10 @@
                 <div class="wrap-flex-bottom">
 
                     <img class="battle-sim-images" src="assets/images/obj-icon.png"><button style="margin-left: 10px"
-                        class="battle-sim-btn" onclick='toggleCirclePlacement("305MM")'
+                        class="battle-sim-btn" onclick='toggleObjectivePlacement()'
                         id="btn-305mm">Objectives</button></img>
 
                 </div>
-
-                <!--
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("25MM")' id="btn-25mm">25mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("32MM")' id="btn-32mm">32mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("40MM")' id="btn-40mm">40mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("50MM")' id="btn-50mm">50mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("60MM")' id="btn-60mm">60mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("80MM")' id="btn-80mm">80mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("100MM")'
-                                id="btn-100mm">100mm</button>
-                            <br>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("130MM")'
-                                id="btn-130mm">130mm</button>
-
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("160MM")'
-                                id="btn-160mm">160mm</button>
-
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("60x35MM")'
-                                id="btn-60x35mm">60x35mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("75x42MM")'
-                                id="btn-75x42mm">75x42mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("90x52MM")'
-                                id="btn-90x52mm">90x52mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("105x70MM")'
-                                id="btn-105x70mm">105x70mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("120x92MM")'
-                                id="btn-120x92mm">120x92mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("170x105MM")'
-                                id="btn-170x105mm">170x105mm</button>
-                            <button class="battle-sim-btn" onclick='toggleCirclePlacement("280x210MM")'
-                                id="btn-280x210mm">280x210mm</button>
-                                -->
-
             </div>
         </div>
 
