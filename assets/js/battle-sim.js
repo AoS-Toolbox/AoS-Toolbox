@@ -33,36 +33,31 @@ function loadBackground() {
 }
 
 // PLACEMENT & DRAWING TOGGLES
-function toggleCirclePlacement(baseSize, forceArg) {
-    const baseButton = document.getElementById("base-size-btn").classList;
-    const objButton = document.getElementById("btn-305mm").classList;
-
+function toggleBasePlacement(forceArg) {
+    let baseSize = document.getElementById("baseSelect").value;
+    let baseButton = document.getElementById("place-base-btn");
 
     if ((baseSizeSelected === null || baseSizeSelected != baseSize) && forceArg == undefined) {
         placingOn = true;
         baseSizeSelected = baseSize;
         stage.addEventListener("stagemousedown", makeCircle);
-
-        let button = (baseSizeSelected != "305MM") ? baseButton : objButton;
-        let otherButton = (baseSizeSelected != "305MM") ? objButton : baseButton;
-        button.toggle("button-on");
-        otherButton.remove("button-on");
+      
+        baseButton.classList.add("button-on");
+        baseButton.innerText = "PLACE: ON";
         
         if (rulerOn) toggleRuler();
     } else {
         placingOn = false;
         baseSizeSelected = null;
         stage.removeEventListener("stagemousedown", makeCircle);
-
-        baseButton.remove("button-on");
-        objButton.remove("button-on");
+      
+        baseButton.classList.remove("button-on");
+        baseButton.innerText = "PLACE: OFF";
     }
+}
 
-    if (baseSizeSelected != "305MM") {
-        baseButton 
-    } else {
-
-    }
+function toggleObjectivePlacement(forceArg) {
+  
 }
 
 function toggleRuler() {
@@ -70,7 +65,7 @@ function toggleRuler() {
         // Turn ruler on, force placement to toggle off, listen for mouse on stage,
         // show ruler button status
         rulerOn = true;
-        if (placingOn) toggleCirclePlacement(null, "forceToggleOff");
+        if (placingOn) toggleBasePlacement("forceToggleOff");
         stage.addEventListener("stagemousedown", beginRuler);
         document.getElementById('btn-ruler').classList.toggle("button-on");
     } else if (rulerOn) {
@@ -85,65 +80,65 @@ function makeCircle(event) {
     let width;
     let height;
     switch (baseSizeSelected) {
-        case "25MM":
+        case "25mm":
             width = 9.8;
             break;
-        case "32MM":
+        case "32mm":
             width = 12.5;
             break;
-        case "40MM":
+        case "40mm":
             width = 15.7;
             break;
-        case "50MM":
+        case "50mm":
             width = 19.6;
             break;
-        case "60MM":
+        case "60mm":
             width = 23.6;
             break;
-        case "80MM":
+        case "80mm":
             width = 31.4;
             break;
-        case "100MM":
+        case "100mm":
             width = 39.3;
             break;
-        case "130MM":
+        case "130mm":
             width = 51.1;
             break;
-        case "160MM":
+        case "160mm":
             width = 62.9;
             break;
 
         // Objective marker
-        case "305MM":
+        case "305mm":
             width = 120;
             break;
 
         // Elliptical bases  
-        case "60x35MM":
+        case "60x35mm":
             width = 23.6;
             height = 13.7;
             break;
-        case "75x42MM":
+        case "75x42mm":
             width = 29.5;
             height = 16.5;
             break;
-        case "90x52MM":
+        case "90x52mm":
             width = 35.4;
             height = 20.4;
             break;
-        case "105x70MM":
+        case "105x70mm":
             width = 41.3;
             height = 27.5;
             break;
-        case "120x92MM":
+        case "120x92mm":
             width = 47.2;
             height = 36.2;
             break;
-        case "170x105MM":
+        case "170x105mm":
             width = 66.9;
             height = 41.3;
             break;
-        case "280x210MM":
+        case "280x210mm":
             width = 110;
             height = 82.6;
             break;
