@@ -99,7 +99,6 @@ function makeCircle(event, width, height) {
 
     circle.on("pressmove", drag);
     circle.on("pressmove", selectObject);
-    circle.on("click", selectObject);
   
     return circle;
 }
@@ -193,6 +192,7 @@ function makeBase(event) {
     }
   
     circle.on("mouseover", showName);
+    circle.on("click", selectObject);
   
     stage.addChild(circle);
     stage.update();
@@ -201,6 +201,8 @@ function makeBase(event) {
 function makeObjective(event) {
   const width = 120;
   const circle = makeCircle(event, width);
+  
+  circle.on("dblclick", selectObject);
   
   circle.graphics.beginStroke("red").drawCircle(0, 0, width).endStroke()
             .beginStroke("blue").drawCircle(0, 0, width / 2).endStroke()
