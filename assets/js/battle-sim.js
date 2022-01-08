@@ -15,6 +15,7 @@ let measurementObj = null;
 // INIIIALISE STAGE
 function init() {
     stage = new createjs.Stage("game-board");
+    stage.enableDOMEvents(true);
     loadBackground();
   
     // Global event listeners
@@ -308,11 +309,9 @@ function keyboardHandler(event) {
 }
 
 function drag(event) {
-    if (!rulerOn) {
-        event.target.x = event.stageX;
-        event.target.y = event.stageY;
-        stage.update();
-    }
+    event.target.x = event.stageX;
+    event.target.y = event.stageY;
+    stage.update();
 }
 
 function deleteObject() {
