@@ -34,7 +34,7 @@
 
 .scoring-tiles {
     padding: 20px;
-    font-family: fantasy;
+
 }
 
 .fantasy-font {
@@ -64,13 +64,13 @@
 .victory-points-heading1 {
     color: #000080;
     font-family: 'mistlock_regular';
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .victory-points-heading2 {
     color: darkred;
     font-family: 'mistlock_regular';
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .scoring-center {
@@ -416,4 +416,28 @@ label {
     margin-top: 1px;
     margin-bottom: 1px;
     font-size: 65px;
+}
+
+.scoring-icons-display {
+    margin-bottom: 10px;
+}
+
+.battle-tactic-dropdown {
+    font-size: 16px;
+    width: 150px;
+
+}
+
+.setup-dropdown {
+    font-size: 16px;
+    width: 150px;
+}
+
+.enemy-monster-slain {
+    font-size: 12px;
+}
+
+.text-box-border {
+    border: black;
+    border-width: thick;
 }
