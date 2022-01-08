@@ -366,8 +366,3 @@ function rotate(dir) {
         }
     }
 }
-
-// DOCUMENT FUNCTIONS
-function clearField(field) {
-    field.value = "";
-}
