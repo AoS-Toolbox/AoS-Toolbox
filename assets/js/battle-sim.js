@@ -3,6 +3,7 @@ let stage;
 
 let placingOn = false;
 let baseSizeSelected = null;
+let objPlacingOn = false;
 
 let selectedObject = null;
 let selectionMarker = null;
@@ -40,16 +41,17 @@ function toggleBasePlacement(forceArg) {
     if ((baseSizeSelected === null || baseSizeSelected != baseSize) && forceArg == undefined) {
         placingOn = true;
         baseSizeSelected = baseSize;
-        stage.addEventListener("stagemousedown", makeCircle);
+        stage.addEventListener("stagemousedown", makeBase);
       
         baseButton.classList.add("button-on");
         baseButton.innerText = "[P] PLACE:  ON";
         
+        if (objPlacingOn) toggleObjectivePlacement("forceArg");
         if (rulerOn) toggleRuler();
     } else {
         placingOn = false;
         baseSizeSelected = null;
-        stage.removeEventListener("stagemousedown", makeCircle);
+        stage.removeEventListener("stagemousedown", makeBase);
       
         baseButton.classList.remove("button-on");
         baseButton.innerText = "[P] PLACE: OFF";
@@ -57,7 +59,20 @@ function toggleBasePlacement(forceArg) {
 }
 
 function toggleObjectivePlacement(forceArg) {
+  let objButton = document.getElementById("obj-btn");
   
+  if (objPlacingOn === false && forceArg == undefined) {
+    objPlacingOn = true;
+    stage.addEventListener("stagemousedown", makeObjective);
+    objButton.classList.add("button-on");
+    
+    if (placingOn) toggleBasePlacement("forceArg");
+    if (rulerOn) toggleRuler();
+  } else {
+    objPlacingOn = false;
+    stage.removeEventListener("stagemousedown", makeObjective);
+    objButton.classList.remove("button-on");
+  }
 }
 
 function toggleRuler() {
@@ -76,9 +91,23 @@ function toggleRuler() {
 }
 
 // OBJECTIVE & MODEL PLACING
-function makeCircle(event) {
+function makeCircle(event, width, height) {
+    const circle = new createjs.Shape();
+  
+    circle.x = event.stageX;
+    circle.y = event.stageY;
+
+    circle.on("pressmove", drag);
+    circle.on("pressmove", selectObject);
+    circle.on("click", selectObject);
+  
+    return circle;
+}
+
+function makeBase(event) {
     let width;
     let height;
+    const color = document.getElementById('base-color').value;
     switch (baseSizeSelected) {
         case "25mm":
             width = 9.8;
@@ -106,11 +135,6 @@ function makeCircle(event) {
             break;
         case "160mm":
             width = 62.9;
-            break;
-
-        // Objective marker
-        case "305mm":
-            width = 120;
             break;
 
         // Elliptical bases  
@@ -143,47 +167,48 @@ function makeCircle(event) {
             height = 82.6;
             break;
     }
+  
+    const circle = makeCircle(event, width, height);
+   
+    if (!baseSizeSelected.includes("x")) {
+      // DRAW A CIRCULAR BASE
 
-    const circle = new createjs.Shape();
-
-    if (baseSizeSelected != "305MM" && !baseSizeSelected.includes("x")) {
-        // DRAW A BASE
-        const color = document.getElementById('base-color').value;
-        circle.name = document.getElementById('unit-name').value
+      circle.name = document.getElementById('unit-name').value
             .split(" ")
             .map(e => e.charAt(0).toUpperCase(0) + e.slice(1))
             .join(" ");
 
-        circle.graphics.beginFill(color).drawCircle(0, 0, width);
-        circle.shadow = new createjs.Shadow("#000000", 2, 2, 35);
-    } else if (baseSizeSelected === "305MM") {
-        // DRAW AN OBJECTIVE MARKER
-        circle.graphics.beginStroke("red").drawCircle(0, 0, width).endStroke()
+      circle.graphics.beginFill(color).drawCircle(0, 0, width);
+      circle.shadow = new createjs.Shadow("#000000", 2, 2, 35);
+    } else {
+      // DRAW AN ELLIPTICAL BASE
+      
+      circle.name = document.getElementById('unit-name').value
+            .split(" ")
+            .map(e => e.charAt(0).toUpperCase(0) + e.slice(1))
+            .join(" ");
+
+      circle.graphics.beginFill(color).drawEllipse(0 - width, 0 - height, width * 2, height * 2);
+      circle.shadow = new createjs.Shadow("#000000", 2, 2, 35);
+    }
+  
+    circle.on("mouseover", showName);
+  
+    stage.addChild(circle);
+    stage.update();
+}
+
+function makeObjective(event) {
+  const width = 120;
+  const circle = makeCircle(event, width);
+  
+  circle.graphics.beginStroke("red").drawCircle(0, 0, width).endStroke()
             .beginStroke("blue").drawCircle(0, 0, width / 2).endStroke()
             .beginFill("red").drawCircle(0, 0, 3);
-    } else if (baseSizeSelected.includes("x")) {
-        // DRAW AN ELLIPTICAL BASE
-        const color = document.getElementById('base-color').value;
-        circle.name = document.getElementById('unit-name').value
-            .split(" ")
-            .map(e => e.charAt(0).toUpperCase(0) + e.slice(1))
-            .join(" ");
-
-        circle.graphics.beginFill(color).drawEllipse(0 - width, 0 - height, width * 2, height * 2);
-        circle.shadow = new createjs.Shadow("#000000", 2, 2, 35);
-    }
-
-    circle.x = event.stageX;
-    circle.y = event.stageY;
-
-    circle.on("pressmove", drag);
-    circle.on("pressmove", selectObject);
-    circle.on("click", selectObject);
-    circle.on("mouseover", showName);
-
-    stage.addChild(circle);
-    if (baseSizeSelected === "305MM") stage.setChildIndex(circle, 1);
-    stage.update();
+  
+  stage.addChild(circle);
+  stage.setChildIndex(circle, 1);
+  stage.update();
 }
 
 // RULER FUNCTIONS (START, DRAW & END)
@@ -223,11 +248,11 @@ function drawRulerLine(event) {
     let pixelDiagonal = Math.sqrt((pixelWidth ** 2) + (pixelHeight ** 2));
     let diagonal = parseFloat(pixelDiagonal / 20).toFixed(1);
 
-    measurementObj.x = stage.mouseX - 10;
+    measurementObj.x = stage.mouseX - 20;
     measurementObj.y = stage.mouseY + 20;
     measurementObj.text = `${diagonal}"`;
 
-    if (stage.mouseX < 0 || stage.mouseY < 0 || stage.mouseX > 1200 || stage.mouseY > 880) {
+    if (stage.mouseX < -1 || stage.mouseY < -1 || stage.mouseX > 1201 || stage.mouseY > 881) {
         endRulerLine();
     }
 
@@ -277,6 +302,9 @@ function keyboardHandler(event) {
   
     // Toggle base placement with P
     if (event.code === "KeyP") toggleBasePlacement();
+  
+    // Toggle objective placement with O
+    if (event.code === "KeyO") toggleObjectivePlacement();
 }
 
 function drag(event) {
@@ -318,11 +346,10 @@ function selectObject(event) {
 }
 
 function clearObjectSelection(event) {
-    if (selectedObject != null) {
-        selectedObject = null;
         stage.removeChild(selectionMarker);
+        selectedObject = null;
+        selectionMarker = null;
         stage.update();
-    }
 }
 
 function rotate(dir) {
