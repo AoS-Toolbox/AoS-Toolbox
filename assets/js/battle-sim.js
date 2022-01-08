@@ -16,7 +16,6 @@ let measurementObj = null;
 function init() {
     stage = new createjs.Stage("game-board");
     loadBackground();
-    stage.enableMouseOver();
   
     // Global event listeners
     stage.addEventListener("stagemousedown", clearObjectSelection);
