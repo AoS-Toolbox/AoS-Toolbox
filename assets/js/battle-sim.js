@@ -17,7 +17,7 @@ function init() {
     stage = new createjs.Stage("game-board");
     loadBackground();
     stage.enableMouseOver();
-
+  
     // Global event listeners
     stage.addEventListener("stagemousedown", clearObjectSelection);
     document.addEventListener("keydown", keyboardHandler);
@@ -34,11 +34,11 @@ function loadBackground() {
 }
 
 // PLACEMENT & DRAWING TOGGLES
-function toggleBasePlacement(forceArg) {
+function toggleBasePlacement(forceOff) {
     let baseSize = document.getElementById("baseSelect").value;
     let baseButton = document.getElementById("place-base-btn");
 
-    if ((baseSizeSelected === null || baseSizeSelected != baseSize) && forceArg == undefined) {
+    if ((baseSizeSelected === null || baseSizeSelected != baseSize) && forceOff === undefined) {
         placingOn = true;
         baseSizeSelected = baseSize;
         stage.addEventListener("stagemousedown", makeBase);
@@ -46,7 +46,7 @@ function toggleBasePlacement(forceArg) {
         baseButton.classList.add("button-on");
         baseButton.innerText = "[P] PLACE:  ON";
         
-        if (objPlacingOn) toggleObjectivePlacement("forceArg");
+        if (objPlacingOn) toggleObjectivePlacement(true);
         if (rulerOn) toggleRuler();
     } else {
         placingOn = false;
@@ -58,15 +58,15 @@ function toggleBasePlacement(forceArg) {
     }
 }
 
-function toggleObjectivePlacement(forceArg) {
+function toggleObjectivePlacement(forceOff) {
   let objButton = document.getElementById("obj-btn");
   
-  if (objPlacingOn === false && forceArg == undefined) {
+  if (objPlacingOn === false && forceOff === undefined) {
     objPlacingOn = true;
     stage.addEventListener("stagemousedown", makeObjective);
     objButton.classList.add("button-on");
     
-    if (placingOn) toggleBasePlacement("forceArg");
+    if (placingOn) toggleBasePlacement(true);
     if (rulerOn) toggleRuler();
   } else {
     objPlacingOn = false;
@@ -80,7 +80,8 @@ function toggleRuler() {
         // Turn ruler on, force placement to toggle off, listen for mouse on stage,
         // show ruler button status
         rulerOn = true;
-        if (placingOn) toggleBasePlacement("forceToggleOff");
+        if (placingOn) toggleBasePlacement(true);
+        if (objPlacingOn) toggleObjectivePlacement(true);
         stage.addEventListener("stagemousedown", beginRuler);
         document.getElementById('btn-ruler').classList.toggle("button-on");
     } else if (rulerOn) {
@@ -169,9 +170,8 @@ function makeBase(event) {
   
     const circle = makeCircle(event, width, height);
    
-    if (!baseSizeSelected.includes("x")) {
-      // DRAW A CIRCULAR BASE
-
+    if (!baseSizeSelected.includes("x")) { 
+      // Draw a circular base
       circle.name = document.getElementById('unit-name').value
             .split(" ")
             .map(e => e.charAt(0).toUpperCase(0) + e.slice(1))
@@ -179,9 +179,8 @@ function makeBase(event) {
 
       circle.graphics.beginFill(color).drawCircle(0, 0, width);
       circle.shadow = new createjs.Shadow("#000000", 2, 2, 35);
-    } else {
-      // DRAW AN ELLIPTICAL BASE
-      
+    } else { 
+      // Draw an elliptical base
       circle.name = document.getElementById('unit-name').value
             .split(" ")
             .map(e => e.charAt(0).toUpperCase(0) + e.slice(1))
@@ -202,11 +201,11 @@ function makeObjective(event) {
   const width = 120;
   const circle = makeCircle(event, width);
   
-  circle.on("dblclick", selectObject);
-  
   circle.graphics.beginStroke("red").drawCircle(0, 0, width).endStroke()
             .beginStroke("blue").drawCircle(0, 0, width / 2).endStroke()
             .beginFill("red").drawCircle(0, 0, 3);
+  
+  circle.on("dblclick", selectObject);
   
   stage.addChild(circle);
   stage.setChildIndex(circle, 1);
@@ -242,8 +241,8 @@ function drawRulerLine(event) {
         .mt(event.target.x, event.target.y)
         .lt(stage.mouseX - rulerLine.x, stage.mouseY - rulerLine.y);
 
-    // LINE START DATA FOUND AT: rulerLine.x and rulerLine.y
-    // LINE END DATA FOUND AT: stage.mouseX and stage.mouseY
+    // LINE START: rulerLine.x/y
+    // LINE END: stage.mouseX/Y
 
     let pixelWidth = Math.max(rulerLine.x, stage.mouseX) - Math.min(rulerLine.x, stage.mouseX);
     let pixelHeight = Math.max(rulerLine.y, stage.mouseY) - Math.min(rulerLine.y, stage.mouseY);
