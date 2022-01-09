@@ -29,6 +29,7 @@ function loadBackground() {
     const bgImg = new Image(1200, 880);
     bgImg.src = "https://i.pinimg.com/originals/07/97/64/0797645e945ae611cca110d1cd002d46.jpg";
     const bgBitmap = new createjs.Bitmap(bgImg);
+    console.log("Background loaded!");
     stage.addChild(bgBitmap);
     stage.setChildIndex(bgBitmap, 0);
     stage.update();
