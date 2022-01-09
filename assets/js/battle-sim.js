@@ -9,6 +9,10 @@ let tokenPlacingOn = false;
 let selectedObject = null;
 let selectionMarker = null;
 
+let redDeployment = null;
+let blueDeployment = null;
+let staticObjectives = [];
+
 let rulerOn = false;
 let rulerLine = null;
 let measurementObj = null;
@@ -22,6 +26,7 @@ function init() {
     // Global event listeners
     stage.addEventListener("stagemousedown", clearObjectSelection);
     document.addEventListener("keydown", keyboardHandler);
+    stage.update();
 }
 
 // APPLY BACKGROUND IMAGE
@@ -120,8 +125,11 @@ function toggleRuler() {
 function makeCircle(event) {
     const circle = new createjs.Shape();
   
-    circle.x = event.stageX;
-    circle.y = event.stageY;
+    // Allow for non-event based placement of objectives
+    if (event != undefined) {
+      circle.x = event.stageX;
+      circle.y = event.stageY;
+    }
 
     circle.on("pressmove", drag);
     circle.on("pressmove", selectObject);
@@ -222,15 +230,23 @@ function makeBase(event) {
     stage.update();
 }
 
-function makeObjective(event) {
+function makeObjective(event, params) {
   const width = 120;
   const circle = makeCircle(event);
+  
+  // Allow programmatic placement of objectives
+  if (arguments.length > 1) {
+    circle.x = params.x;
+    circle.y = params.y;
+  }
   
   circle.graphics.beginStroke("red").drawCircle(0, 0, width).endStroke()
             .beginStroke("blue").drawCircle(0, 0, width / 2).endStroke()
             .beginFill("red").drawCircle(0, 0, 3);
   
   circle.on("dblclick", selectObject);
+  
+  if (arguments.length > 1) staticObjectives.push(circle);
   
   stage.addChild(circle);
   stage.setChildIndex(circle, 1);
@@ -338,6 +354,120 @@ function makeToken(event) {
   stage.addChild(circle, circle.text);
   stage.setChildIndex(circle.text, 1);
   stage.setChildIndex(circle, 1);
+  stage.update();
+}
+
+// BATTLEPLAN DEPLOYMENT ZONES & OBJECTIVE PLACING
+function showDeployments() {
+  function clearZones() {
+    stage.removeChild(redDeployment, blueDeployment);
+    redDeployment = null;
+    blueDeployment = null;
+    
+    staticObjectives.forEach(e => stage.removeChild(e));
+    staticObjectives = [];
+  }
+  
+  clearZones();
+  const scenario = document.getElementById("battleplanSelect").value;
+  
+  const redRGB = "255, 0, 0";
+  const blueRGB = "0, 30, 255";
+  const alpha = 0.3;
+  
+  redDeployment = new createjs.Shape();
+  blueDeployment = new createjs.Shape();
+  
+  switch (scenario) {
+    case "N/A":
+      clearZones();
+      break;
+    case "Marking Territory":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 1200, 220);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(0, 660, 1200, 220);
+      defineObjectives([{x: 300, y: 220}, {x: 900, y: 220}, {x: 300, y: 660}, {x: 900, y: 660}]);
+      break;
+    case "Savage Gains":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 1200, 220);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(0, 660, 1200, 220);
+      defineObjectives([{x: 600, y: 220}, {x: 300, y: 440}, {x: 900, y: 440}, {x: 600, y: 660}]);
+      break;
+    case "First Blood":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 600, 220);
+      redDeployment.graphics.drawRect(0, 0, 300, 440);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(600, 660, 600, 220);
+      blueDeployment.graphics.drawRect(900, 440, 300, 440);
+      defineObjectives([{x: 300, y: 660}, {x: 600, y: 440}, {x: 900, y: 220}]);
+      break;
+    case "Power Struggle":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 1200, 220);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(0, 660, 1200, 220);
+      defineObjectives([{x: 300, y: 220}, {x: 900, y: 220}, {x: 300, y: 660}, {x: 900, y: 660}, {x: 600, y: 440}]);
+      break;
+    case "Survival of the Fittest":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 900, 220);
+      redDeployment.graphics.drawRect(0, 0, 600, 440);
+      redDeployment.graphics.drawRect(0, 0, 300, 660);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(300, 660, 900, 220);
+      blueDeployment.graphics.drawRect(600, 440, 600, 440);
+      blueDeployment.graphics.drawRect(900, 220, 300, 660);
+      defineObjectives([{x: 300, y: 660}, {x: 600, y: 440}, {x: 900, y: 220}]);
+      break;
+    case "Tectonic Interference":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 1200, 440);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(0, 440, 1200, 440);
+      defineObjectives([{x: 300, y: 440}, {x: 600, y: 440}, {x: 900, y: 440}]);
+      break;
+    case "Apex Predators":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 600, 440);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(600, 440, 600, 440);
+      defineObjectives([{x: 300, y: 660}, {x: 600, y: 440}, {x: 900, y: 220}]);
+      break;
+    case "The Vice":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 600, 880);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(600, 0, 600, 880);
+      defineObjectives([{x: 0, y: 0}, {x: 300, y: 220}, {x: 600, y: 440}, {x: 0, y: 880}, {x: 300, y: 660},
+                       {x: 1200, y: 0}, {x: 900, y: 220}, {x: 900, y: 660}, {x: 1200, y: 880}]);
+      break;
+    case "Tooth And Nail":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 900, 220);
+      redDeployment.graphics.drawRect(0, 0, 600, 440);
+      redDeployment.graphics.drawRect(0, 0, 300, 660);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(300, 660, 900, 220);
+      blueDeployment.graphics.drawRect(600, 440, 600, 440);
+      blueDeployment.graphics.drawRect(900, 220, 300, 660);
+      defineObjectives([{x: 300, y: 220}, {x: 900, y: 220}, {x: 300, y: 660}, {x: 900, y: 660}]);
+      break;
+    case "Feral Foray":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 1200, 440);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(0, 440, 1200, 440);
+      defineObjectives([{x: 300, y: 220}, {x: 600, y: 220}, {x: 900, y: 220}, 
+                        {x: 300, y: 660}, {x: 600, y: 660}, {x: 900, y: 660}]);
+      break;
+    case "Power In Numbers":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 1200, 220);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(0, 660, 1200, 220);
+      defineObjectives([{x: 300, y: 220}, {x: 600, y: 220}, {x: 900, y: 220}, 
+                        {x: 300, y: 660}, {x: 600, y: 660}, {x: 900, y: 660}]);
+      break;
+    case "The Veins Of Ghur":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 1200, 220);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(0, 660, 1200, 220);
+      break;
+  }
+  
+  function defineObjectives(array) {
+    for (let i = 0; i < array.length; i++) {
+      makeObjective(null, {
+        x: array[i].x,
+        y: array[i].y
+      });
+    }
+  }
+  
+  stage.addChild(redDeployment, blueDeployment);
+  stage.setChildIndex(redDeployment, 1);
+  stage.setChildIndex(blueDeployment, 1);
   stage.update();
 }
 
