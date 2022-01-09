@@ -4,6 +4,7 @@ let stage;
 let placingOn = false;
 let baseSizeSelected = null;
 let objPlacingOn = false;
+let tokenPlacingOn = false;
 
 let selectedObject = null;
 let selectionMarker = null;
@@ -47,6 +48,7 @@ function toggleBasePlacement(forceOff) {
         baseButton.innerText = "[P] PLACE:  ON";
         
         if (objPlacingOn) toggleObjectivePlacement(true);
+        if (tokenPlacingOn) toggleTokenPlacement(true);
         if (rulerOn) toggleRuler();
     } else {
         placingOn = false;
@@ -67,11 +69,33 @@ function toggleObjectivePlacement(forceOff) {
     objButton.classList.add("button-on");
     
     if (placingOn) toggleBasePlacement(true);
+    if (tokenPlacingOn) toggleTokenPlacement(true);
     if (rulerOn) toggleRuler();
   } else {
     objPlacingOn = false;
     stage.removeEventListener("stagemousedown", makeObjective);
     objButton.classList.remove("button-on");
+  }
+}
+
+function toggleTokenPlacement(forceOff) {
+  const tokenButton = document.getElementById("token-btn");
+  const tokenLabel = document.getElementById("tokenSelect").value;
+  
+  if ((tokenPlacingOn === false || currentToken != tokenLabel) && forceOff === undefined) {
+    currentToken = tokenLabel;
+    tokenPlacingOn = true;
+    stage.addEventListener("stagemousedown", makeToken);
+    tokenButton.classList.add("button-on");
+    
+    if (placingOn) toggleBasePlacement(true);
+    if (objPlacingOn) toggleObjectivePlacement(true);
+    if (rulerOn) toggleRuler();
+  } else {
+    currentToken = null;
+    tokenPlacingOn = false;
+    stage.removeEventListener("stagemousedown", makeToken);
+    tokenButton.classList.remove("button-on");
   }
 }
 
@@ -92,7 +116,7 @@ function toggleRuler() {
 }
 
 // OBJECTIVE & MODEL PLACING
-function makeCircle(event, width, height) {
+function makeCircle(event) {
     const circle = new createjs.Shape();
   
     circle.x = event.stageX;
@@ -168,7 +192,7 @@ function makeBase(event) {
             break;
     }
   
-    const circle = makeCircle(event, width, height);
+    const circle = makeCircle(event);
    
     if (!baseSizeSelected.includes("x")) { 
       // Draw a circular base
@@ -199,7 +223,7 @@ function makeBase(event) {
 
 function makeObjective(event) {
   const width = 120;
-  const circle = makeCircle(event, width);
+  const circle = makeCircle(event);
   
   circle.graphics.beginStroke("red").drawCircle(0, 0, width).endStroke()
             .beginStroke("blue").drawCircle(0, 0, width / 2).endStroke()
@@ -208,6 +232,110 @@ function makeObjective(event) {
   circle.on("dblclick", selectObject);
   
   stage.addChild(circle);
+  stage.setChildIndex(circle, 1);
+  stage.update();
+}
+
+function makeToken(event) {
+  let width = 50;
+  let colour;
+  let alpha = 0.8;
+  const circle = makeCircle(event);
+  const container = new createjs.Container();
+  const tokenLabel = document.getElementById("tokenSelect").value;
+  
+  switch (tokenLabel) {
+    case "+1 Hit":
+    case "-1 Hit":
+      colour = `rgba(121, 207, 118, ${alpha})`;
+      break;
+      
+    case "+1 Wound":
+    case "-1 Wound":
+      colour = `rgba(59, 143, 217, ${alpha})`;
+      break;
+      
+    case "+1 Save":
+    case "-1 Save":
+    case "Mystic Shield":
+      colour = `rgba(166, 198, 227, ${alpha})`;
+      break;
+      
+    case "Heroic Leadership":
+    case "Heroic Willpower":
+    case "Their Finest Hour":
+    case "Roar":
+    case "Titanic Duel":
+    case "Smash To Rubble":
+      colour = `rgba(250, 235, 75, ${alpha})`;
+      break;
+      
+    case "+1 Rend":
+    case "-1 Rend":
+      colour = `rgba(222, 173, 89, ${alpha})`;
+      break;
+      
+    case "+1 Attack":
+    case "-1 Attack":
+      colour = `rgba(227, 179, 221, ${alpha})`;
+      break;
+      
+    case "+1 Damage":
+    case "-1 Damage":
+      colour = `rgba(224, 63, 152, ${alpha})`;
+      break;
+      
+    case "MW on 5+":
+    case "+1 Wound Stat":
+      colour = `rgba(194, 214, 103, ${alpha})`;
+      break;
+       
+    case "-1 Pile-In":
+    case "+3 Pile-In":
+    case "No Pile-In":
+      colour = `rgba(114, 163, 106, ${alpha})`;
+      break;
+      
+    case "Arcane Bolt":
+      colour = `rgba(86, 67, 99, ${alpha})`;
+      break;
+      
+    case "Run & Charge":
+    case "+1 Run":
+    case "+1 Charge":
+    case "-1 Charge":
+    case "Half Charge":
+    case "Fight First":
+    case "Fight Last":
+      colour = `rgba(204, 71, 71, ${alpha})`;
+      break;
+      
+    case "+1 Bravery":
+    case "-1 Bravery":
+    case "No Battleshock":
+      colour = `rgba(179, 111, 77, ${alpha})`;
+      break;
+      
+    case "Disease":
+      colour = `rgba(51, 128, 74, ${alpha})`
+      break;
+  }
+  
+  circle.graphics.beginStroke("black").beginFill(colour).drawRect(0-(width/2), 0-(width/2), width, width);
+  
+  // TODO: DRAW TEXT (from tokenLabel) ONTO TOKEN
+  
+  let fontSize = (tokenLabel.length < 9) ? "20px" : "15px";
+  let string = tokenLabel.replaceAll(" ", "\n");
+  
+  circle.type = "token";
+  circle.text = new createjs.Text(string, `${fontSize} Arial`, "black").set({
+    x: circle.x - (width/4),
+    y: circle.y - (width/4)
+  });
+  
+  stage.addChild(circle, circle.text);
+  stage.setChildIndex(circle.text, 1);
   stage.setChildIndex(circle, 1);
   stage.update();
 }
@@ -306,16 +434,28 @@ function keyboardHandler(event) {
   
     // Toggle objective placement with O
     if (event.code === "KeyO") toggleObjectivePlacement();
+  
+    // Toggle token placement with T
+    if (event.code === "KeyT") toggleTokenPlacement();
 }
 
 function drag(event) {
     event.target.x = event.stageX;
     event.target.y = event.stageY;
+  
+    if (event.target.type === "token") {
+      event.target.text.x = event.stageX;
+      event.target.text.y = event.stageY;
+    }
+  
     stage.update();
 }
 
 function deleteObject() {
     if (!rulerOn) {
+        if (selectedObject.type === "token") {
+          stage.removeChild(selectedObject.text);
+        }
         stage.removeChild(selectedObject);
         clearObjectSelection();
         stage.update();
