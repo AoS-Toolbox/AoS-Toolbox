@@ -168,12 +168,61 @@
                             <button class="battle-sim-btn-nf" onclick="deleteObject()">DELETE</button>
                 </div>
 
-                <div class="dropdown">
-                    <button class="battle-sim-btn battle-sim-control-center">TOKENS</button>
-                    <div class="dropdown-content">
-                        <a href="" onclick=id="">EMPTY</a>
-
-                    </div>
+                  <label for="tokenSelect">TOKENS:</label>
+                  <select name="tokenSelect" id="tokenSelect" onchange="toggleTokenPlacement()">
+                    <option value="+1 Hit">+1 Hit</option>
+                    <option value="-1 Hit">-1 Hit</option>
+                    <option value="N/A" disabled></option>
+                    <option value="+1 Wound">+1 Wound</option>
+                    <option value="-1 Wound">-1 Wound</option>
+                    <option value="N/A" disabled></option>
+                    <option value="+1 Save">+1 Save</option>
+                    <option value="-1 Save">-1 Save</option>
+                    <option value="N/A" disabled></option>
+                    <option value="Heroic Leadership">Heroic Leadership</option>
+                    <option value="Heroic Willpower">Heroic Willpower</option>
+                    <option value="Their Finest Hour">Their Finest Hour</option>
+                    <option value="N/A" disabled></option>
+                    <option value="Roar">Roar</option>
+                    <option value="Titanic Duel">Titanic Duel</option>
+                    <option value="Smash To Rubble">Smash To Rubble</option>
+                    <option value="N/A" disabled></option>
+                    <option value="+1 Rend">+1 Rend</option>
+                    <option value="-1 Rend">-1 Rend</option>
+                    <option value="N/A" disabled></option>
+                    <option value="+1 Attack">+1 Attack</option>
+                    <option value="-1 Attack">-1 Attack</option>
+                    <option value="N/A" disabled></option>
+                    <option value="+1 Damage">+1 Damage</option>
+                    <option value="-1 Damage">-1 Damage</option>
+                    <option value="N/A" disabled></option>
+                    <option value="MW on 5+">MW on 5+</option>
+                    <option value="N/A" disabled></option>
+                    <option value="+1 Wound Stat">+1 Wound Stat</option>
+                    <option value="N/A" disabled></option>
+                    <option value="-1 Pile-In">-1 Pile-In</option>
+                    <option value="+3 Pile-In">+3 Pile-In</option>
+                    <option value="No Pile-In">No Pile-In</option>
+                    <option value="N/A" disabled></option>
+                    <option value="Mystic Shield">Mystic Shield</option>
+                    <option value="Arcane Bolt">Arcane Bolt</option>
+                    <option value="N/A" disabled></option>
+                    <option value="Run & Charge">Run & Charge</option>
+                    <option value="+1 Run">+1 Run</option>
+                    <option value="+1 Charge">+1 Charge</option>
+                    <option value="-1 Charge">-1 Charge</option>
+                    <option value="Half Charge">Half Charge</option>
+                    <option value="N/A" disabled></option>
+                    <option value="Fight First">Fight First</option>
+                    <option value="Fight Last">Fight Last</option>
+                    <option value="N/A" disabled></option>
+                    <option value="+1 Bravery">+1 Bravery</option>
+                    <option value="-1 Bravery">-1 Bravery</option>
+                    <option value="No Battleshock">No Battleshock</option>
+                    <option value="N/A" disabled></option>
+                    <option value="Disease">Disease</option>
+                  </select>
+                  <button class="battle-sim-btn battle-sim-control-center" id="token-btn" onclick="toggleTokenPlacement()">[T] TOKENS</button>
                 </div>
                     <canvas id="rolling-tray" width="280" height="590" class="canvas-border">
             </div>
