@@ -37,8 +37,8 @@
 
 }
 
-.fantasy-font {
-    font-family: fantasy;
+.Arial-font {
+    font-family: Arial;
     font-weight: normal;
 }
 
@@ -133,7 +133,7 @@ label {
     font-size: 16px;
     border: none;
     cursor: pointer;
-    font-family: fantasy;
+    font-family: Arial;
     font-weight: normal;
     font-size: 14pt;
     width: 200px;
@@ -151,7 +151,7 @@ label {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    font-family: fantasy;
+    font-family: Arial;
     font-weight: normal;
 }
 
@@ -160,13 +160,13 @@ label {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    font-family: fantasy;
+    font-family: Arial;
     font-weight: normal;
 }
 
 .dropdown-content a:hover {
     background-color: white;
-    font-family: fantasy;
+    font-family: Arial;
     font-weight: 800;
 }
 
@@ -440,4 +440,18 @@ label {
 .text-box-border {
     border: black;
     border-width: thick;
+}
+
+.score-sheet-dropdown1 {
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+    color: #000080;
+}
+
+.score-sheet-dropdown2 {
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+    color: darkred;
 }
