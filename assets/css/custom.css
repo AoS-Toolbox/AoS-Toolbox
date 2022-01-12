@@ -236,7 +236,18 @@ label {
 .unit-title {
     font-family: 'mistlock_regular';
     margin-top: 15px;
+    margin-right: 5px;
+    margin-left: 25px;
+    width: 350px;
+    font-size: 20px;
+}
+
+.deployment-title {
+    font-family: 'mistlock_regular';
+    margin-top: 15px;
     margin-right: 10px;
+    margin-left: 15px;
+    font-size: 20px;
 
 }
 
@@ -290,13 +301,14 @@ label {
 .battle-sim-images {
     width: 50px;
     height: 50px;
-    margin-left: 1px;
+    margin-left: 20px;
 }
 
 .input-color {
     width: 45px;
     height: 45px;
-    margin-left: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 1px;
 
 }
@@ -318,7 +330,8 @@ label {
 
 .unit-text {
     width: 300px;
-    margin-right: 10px;
+    margin-right: 20px;
+
 }
 
 .battle-sim-small-control-btn {
@@ -454,4 +467,13 @@ label {
     font-family: Arial;
     font-weight: bold;
     color: darkred;
+}
+
+.battle-plan-dropdown {
+    width: 200px;
+}
+
+.place-button {
+    margin-left: 20px;
+    width: 400px;
 }

@@ -139,140 +139,141 @@
 
     </header>
 
-        <div>
+    <div>
 
-            <div class="battle-sim-left">
+        <div class="battle-sim-left">
 
-                <div class="ribbon-container">
-                    <img class="ribbon-img" src="assets/images/blueribbon.png"></img>
-                    <div id="unit-focus-field" class="ribbon-text">
-                        <p class="battle-sim-unit-text">(No Unit Selected)</p>
-                    </div>
+            <div class="ribbon-container">
+                <img class="ribbon-img" src="assets/images/blueribbon.png"></img>
+                <div id="unit-focus-field" class="ribbon-text">
+                    <p class="battle-sim-unit-text">(No Unit Selected)</p>
                 </div>
-
-
-                <div class="wrap-flex-bottom">
-                    <img class="battle-sim-images battle-sim-control-ruler" src="assets/images/ruler.png"><button
-                        class="battle-sim-btn" onclick='toggleRuler()' id="btn-ruler">[R] RULER</button></img>
-                </div>
-
-                <div class="wrap-flex-bottom">
-                    <button class="battle-sim-small-control-btn" onclick='rotate("L")' id="btn-rotate-L">
-                        < </button>
-                            <button class="battle-sim-btn-nf">ROTATE</button>
-                            <button class="battle-sim-small-control-btn" onclick='rotate("R")'
-                                id="btn-rotate-R">></button>
-                </div>
-
-                <div class="wrap-flex-bottom">
-                            <button class="battle-sim-btn-nf" onclick="deleteObject()">DELETE</button>
-                </div>
-
-                  <label for="tokenSelect">TOKENS:</label>
-                  <select name="tokenSelect" id="tokenSelect" onchange="toggleTokenPlacement()">
-                    <option value="+1 Hit">+1 Hit</option>
-                    <option value="-1 Hit">-1 Hit</option>
-                    <option value="N/A" disabled></option>
-                    <option value="+1 Wound">+1 Wound</option>
-                    <option value="-1 Wound">-1 Wound</option>
-                    <option value="N/A" disabled></option>
-                    <option value="+1 Save">+1 Save</option>
-                    <option value="-1 Save">-1 Save</option>
-                    <option value="N/A" disabled></option>
-                    <option value="Heroic Leadership">Heroic Leadership</option>
-                    <option value="Heroic Willpower">Heroic Willpower</option>
-                    <option value="Their Finest Hour">Their Finest Hour</option>
-                    <option value="N/A" disabled></option>
-                    <option value="Roar">Roar</option>
-                    <option value="Titanic Duel">Titanic Duel</option>
-                    <option value="Smash To Rubble">Smash To Rubble</option>
-                    <option value="N/A" disabled></option>
-                    <option value="+1 Rend">+1 Rend</option>
-                    <option value="-1 Rend">-1 Rend</option>
-                    <option value="N/A" disabled></option>
-                    <option value="+1 Attack">+1 Attack</option>
-                    <option value="-1 Attack">-1 Attack</option>
-                    <option value="N/A" disabled></option>
-                    <option value="+1 Damage">+1 Damage</option>
-                    <option value="-1 Damage">-1 Damage</option>
-                    <option value="N/A" disabled></option>
-                    <option value="MW on 5+">MW on 5+</option>
-                    <option value="N/A" disabled></option>
-                    <option value="+1 Wound Stat">+1 Wound Stat</option>
-                    <option value="N/A" disabled></option>
-                    <option value="-1 Pile-In">-1 Pile-In</option>
-                    <option value="+3 Pile-In">+3 Pile-In</option>
-                    <option value="No Pile-In">No Pile-In</option>
-                    <option value="N/A" disabled></option>
-                    <option value="Mystic Shield">Mystic Shield</option>
-                    <option value="Arcane Bolt">Arcane Bolt</option>
-                    <option value="N/A" disabled></option>
-                    <option value="Run & Charge">Run & Charge</option>
-                    <option value="+1 Run">+1 Run</option>
-                    <option value="+1 Charge">+1 Charge</option>
-                    <option value="-1 Charge">-1 Charge</option>
-                    <option value="Half Charge">Half Charge</option>
-                    <option value="N/A" disabled></option>
-                    <option value="Fight First">Fight First</option>
-                    <option value="Fight Last">Fight Last</option>
-                    <option value="N/A" disabled></option>
-                    <option value="+1 Bravery">+1 Bravery</option>
-                    <option value="-1 Bravery">-1 Bravery</option>
-                    <option value="No Battleshock">No Battleshock</option>
-                    <option value="N/A" disabled></option>
-                    <option value="Disease">Disease</option>
-                  </select>
-                  <button class="battle-sim-btn battle-sim-control-center" id="token-btn" onclick="toggleTokenPlacement()">[T] TOKENS</button>
-                </div>
-                    <canvas id="rolling-tray" width="280" height="590" class="canvas-border">
             </div>
 
-            <div class=" battle-sim-middle">
 
-                    <canvas class="canvas-border" id="game-board" width="1200" height="880"></canvas>
-                    <div class="wrap-flex-top">
+            <div class="wrap-flex-bottom">
+                <img class="battle-sim-images battle-sim-control-ruler" src="assets/images/ruler.png"><button
+                    class="battle-sim-btn" onclick='toggleRuler()' id="btn-ruler">[R] RULER</button></img>
+            </div>
 
-                        <h3 class="unit-title">Add a Unit -</h3>
+            <div class="wrap-flex-bottom">
+                <button class="battle-sim-small-control-btn" onclick='rotate("L")' id="btn-rotate-L">
+                    < </button>
+                        <button class="battle-sim-btn-nf">ROTATE</button>
+                        <button class="battle-sim-small-control-btn" onclick='rotate("R")' id="btn-rotate-R">></button>
+            </div>
 
-                        <input type="text" class="unit-text canvas-border" id="unit-name" placeholder="UNIT NAME" />
+            <div class="wrap-flex-bottom">
+                <button class="battle-sim-btn-nf" onclick="deleteObject()">DELETE</button>
+            </div>
 
-                        <span id="base-buttons">
-                          
-                          <label for="baseSelect">BASE SIZE:</label>
-                            <select name="baseSelect" id="baseSelect" onfocus="this.selectedIndex = -1;" onchange="toggleBasePlacement()">
-                              <option value="25mm">25mm</option>
-                              <option value="32mm">32mm</option>
-                              <option value="40mm">40mm</option>
-                              <option value="50mm">50mm</option>
-                              <option value="60mm">60mm</option>
-                              <option value="80mm">80mm</option>
-                              <option value="100mm">100mm</option>
-                              <option value="130mm">130mm</option>
-                              <option value="160mm">160mm</option>
-                              <option value="60x35mm">60x35mm</option>
-                              <option value="75x42mm">75x42mm</option>
-                              <option value="90x52mm">90x52mm</option>
-                              <option value="105x70mm">105x70mm</option>
-                              <option value="120x92mm">120x92mm</option>
-                              <option value="170x105mm">170x105mm</option>
-                              <option value="280x210mm">280x210mm</option>
-                            </select>
-                          <button id="place-base-btn" onclick="toggleBasePlacement()">[P] PLACE: OFF</button>
-                        </span>
+            <label for="tokenSelect">TOKENS:</label>
+            <select name="tokenSelect" id="tokenSelect" onchange="toggleTokenPlacement()">
+                <option value="+1 Hit">+1 Hit</option>
+                <option value="-1 Hit">-1 Hit</option>
+                <option value="N/A" disabled></option>
+                <option value="+1 Wound">+1 Wound</option>
+                <option value="-1 Wound">-1 Wound</option>
+                <option value="N/A" disabled></option>
+                <option value="+1 Save">+1 Save</option>
+                <option value="-1 Save">-1 Save</option>
+                <option value="N/A" disabled></option>
+                <option value="Heroic Leadership">Heroic Leadership</option>
+                <option value="Heroic Willpower">Heroic Willpower</option>
+                <option value="Their Finest Hour">Their Finest Hour</option>
+                <option value="N/A" disabled></option>
+                <option value="Roar">Roar</option>
+                <option value="Titanic Duel">Titanic Duel</option>
+                <option value="Smash To Rubble">Smash To Rubble</option>
+                <option value="N/A" disabled></option>
+                <option value="+1 Rend">+1 Rend</option>
+                <option value="-1 Rend">-1 Rend</option>
+                <option value="N/A" disabled></option>
+                <option value="+1 Attack">+1 Attack</option>
+                <option value="-1 Attack">-1 Attack</option>
+                <option value="N/A" disabled></option>
+                <option value="+1 Damage">+1 Damage</option>
+                <option value="-1 Damage">-1 Damage</option>
+                <option value="N/A" disabled></option>
+                <option value="MW on 5+">MW on 5+</option>
+                <option value="N/A" disabled></option>
+                <option value="+1 Wound Stat">+1 Wound Stat</option>
+                <option value="N/A" disabled></option>
+                <option value="-1 Pile-In">-1 Pile-In</option>
+                <option value="+3 Pile-In">+3 Pile-In</option>
+                <option value="No Pile-In">No Pile-In</option>
+                <option value="N/A" disabled></option>
+                <option value="Mystic Shield">Mystic Shield</option>
+                <option value="Arcane Bolt">Arcane Bolt</option>
+                <option value="N/A" disabled></option>
+                <option value="Run & Charge">Run & Charge</option>
+                <option value="+1 Run">+1 Run</option>
+                <option value="+1 Charge">+1 Charge</option>
+                <option value="-1 Charge">-1 Charge</option>
+                <option value="Half Charge">Half Charge</option>
+                <option value="N/A" disabled></option>
+                <option value="Fight First">Fight First</option>
+                <option value="Fight Last">Fight Last</option>
+                <option value="N/A" disabled></option>
+                <option value="+1 Bravery">+1 Bravery</option>
+                <option value="-1 Bravery">-1 Bravery</option>
+                <option value="No Battleshock">No Battleshock</option>
+                <option value="N/A" disabled></option>
+                <option value="Disease">Disease</option>
+            </select>
+            <button class="battle-sim-btn battle-sim-control-center" id="token-btn" onclick="toggleTokenPlacement()">[T]
+                TOKENS</button>
+            <canvas id="rolling-tray" width="280" height="590" class="canvas-border">
+        </div>
 
-                        <div class="input-color">
-                            <input type="color" class="input-color canvas-border" id="base-color" />
-                        </div>
-                    </div>
-                </body>
-                <div class="wrap-flex-bottom">
+    </div>
 
-                    <img class="battle-sim-images" src="assets/images/obj-icon.png"><button style="margin-left: 10px"
-                        class="battle-sim-btn" onclick='toggleObjectivePlacement()'
-                        id="obj-btn">[O] OBJECTIVES</button></img>
-                <br>
-                <label for="battleplanSelect">DEPLOYMENT ZONES:</label>
-                  <select name="battleplanSelect" id="battleplanSelect" onchange="showDeployments()">
+    <div class="battle-sim-middle">
+
+        <canvas class="canvas-border" id="game-board" width="1200" height="880"></canvas>
+        <div class="wrap-flex-top">
+
+            <h3 class="unit-title">Add a Unit -</h3>
+
+            <input type="text" class="unit-text canvas-border" id="unit-name" placeholder="UNIT NAME" />
+
+            <span id="base-buttons">
+
+                <label for="baseSelect">BASE SIZE:</label>
+                <select name="baseSelect" id="baseSelect" onfocus="this.selectedIndex = -1;"
+                    onchange="toggleBasePlacement()">
+                    <option value="25mm">25mm</option>
+                    <option value="32mm">32mm</option>
+                    <option value="40mm">40mm</option>
+                    <option value="50mm">50mm</option>
+                    <option value="60mm">60mm</option>
+                    <option value="80mm">80mm</option>
+                    <option value="100mm">100mm</option>
+                    <option value="130mm">130mm</option>
+                    <option value="160mm">160mm</option>
+                    <option value="60x35mm">60x35mm</option>
+                    <option value="75x42mm">75x42mm</option>
+                    <option value="90x52mm">90x52mm</option>
+                    <option value="105x70mm">105x70mm</option>
+                    <option value="120x92mm">120x92mm</option>
+                    <option value="170x105mm">170x105mm</option>
+                    <option value="280x210mm">280x210mm</option>
+                </select>
+                <!-- <button id="place-base-btn" class="battle-sim-btn" onclick="toggleBasePlacement()">[P] PLACE:
+                    OFF</button>-->
+            </span>
+            <button id="place-base-btn" class="battle-sim-btn place-button" onclick="toggleBasePlacement()">[P] PLACE:
+                OFF</button>
+            <div class="input-color">
+                <input type="color" class="input-color canvas-border" id="base-color" />
+            </div>
+
+            <label for="battleplanSelect">
+                <h3 class="deployment-title">DEPLOYMENT ZONES -</h3>
+            </label>
+            <div>
+                <select name="battleplanSelect" id="battleplanSelect" class="battle-plan-dropdown"
+                    onchange="showDeployments()">
                     <option value="N/A">(hide)</option>
                     <option value="Marking Territory">Marking Territory</option>
                     <option value="Savage Gains">Savage Gains</option>
@@ -286,42 +287,73 @@
                     <option value="Feral Foray">Feral Foray</option>
                     <option value="Power In Numbers">Power In Numbers</option>
                     <option value="The Veins Of Ghur">The Veins Of Ghur</option>
-                  </select>
-                </div>
+                </select>
+            </div>
+
+            <div class="wrap-flex-bottom">
+
+                <img class="battle-sim-images" src="assets/images/obj-icon.png"><button style="margin-left: 10px"
+                    class="battle-sim-btn" onclick='toggleObjectivePlacement()' id="obj-btn">[O]
+                    OBJECTIVES</button></img>
+                <!--
+                <br>
+                <label for="battleplanSelect">
+                    <h3 class="deployment-title">DEPLOYMENT ZONES -</h3>
+                </label>
+                <div>
+                    <select name="battleplanSelect" id="battleplanSelect" class="battle-plan-dropdown"
+                        onchange="showDeployments()">
+                        <option value="N/A">(hide)</option>
+                        <option value="Marking Territory">Marking Territory</option>
+                        <option value="Savage Gains">Savage Gains</option>
+                        <option value="First Blood">First Blood</option>
+                        <option value="Power Struggle">Power Struggle</option>
+                        <option value="Survival of the Fittest">Survival of the Fittest</option>
+                        <option value="Tectonic Interference">Tectonic Interference</option>
+                        <option value="Apex Predators">Apex Predators</option>
+                        <option value="The Vice">The Vice</option>
+                        <option value="Tooth And Nail">Tooth And Nail</option>
+                        <option value="Feral Foray">Feral Foray</option>
+                        <option value="Power In Numbers">Power In Numbers</option>
+                        <option value="The Veins Of Ghur">The Veins Of Ghur</option>
+                    </select>
+                    -->
             </div>
         </div>
+    </div>
+    </div>
 
 
 
-        </div>
+    </div>
 
 
 
 
 
-        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-        <script src="assets/js/circularProgressBar.min.js"></script>
-        <script src="assets/js/isotope.pkgd.min.js"></script>
-        <script src="assets/js/swiper.min.js"></script>
-        <script src="assets/js/lightcase.js"></script>
-        <script src="assets/js/wayVictory Points.min.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="assets/js/circularProgressBar.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/lightcase.js"></script>
+    <script src="assets/js/wayVictory Points.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
 
-        <script>
-            window.ga = function () {
-                ga.q.push(arguments)
-            };
-            ga.q = [];
-            ga.l = +new Date;
-            ga('create', 'UA-XXXXX-Y', 'auto');
-            ga('set', 'anonymizeIp', true);
-            ga('set', 'transport', 'beacon');
-            ga('send', 'pageview')
-        </script>
-        <script src="https://www.google-analytics.com/analytics.js" async></script>
+    <script>
+        window.ga = function () {
+            ga.q.push(arguments)
+        };
+        ga.q = [];
+        ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('set', 'transport', 'beacon');
+        ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
 
 </html>
