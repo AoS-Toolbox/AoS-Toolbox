@@ -1,24 +1,17 @@
 /**
 
-Battle Tactic scored: tacticCheckboxR?P?
-Scored w/ monsters: withMonsterR?P?
-Monster slain: slainMonsterR?P?
-Objective points: ??? objectiveVPR?P?
+Battle Tactic scored: tacticCheckboxR_P_
+Scored w/ monsters: withMonsterR_P_
+Monster slain: slainMonsterR_P_
+Objective points: objectiveVPR_P_
 
-Victory Points: vicPointsR?P?
-Header: headerR?P?
+Victory Points: vicPointsR_P_
+Header: headerR_P_
 
-Grand strat: grandStratP?
-Total victory points: totalPointsP?
-
-********
-
-- Programmatically add event listeners to each value-adding input
-- On change, update round totals, overall totals and headers
-        - When event triggered, first call totals updating functions on both
-        player objects. Then use the latest totals for displaying
-        
-*/
+Grand strat: grandStratP_
+Total victory points: totalPointsP_
+     
+**/
 
 // PLAYER OBJECTS
 let player1Obj = {};
@@ -27,6 +20,8 @@ let player2Obj = {};
 // Define each player object, including DOM elements
 for (let i = 1; i <= 2; i++) {
   let playerObj = (i === 1) ? player1Obj : player2Obj;
+  
+  playerObj.id = i;
   
   playerObj.elements = {
     grandStrategy: document.getElementById(`grandStratP${i}`),
@@ -69,16 +64,33 @@ for (let i = 1; i <= 2; i++) {
   }
   
   playerObj.calcTotal = () => {
-    // calculate score for whole game, incl. grand strat, and update in playerObj.scores
+    let score = this.scores;
+    score.grandStrat = (this.elements.grandStrategy.checked === true) ? 3 : 0;
+    score.total = score.round1 + score.round2 + score.round3 + score.round4 + score.round5 + score.grandStrat;
   }
   
   playerObj.updateView = () => {
-    // 
+    for (let j = 1; j <= 5; j++) {
+      // Update round headers with score
+      if (this.scores["round" + j] != null) this.elements["round" + j].header.innerText = `Round ${j} - Player ${this.id}: (${this.scores["round" + j]})`;
+      
+      // Update Victory Points total for the given round
+      if (this.scores["round" + j] != null) this.elements["round" + j].victoryPoints.innerText = `VICTORY POINTS: ${this.scores["round" + j]}`;
+    }
+    
+    this.elements.totalPoints.innerText = this.scores.total;
   }
 }
 
 function updateAll() {
-  // -> Run calcRound() on each player, for all 5 rounds (providing a 1-5 int as argument)
-  // -> Run calcTotal() on each player
-  // -> Run updateView() on each player
+  for (let i = 1; i <= 5; i++) {
+    player1Obj.calcRound(i);
+    player2Obj.calcRound(i);
+  }
+  
+  player1Obj.calcTotal();
+  player2Obj.calcTotal();
+  
+  player1Obj.updateView();
+  player2Obj.updateView();
 }
