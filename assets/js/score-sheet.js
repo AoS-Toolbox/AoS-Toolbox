@@ -29,7 +29,8 @@ for (let i = 1; i <= 2; i++) {
   };
   
   for (let j = 1; j <= 5; i++) {
-    playerObj.elements["round" + j] = {
+    let roundElements = playerObj.elements["round" + j];
+    roundElements = {
       tacticScored: document.getElementById(`tacticCheckboxR${j}P${i}`),
       withMonster: document.getElementById(`withMonsterR${j}P${i}`),
       slainMonster: document.getElementById(`slainMonsterR${j}P${i}`),
@@ -38,7 +39,14 @@ for (let i = 1; i <= 2; i++) {
       victoryPoints: document.getElementById(`vicPointsR${j}P${i}`),
       header: document.getElementById(`headerR${j}P${i}`)
     }
+    
+    roundElements.tacticScored.addEventListener("input", updateAll());
+    roundElements.withMonster.addEventListener("input", updateAll());
+    roundElements.slainMonster.addEventListener("input", updateAll());
+    roundElements.objectivePoints.addEventListener("input", updateAll());
   }
+  
+  playerObj.elements.grandStrategy.addEventListener("input", updateAll());
   
   playerObj.scores = {
       round1: null,
