@@ -13,42 +13,28 @@ Total victory points: totalPointsP_
      
 **/
 
-// PLAYER OBJECTS
-let player1Obj = {};
-let player2Obj = {};
+class Player {
+  constructor(num) {
+      this.id = num;
 
-// Define each player object, including DOM elements
-for (let i = 1; i <= 2; i++) {
-  let playerObj = (i === 1) ? player1Obj : player2Obj;
-  
-  playerObj.id = i;
-  
-  playerObj.elements = {
-    grandStrategy: document.getElementById(`grandStratP${i}`),
-    totalPoints: document.getElementById(`totalPointsP${i}`)
-  };
-  
-  for (let j = 1; j <= 5; i++) {
-    let roundElements = playerObj.elements["round" + j];
-    roundElements = {
-      tacticScored: document.getElementById(`tacticCheckboxR${j}P${i}`),
-      withMonster: document.getElementById(`withMonsterR${j}P${i}`),
-      slainMonster: document.getElementById(`slainMonsterR${j}P${i}`),
-      objectivePoints: document.getElementById(`objectiveVPR${j}P${i}`),
-      
-      victoryPoints: document.getElementById(`vicPointsR${j}P${i}`),
-      header: document.getElementById(`headerR${j}P${i}`)
-    }
+      this.elements = {
+        grandStrategy: document.getElementById(`grandStratP${num}`),
+        totalPoints: document.getElementById(`totalPointsP${num}`)
+      };
+
+      for (let j = 1; j <= 5; j++) {
+        this.elements["round" + j] = {
+          tacticScored: document.getElementById(`tacticCheckboxR${j}P${num}`),
+          withMonster: document.getElementById(`withMonsterR${j}P${num}`),
+          slainMonster: document.getElementById(`slainMonsterR${j}P${num}`),
+          objectivePoints: document.getElementById(`objectiveVPR${j}P${num}`),
+
+          victoryPoints: document.getElementById(`vicPointsR${j}P${num}`),
+          header: document.getElementById(`headerR${j}P${num}`)
+        }
+     }
     
-    roundElements.tacticScored.addEventListener("input", updateAll());
-    roundElements.withMonster.addEventListener("input", updateAll());
-    roundElements.slainMonster.addEventListener("input", updateAll());
-    roundElements.objectivePoints.addEventListener("input", updateAll());
-  }
-  
-  playerObj.elements.grandStrategy.addEventListener("input", updateAll());
-  
-  playerObj.scores = {
+     this.scores = {
       round1: null,
       round2: null,
       round3: null,
@@ -56,9 +42,10 @@ for (let i = 1; i <= 2; i++) {
       round5: null,
       grandStrat: null,
       total: null
+     }
   }
   
-  playerObj.calcRound = (roundNum) => {
+  calcRound(roundNum) {
     let values = this.elements["round" + roundNum];
     
     // Reset score for this round
@@ -70,14 +57,14 @@ for (let i = 1; i <= 2; i++) {
     if (values.slainMonster.checked === true) this.scores.round1++;
     if (values.objectivePoints.value > 0) this.scores.round1 += values.objectivePoints.value;
   }
-  
-  playerObj.calcTotal = () => {
+
+  calcTotal() {
     let score = this.scores;
     score.grandStrat = (this.elements.grandStrategy.checked === true) ? 3 : 0;
     score.total = score.round1 + score.round2 + score.round3 + score.round4 + score.round5 + score.grandStrat;
   }
-  
-  playerObj.updateView = () => {
+
+  updateView() {
     for (let j = 1; j <= 5; j++) {
       // Update round headers with score
       if (this.scores["round" + j] != null) this.elements["round" + j].header.innerText = `Round ${j} - Player ${this.id}: (${this.scores["round" + j]})`;
@@ -86,9 +73,16 @@ for (let i = 1; i <= 2; i++) {
       if (this.scores["round" + j] != null) this.elements["round" + j].victoryPoints.innerText = `VICTORY POINTS: ${this.scores["round" + j]}`;
     }
     
-    this.elements.totalPoints.innerText = this.scores.total;
+    this.elements.totalPoints.innerText = "TOTAL VICTORY POINTS: " + this.scores.total;
   }
+  
 }
+
+const player1Obj = new Player(1);
+const player2Obj = new Player(2);
+document.querySelectorAll(".totals-relevant").forEach((input) => {
+  input.addEventListener("input", updateAll);
+})
 
 function updateAll() {
   for (let i = 1; i <= 5; i++) {
