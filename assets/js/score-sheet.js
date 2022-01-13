@@ -1,13 +1,10 @@
 /**
-
 Battle Tactic scored: tacticCheckboxR_P_
 Scored w/ monsters: withMonsterR_P_
 Monster slain: slainMonsterR_P_
 Objective points: objectiveVPR_P_
-
 Victory Points: vicPointsR_P_
 Header: headerR_P_
-
 Grand strat: grandStratP_
 Total victory points: totalPointsP_
      
@@ -49,13 +46,15 @@ class Player {
     let values = this.elements["round" + roundNum];
     
     // Reset score for this round
-    this.scores.round1 = 0;
+    this.scores["round" + roundNum] = 0;
     
     // Calculate score for this round
-    if (values.tacticScored.checked === true) this.scores.round1 += 2;
-    if (values.withMonster.checked === true) this.scores.round1++;
-    if (values.slainMonster.checked === true) this.scores.round1++;
-    if (values.objectivePoints.value > 0) this.scores.round1 += values.objectivePoints.value;
+    if (values.tacticScored.checked === true) this.scores["round" + roundNum] += 2;
+    if (values.withMonster.checked === true) this.scores["round" + roundNum]++;
+    if (values.slainMonster.checked === true) this.scores["round" + roundNum]++;
+    if (values.objectivePoints.value > 0) this.scores["round" + roundNum] += parseInt(values.objectivePoints.value);
+    
+    console.log("Round " + roundNum + ", Player " + this.id + ": scored " + this.scores["round" + roundNum]);
   }
 
   calcTotal() {
