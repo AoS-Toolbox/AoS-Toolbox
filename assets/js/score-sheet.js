@@ -46,7 +46,7 @@ class Player {
     let values = this.elements["round" + roundNum];
     
     // Reset score for this round
-    this.scores["round" + roundNum] = 0;
+    this.scores["round" + roundNum] = null;
     
     // Calculate score for this round
     if (values.tacticScored.checked === true) this.scores["round" + roundNum] += 2;
