@@ -46,7 +46,7 @@ class Player {
     let values = this.elements["round" + roundNum];
     
     // Reset score for this round
-    this.scores["round" + roundNum] = null;
+    this.scores["round" + roundNum] = 0;
     
     // Calculate score for this round
     if (values.tacticScored.checked === true) this.scores["round" + roundNum] += 2;
@@ -66,7 +66,7 @@ class Player {
   updateView() {
     for (let j = 1; j <= 5; j++) {
       // Update round headers with score
-      if (this.scores["round" + j] != null) this.elements["round" + j].header.innerText = `Round ${j} - Player ${this.id}: (${this.scores["round" + j]})`;
+      if (this.scores["round" + j] != null) this.elements["round" + j].header.innerText = `Round ${j} - Player ${this.id} - (${this.scores["round" + j]})`;
       
       // Update Victory Points total for the given round
       if (this.scores["round" + j] != null) this.elements["round" + j].victoryPoints.innerText = `VICTORY POINTS: ${this.scores["round" + j]}`;
