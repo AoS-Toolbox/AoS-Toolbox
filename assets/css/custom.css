@@ -7,6 +7,35 @@
 
 }
 
+.flex-space-evenly {}
+
+
+@media screen and (max-width: 1024px) {
+    .flex-space-evenly {}
+}
+
+@media screen and (min-width: 1025px) {
+    .flex-space-evenly {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+.flex-space-monsters {}
+
+
+@media screen and (max-width: 1024px) {
+    .flex-space-monsters {}
+}
+
+@media screen and (min-width: 1025px) {
+    .flex-space-monsters {
+        margin-right: 5px;
+    }
+}
+
+
+
 
 #battleplan-icon1 {
     color: white;
@@ -104,12 +133,19 @@ label {
     position: absolute;
 }
 */
-.checkbox-large {
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    margin: 10px;
-    /* position: relative;*/
+
+
+input.checkbox-medium {
+    height: 40px;
+    width: 40px;
+    position: relative;
+}
+
+
+input.checkbox-large {
+    height: 50px;
+    width: 50px;
+    position: relative;
 }
 
 .other-battle-tactic {
@@ -182,10 +218,6 @@ label {
     height: 60px;
     width: 80px;
     margin-bottom: 30px;
-}
-
-.checkbox-large input:checked {
-    background-color: green;
 }
 
 .text-field-align-other {
@@ -455,12 +487,7 @@ label {
     border-width: thick;
 }
 
-.score-sheet-dropdown1 {
-    font-size: 16px;
-    font-family: Arial;
-    font-weight: bold;
-    color: #000080;
-}
+
 
 .score-sheet-dropdown2 {
     font-size: 16px;
@@ -476,4 +503,82 @@ label {
 .place-button {
     margin-left: 20px;
     width: 400px;
+}
+
+.first-priority {
+    font-family: 'mistlock_regular';
+}
+
+@media screen and (max-width: 1024px) {
+    .first-priority {}
+}
+
+@media screen and (min-width: 1025px) {
+    .first-priority {
+        font-size: 22px;
+    }
+}
+
+.score-sheet-dropdown-label {
+    font-family: 'mistlock_regular';
+}
+
+@media screen and (max-width: 1024px) {
+    .score-sheet-dropdown-label {
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .score-sheet-dropdown-label {
+        font-size: 25px;
+        font-weight: bold;
+
+        margin-left: 10px;
+        margin-right: 5%;
+    }
+}
+
+.score-sheet-dropdown {
+    font-family: 'mistlock_regular';
+}
+
+@media screen and (max-width: 1024px) {
+    .score-sheet-dropdown {}
+}
+
+@media screen and (min-width: 1025px) {
+    .score-sheet-dropdown {
+        width: 50%;
+        margin-right: 20px;
+    }
+}
+
+.battle-tactic-position {
+    text-align: center;
+}
+
+.scoring-sheet-space {
+    margin-top: 20px;
+}
+
+.vp-input-box {
+    border: blue;
+    background-color: yellow;
+
+}
+
+input[type='number'] {
+    width: 50px;
+    color: red;
+
+}
+
+.objective-vps1 {
+    font-family: 'mistlock_regular';
+    font-size: 25px;
+    text-align: center;
+    color: black;
 }

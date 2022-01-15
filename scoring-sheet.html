@@ -6,16 +6,18 @@
     <title>Scoring Sheet | AOS Toolbox</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/icofont.min.css">
     <link rel="stylesheet" href="assets/css/swiper.min.css">
     <link rel="stylesheet" href="assets/css/lightcase.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="assets/fonts/stylesheet.css" type="text/css" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src="https://kit.fontawesome.com/e95bd3114f.js" crossorigin="anonymous"></script>
 
 </head>
@@ -272,65 +274,97 @@
                                                 </span>
                                             </button>
                                         </div>
+
                                         <div id="collapseOne" class="accordion-collapse collapse"
                                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                            <div class="scoring-row">
+                                            <div class="scoring-row flex-space-evenly">
                                                 <div class="scoring-tiles">
 
-
-                                                    <div class="checkbox">
-
-                                                        <label class="checkbox-inline Arial-font">
-                                                            <input class="checkbox-large" type="checkbox"
-                                                                id="priority-checkbox-p1-r1" value="option1" />
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p1-r1" value="Priority">
                                                             Priority
                                                         </label>
-                                                        <label class="checkbox-inline Arial-font">
-                                                            <input class="checkbox-large" type="checkbox"
-                                                                id="first-turn-checkbox-p1-r1" value="option2" />
-                                                            First
-                                                            Turn
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p1-r1" value="First Turn">
+                                                            First Turn
                                                         </label>
                                                     </div>
 
 
-                                                    <label class="scoring-tiles Arial-font">
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
                                                         <label for="battleTacticR1P1"
-                                                            class="score-sheet-dropdown1">BATTLE TACTIC:</label>
-                                                        <select name="battleTacticR1P1" id="battleTacticR1P1">
-                                                            <option value="Aggressive Expansion">Aggressive Expansion
+                                                            class="score-sheet-dropdown-label">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR1P1" class="score-sheet-dropdown"
+                                                            id="battleTacticR1P1">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
                                                             </option>
-                                                            <option value="Bring It Down!">Bring It Down!</option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
                                                             <option value="Broken Ranks">Broken Ranks</option>
                                                             <option value="Conquer">Conquer</option>
-                                                            <option value="Ferocious Advance">Ferocious Advance</option>
-                                                            <option value="Monstrous Takeover">Monstrous Takeover
+                                                            <option value="Ferocious Advance">Ferocious Advance
                                                             </option>
-                                                            <option value="Savage Spearhead">Savage Spearhead</option>
-                                                            <option value="Slay The Warlord">Slay The Warlord</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
-                                                    </label>
-                                                    <label>
-                                                        <input id="tacticCheckboxR1P1" class="checkbox-large checkbox-inline Arial-font totals-relevant"
-                                                            type="checkbox" />
-                                                    </label>
-                                                    <label class="Arial-font">
-                                                        <input class="checkbox-large Arial-font totals-relevant" type="checkbox" id="withMonsterR1P1"/>
-                                                        With
-                                                        Monster/s
-                                                    </label>
-
-                                                    <label class="Arial-font">
-                                                        <input class="checkbox-large checkbox-inline totals-relevant" type="checkbox" id="slainMonsterR1P1"/>
-                                                        Monster
-                                                        Slain
-                                                    </label>
-                                                    <br>
-                                                    <div class="form-group">
-                                                        <label class="scoring-center" for="battle-tactic-text1">Objective VPs:</label>
-                                                        <input class="totals-relevant" id="objectiveVPR1P1" type="number" />
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" class="checkbox-large"
+                                                                    id="tacticCheckboxR1P1" value="Achieved">
+                                                            </label>
+                                                        </select>
                                                     </div>
-                                                    <br>
+
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR1P1" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR1P1" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+                                                    <!--
+                                                    <div
+                                                        class="first-priority scoring-sheet-space vp-input-box flex-space-evenly">
+                                                        <label class="first-priority"
+                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                        <input class="totals-relevant" id="objectiveVPR1P1"
+                                                            type="number" />
+                                                    </div>
+-->
+                                                    <h5 class="objective-vps1 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton">-</div>
+                                                        <input class="cart-plus-minus-box totals-relevant" type="text"
+                                                            name="qtybutton" value="1" id="objectiveVPR1P1">
+                                                        <div class="inc qtybutton">+</div>
+                                                    </div>
+
                                                     <h3 class="victory-points-heading1 vp-separate" id="vicPointsR1P1">
                                                         Victory
                                                         Points: 0
@@ -342,6 +376,7 @@
                                         </div>
                                     </div>
                                 </div>
+
 
                                 <div class="col-12">
                                     <div class="accordion-item">
@@ -401,24 +436,29 @@
                                                             <option value="Other">(Other - Faction Specific)</option>
                                                     </label>
                                                     <label>
-                                                        <input id="tacticCheckboxR2P1" class="checkbox-large checkbox-inline Arial-font totals-relevant"
+                                                        <input id="tacticCheckboxR2P1"
+                                                            class="checkbox-large checkbox-inline Arial-font totals-relevant"
                                                             type="checkbox" />
                                                     </label>
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large Arial-font totals-relevant" type="checkbox"  id="withMonsterR2P1"/>
+                                                        <input class="checkbox-large Arial-font totals-relevant"
+                                                            type="checkbox" id="withMonsterR2P1" />
                                                         With
                                                         Monster/s
                                                     </label>
 
                                                     <label class="Arial-font">
-                                                      <input class="checkbox-large checkbox-inline totals-relevant" type="checkbox" id="slainMonsterR2P1"/>
+                                                        <input class="checkbox-large checkbox-inline totals-relevant"
+                                                            type="checkbox" id="slainMonsterR2P1" />
                                                         Monster
                                                         Slain
                                                     </label>
                                                     <br>
                                                     <div class="form-group">
-                                                        <label class="scoring-center" for="battle-tactic-text1">Objective VPs:</label>
-                                                        <input id="objectiveVPR2P1" type="number" class="totals-relevant"/>
+                                                        <label class="scoring-center"
+                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                        <input id="objectiveVPR2P1" type="number"
+                                                            class="totals-relevant" />
                                                     </div>
                                                     <br>
                                                     <h3 class="victory-points-heading1 vp-separate" id="vicPointsR2P1">
@@ -493,24 +533,29 @@
                                                             <option value="Other">(Other - Faction Specific)</option>
                                                     </label>
                                                     <label>
-                                                        <input id="tacticCheckboxR3P1" class="checkbox-large checkbox-inline Arial-font totals-relevant"
+                                                        <input id="tacticCheckboxR3P1"
+                                                            class="checkbox-large checkbox-inline Arial-font totals-relevant"
                                                             type="checkbox" />
                                                     </label>
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large Arial-font totals-relevant" type="checkbox"  id="withMonsterR3P1"/>
+                                                        <input class="checkbox-large Arial-font totals-relevant"
+                                                            type="checkbox" id="withMonsterR3P1" />
                                                         With
                                                         Monster/s
                                                     </label>
 
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large checkbox-inline totals-relevant" type="checkbox" id="slainMonsterR3P1"/>
-                                                        Monster 
+                                                        <input class="checkbox-large checkbox-inline totals-relevant"
+                                                            type="checkbox" id="slainMonsterR3P1" />
+                                                        Monster
                                                         Slain
                                                     </label>
                                                     <br>
                                                     <div class="form-group">
-                                                        <label class="scoring-center" for="battle-tactic-text1">Objective VPs:</label>
-                                                        <input id="objectiveVPR3P1" type="number" class="totals-relevant"/>
+                                                        <label class="scoring-center"
+                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                        <input id="objectiveVPR3P1" type="number"
+                                                            class="totals-relevant" />
                                                     </div>
                                                     <br>
                                                     <h3 class="victory-points-heading1 vp-separate" id="vicPointsR3P1">
@@ -583,24 +628,29 @@
                                                             <option value="Other">(Other - Faction Specific)</option>
                                                     </label>
                                                     <label>
-                                                        <input id="tacticCheckboxR4P1" class="checkbox-large checkbox-inline Arial-font totals-relevant"
+                                                        <input id="tacticCheckboxR4P1"
+                                                            class="checkbox-large checkbox-inline Arial-font totals-relevant"
                                                             type="checkbox" />
                                                     </label>
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large Arial-font totals-relevant" type="checkbox"  id="withMonsterR4P1"/>
+                                                        <input class="checkbox-large Arial-font totals-relevant"
+                                                            type="checkbox" id="withMonsterR4P1" />
                                                         With
                                                         Monster/s
                                                     </label>
 
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large checkbox-inline totals-relevant" type="checkbox" id="slainMonsterR4P1"/>
+                                                        <input class="checkbox-large checkbox-inline totals-relevant"
+                                                            type="checkbox" id="slainMonsterR4P1" />
                                                         Monster
                                                         Slain
                                                     </label>
                                                     <br>
                                                     <div class="form-group">
-                                                        <label class="scoring-center" for="battle-tactic-text1">Objective VPs:</label>
-                                                        <input id="objectiveVPR4P1" type="number" class="totals-relevant"/>
+                                                        <label class="scoring-center"
+                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                        <input id="objectiveVPR4P1" type="number"
+                                                            class="totals-relevant" />
                                                     </div>
                                                     <br>
                                                     <h3 class="victory-points-heading1 vp-separate" id="vicPointsR4P1">
@@ -675,24 +725,29 @@
                                                             <option value="Other">(Other - Faction Specific)</option>
                                                     </label>
                                                     <label>
-                                                        <input id="tacticCheckboxR5P1" class="checkbox-large checkbox-inline Arial-font totals-relevant"
+                                                        <input id="tacticCheckboxR5P1"
+                                                            class="checkbox-large checkbox-inline Arial-font totals-relevant"
                                                             type="checkbox" />
                                                     </label>
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large Arial-font totals-relevant" type="checkbox"  id="withMonsterR5P1"/>
+                                                        <input class="checkbox-large Arial-font totals-relevant"
+                                                            type="checkbox" id="withMonsterR5P1" />
                                                         With
                                                         Monster/s
                                                     </label>
 
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large checkbox-inline totals-relevant" type="checkbox" id="slainMonsterR5P1"/>
+                                                        <input class="checkbox-large checkbox-inline totals-relevant"
+                                                            type="checkbox" id="slainMonsterR5P1" />
                                                         Monster
                                                         Slain
                                                     </label>
                                                     <br>
                                                     <div class="form-group">
-                                                        <label class="scoring-center" for="battle-tactic-text1">Objective VPs:</label>
-                                                        <input id="objectiveVPR5P1" type="number" class="totals-relevant"/>
+                                                        <label class="scoring-center"
+                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                        <input id="objectiveVPR5P1" type="number"
+                                                            class="totals-relevant" />
                                                     </div>
                                                     <br>
                                                     <h3 class="victory-points-heading1 vp-separate" id="vicPointsR5P1">
@@ -729,7 +784,8 @@
                                                 <div class="scoring-tiles">
 
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large totals-relevant" type="checkbox" id="grandStratP1"/>
+                                                        <input class="checkbox-large totals-relevant" type="checkbox"
+                                                            id="grandStratP1" />
                                                         Grand
                                                         Strategy
                                                         Achieved
@@ -921,24 +977,29 @@
                                                             <option value="Other">(Other - Faction Specific)</option>
                                                     </label>
                                                     <label>
-                                                        <input id="tacticCheckboxR1P2" class="checkbox-large checkbox-inline Arial-font totals-relevant"
+                                                        <input id="tacticCheckboxR1P2"
+                                                            class="checkbox-large checkbox-inline Arial-font totals-relevant"
                                                             type="checkbox" />
                                                     </label>
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large Arial-font totals-relevant" type="checkbox"  id="withMonsterR1P2"/>
+                                                        <input class="checkbox-large Arial-font totals-relevant"
+                                                            type="checkbox" id="withMonsterR1P2" />
                                                         With
                                                         Monster/s
                                                     </label>
 
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large checkbox-inline totals-relevant" type="checkbox" id="slainMonsterR1P2"/>
+                                                        <input class="checkbox-large checkbox-inline totals-relevant"
+                                                            type="checkbox" id="slainMonsterR1P2" />
                                                         Monster
                                                         Slain
                                                     </label>
                                                     <br>
                                                     <div class="form-group">
-                                                        <label class="scoring-center" for="battle-tactic-text1">Objective VPs:</label>
-                                                        <input id="objectiveVPR1P2" type="number" class="totals-relevant"/>
+                                                        <label class="scoring-center"
+                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                        <input id="objectiveVPR1P2" type="number"
+                                                            class="totals-relevant" />
                                                     </div>
                                                     <br>
                                                     <h3 class="victory-points-heading2 vp-separate" id="vicPointsR1P2">
@@ -1013,24 +1074,29 @@
                                                             <option value="Other">(Other - Faction Specific)</option>
                                                     </label>
                                                     <label>
-                                                        <input id="tacticCheckboxR2P2" class="checkbox-large checkbox-inline Arial-font totals-relevant"
+                                                        <input id="tacticCheckboxR2P2"
+                                                            class="checkbox-large checkbox-inline Arial-font totals-relevant"
                                                             type="checkbox" />
                                                     </label>
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large Arial-font totals-relevant" type="checkbox" id="withMonsterR2P2"/>
+                                                        <input class="checkbox-large Arial-font totals-relevant"
+                                                            type="checkbox" id="withMonsterR2P2" />
                                                         With
                                                         Monster/s
                                                     </label>
 
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large checkbox-inline totals-relevant" type="checkbox" id="slainMonsterR2P2"/>
+                                                        <input class="checkbox-large checkbox-inline totals-relevant"
+                                                            type="checkbox" id="slainMonsterR2P2" />
                                                         Monster
                                                         Slain
                                                     </label>
                                                     <br>
                                                     <div class="form-group">
-                                                        <label class="scoring-center" for="battle-tactic-text1">Objective VPs:</label>
-                                                        <input id="objectiveVPR2P2" type="number" class="totals-relevant"/>
+                                                        <label class="scoring-center"
+                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                        <input id="objectiveVPR2P2" type="number"
+                                                            class="totals-relevant" />
                                                     </div>
                                                     <br>
                                                     <h3 class="victory-points-heading2 vp-separate" id="vicPointsR2P2">
@@ -1106,24 +1172,29 @@
                                                             <option value="Other">(Other - Faction Specific)</option>
                                                     </label>
                                                     <label>
-                                                        <input id="tacticCheckboxR3P2" class="checkbox-large checkbox-inline Arial-font totals-relevant"
+                                                        <input id="tacticCheckboxR3P2"
+                                                            class="checkbox-large checkbox-inline Arial-font totals-relevant"
                                                             type="checkbox" />
                                                     </label>
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large Arial-font totals-relevant" type="checkbox" id="withMonsterR3P2"/>
+                                                        <input class="checkbox-large Arial-font totals-relevant"
+                                                            type="checkbox" id="withMonsterR3P2" />
                                                         With
                                                         Monster/s
                                                     </label>
 
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large checkbox-inline totals-relevant" type="checkbox" id="slainMonsterR3P2"/>
+                                                        <input class="checkbox-large checkbox-inline totals-relevant"
+                                                            type="checkbox" id="slainMonsterR3P2" />
                                                         Monster
                                                         Slain
                                                     </label>
                                                     <br>
                                                     <div class="form-group">
-                                                        <label class="scoring-center" for="battle-tactic-text1">Objective VPs:</label>
-                                                        <input id="objectiveVPR3P2" type="number" class="totals-relevant"/>
+                                                        <label class="scoring-center"
+                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                        <input id="objectiveVPR3P2" type="number"
+                                                            class="totals-relevant" />
                                                     </div>
                                                     <br>
                                                     <h3 class="victory-points-heading2 vp-separate" id="vicPointsR3P2">
@@ -1199,24 +1270,29 @@
                                                             <option value="Other">(Other - Faction Specific)</option>
                                                     </label>
                                                     <label>
-                                                        <input id="tacticCheckboxR4P2" class="checkbox-large checkbox-inline Arial-font totals-relevant"
+                                                        <input id="tacticCheckboxR4P2"
+                                                            class="checkbox-large checkbox-inline Arial-font totals-relevant"
                                                             type="checkbox" />
                                                     </label>
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large Arial-font totals-relevant" type="checkbox" id="withMonsterR4P2"/>
+                                                        <input class="checkbox-large Arial-font totals-relevant"
+                                                            type="checkbox" id="withMonsterR4P2" />
                                                         With
                                                         Monster/s
                                                     </label>
 
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large checkbox-inline totals-relevant" type="checkbox" id="slainMonsterR4P2"/>
+                                                        <input class="checkbox-large checkbox-inline totals-relevant"
+                                                            type="checkbox" id="slainMonsterR4P2" />
                                                         Monster
                                                         Slain
                                                     </label>
                                                     <br>
                                                     <div class="form-group">
-                                                        <label class="scoring-center" for="battle-tactic-text1">Objective VPs:</label>
-                                                        <input id="objectiveVPR4P2" type="number" class="totals-relevant"/>
+                                                        <label class="scoring-center"
+                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                        <input id="objectiveVPR4P2" type="number"
+                                                            class="totals-relevant" />
                                                     </div>
                                                     <br>
                                                     <h3 class="victory-points-heading2 vp-separate" id="vicPointsR4P2">
@@ -1292,24 +1368,29 @@
                                                             <option value="Other">(Other - Faction Specific)</option>
                                                     </label>
                                                     <label>
-                                                        <input id="tacticCheckboxR5P2" class="checkbox-large checkbox-inline Arial-font totals-relevant"
+                                                        <input id="tacticCheckboxR5P2"
+                                                            class="checkbox-large checkbox-inline Arial-font totals-relevant"
                                                             type="checkbox" />
                                                     </label>
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large Arial-font totals-relevant" type="checkbox" id="withMonsterR5P2"/>
+                                                        <input class="checkbox-large Arial-font totals-relevant"
+                                                            type="checkbox" id="withMonsterR5P2" />
                                                         With
                                                         Monster/s
                                                     </label>
 
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large checkbox-inline totals-relevant" type="checkbox" id="slainMonsterR5P2"/>
+                                                        <input class="checkbox-large checkbox-inline totals-relevant"
+                                                            type="checkbox" id="slainMonsterR5P2" />
                                                         Monster
                                                         Slain
                                                     </label>
                                                     <br>
                                                     <div class="form-group">
-                                                        <label class="scoring-center" for="battle-tactic-text1">Objective VPs:</label>
-                                                        <input id="objectiveVPR5P2" type="number" class="totals-relevant"/>
+                                                        <label class="scoring-center"
+                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                        <input id="objectiveVPR5P2" type="number"
+                                                            class="totals-relevant" />
                                                     </div>
                                                     <br>
                                                     <h3 class="victory-points-heading2 vp-separate" id="vicPointsR5P2">
@@ -1347,7 +1428,8 @@
                                                 <div class="scoring-tiles">
 
                                                     <label class="Arial-font">
-                                                        <input class="checkbox-large totals-relevant" type="checkbox"  id="grandStratP2"/>
+                                                        <input class="checkbox-large totals-relevant" type="checkbox"
+                                                            id="grandStratP2" />
                                                         Grand
                                                         Strategy
                                                         Achieved
