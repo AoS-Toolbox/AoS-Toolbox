@@ -7,10 +7,35 @@
 
 }
 
-.flex-space-evenly {
-    display: flex;
-    justify-content: space-evenly;
+.flex-space-evenly {}
+
+
+@media screen and (max-width: 1024px) {
+    .flex-space-evenly {}
 }
+
+@media screen and (min-width: 1025px) {
+    .flex-space-evenly {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+.flex-space-monsters {}
+
+
+@media screen and (max-width: 1024px) {
+    .flex-space-monsters {}
+}
+
+@media screen and (min-width: 1025px) {
+    .flex-space-monsters {
+        margin-right: 5px;
+    }
+}
+
+
+
 
 #battleplan-icon1 {
     color: white;

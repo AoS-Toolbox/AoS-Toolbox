@@ -270,74 +270,101 @@
                                                         1
                                                         -
                                                         Player
-                                                        1</span>
+                                                        1 [0]</span>
                                                 </span>
                                             </button>
                                         </div>
+
                                         <div id="collapseOne" class="accordion-collapse collapse"
                                             aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                            <div class="scoring-row">
+                                            <div class="scoring-row flex-space-evenly">
                                                 <div class="scoring-tiles">
 
-
-                                                    <div class="checkbox">
-
-                                                        <label class="checkbox-inline Arial-font">
-                                                            <input class="checkbox-large" type="checkbox"
-                                                                id="priority-checkbox-p1-r1" value="option1" />
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p1-r1" value="Priority">
                                                             Priority
                                                         </label>
-                                                        <label class="checkbox-inline Arial-font">
-                                                            <input class="checkbox-large" type="checkbox"
-                                                                id="first-turn-checkbox-p1-r1" value="option2" />
-                                                            First
-                                                            Turn
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p1-r1" value="First Turn">
+                                                            First Turn
                                                         </label>
                                                     </div>
 
 
-                                                    <label class="scoring-tiles Arial-font">
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
                                                         <label for="battleTacticR1P1"
-                                                            class="score-sheet-dropdown1">BATTLE TACTIC:</label>
-                                                        <select name="battleTacticR1P1" id="battleTacticR1P1">
-                                                            <option value="Aggressive Expansion">Aggressive Expansion
+                                                            class="score-sheet-dropdown-label">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR1P1" class="score-sheet-dropdown"
+                                                            id="battleTacticR1P1">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
                                                             </option>
-                                                            <option value="Bring It Down!">Bring It Down!</option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
                                                             <option value="Broken Ranks">Broken Ranks</option>
                                                             <option value="Conquer">Conquer</option>
-                                                            <option value="Ferocious Advance">Ferocious Advance</option>
-                                                            <option value="Monstrous Takeover">Monstrous Takeover
+                                                            <option value="Ferocious Advance">Ferocious Advance
                                                             </option>
-                                                            <option value="Savage Spearhead">Savage Spearhead</option>
-                                                            <option value="Slay The Warlord">Slay The Warlord</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
-                                                    </label>
-                                                    <label>
-                                                        <input id="tacticCheckboxR1P1"
-                                                            class="checkbox-large checkbox-inline Arial-font totals-relevant"
-                                                            type="checkbox" />
-                                                    </label>
-                                                    <label class="Arial-font">
-                                                        <input class="checkbox-large Arial-font totals-relevant"
-                                                            type="checkbox" id="withMonsterR1P1" />
-                                                        With
-                                                        Monster/s
-                                                    </label>
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" class="checkbox-large"
+                                                                    id="tacticCheckboxR1P1" value="Achieved">
+                                                            </label>
+                                                        </select>
+                                                    </div>
 
-                                                    <label class="Arial-font">
-                                                        <input class="checkbox-large checkbox-inline totals-relevant"
-                                                            type="checkbox" id="slainMonsterR1P1" />
-                                                        Monster
-                                                        Slain
-                                                    </label>
-                                                    <br>
-                                                    <div class="form-group">
-                                                        <label class="scoring-center"
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR1P1" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR1P1" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+                                                    <!--
+                                                    <div
+                                                        class="first-priority scoring-sheet-space vp-input-box flex-space-evenly">
+                                                        <label class="first-priority"
                                                             for="battle-tactic-text1">Objective VPs:</label>
                                                         <input class="totals-relevant" id="objectiveVPR1P1"
                                                             type="number" />
                                                     </div>
-                                                    <br>
+-->
+                                                    <h5 class="objective-vps1 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton">-</div>
+                                                        <input class="cart-plus-minus-box totals-relevant" type="text"
+                                                            name="qtybutton" value="1" id="objectiveVPR1P1">
+                                                        <div class="inc qtybutton">+</div>
+                                                    </div>
+
                                                     <h3 class="victory-points-heading1 vp-separate" id="vicPointsR1P1">
                                                         Victory
                                                         Points:
@@ -349,6 +376,7 @@
                                         </div>
                                     </div>
                                 </div>
+
 
                                 <div class="col-12">
                                     <div class="accordion-item">
@@ -366,7 +394,7 @@
                                                         2
                                                         -
                                                         Player
-                                                        1</span>
+                                                        1 - [0]</span>
                                                 </span>
                                             </button>
                                         </div>
@@ -435,7 +463,7 @@
                                                     <br>
                                                     <h3 class="victory-points-heading1 vp-separate" id="vicPointsR2P1">
                                                         Victory
-                                                        Points:
+                                                        Points: 0
                                                     </h3>
 
                                                 </div>
@@ -461,7 +489,7 @@
                                                         3
                                                         -
                                                         Player
-                                                        1</span>
+                                                        1 - [0]</span>
                                                 </span>
                                             </button>
                                         </div>
@@ -532,7 +560,7 @@
                                                     <br>
                                                     <h3 class="victory-points-heading1 vp-separate" id="vicPointsR3P1">
                                                         Victory
-                                                        Points:
+                                                        Points: 0
                                                     </h3>
                                                 </div>
 
@@ -557,7 +585,7 @@
                                                         4
                                                         -
                                                         Player
-                                                        1</span>
+                                                        1 - [0]</span>
                                                 </span>
                                             </button>
                                         </div>
@@ -627,7 +655,7 @@
                                                     <br>
                                                     <h3 class="victory-points-heading1 vp-separate" id="vicPointsR4P1">
                                                         Victory
-                                                        Points:
+                                                        Points: 0
                                                     </h3>
 
                                                 </div>
@@ -653,7 +681,7 @@
                                                         5
                                                         -
                                                         Player
-                                                        1</span>
+                                                        1 - [0]</span>
                                                 </span>
                                             </button>
                                         </div>
@@ -724,7 +752,7 @@
                                                     <br>
                                                     <h3 class="victory-points-heading1 vp-separate" id="vicPointsR5P1">
                                                         Victory
-                                                        Points:
+                                                        Points: 0
                                                     </h3>
 
                                                 </div>
@@ -768,7 +796,7 @@
                                                     <h3 class="victory-points-heading1 vp-separate" id="totalPointsP1">
                                                         Total
                                                         Victory
-                                                        Points:
+                                                        Points: 0
                                                     </h3>
 
 
@@ -906,7 +934,7 @@
                                                         1
                                                         -
                                                         Player
-                                                        2</span>
+                                                        2 - [0]</span>
                                             </button>
                                         </div>
                                         <div id="collapseSeven" class="accordion-collapse collapse"
@@ -976,7 +1004,7 @@
                                                     <br>
                                                     <h3 class="victory-points-heading2 vp-separate" id="vicPointsR1P2">
                                                         Victory
-                                                        Points:
+                                                        Points: 0
                                                     </h3>
 
                                                 </div>
@@ -1003,7 +1031,7 @@
                                                         2
                                                         -
                                                         Player
-                                                        2</span>
+                                                        2 - [0]</span>
                                             </button>
                                         </div>
                                         <div id="collapseEight" class="accordion-collapse collapse"
@@ -1073,7 +1101,7 @@
                                                     <br>
                                                     <h3 class="victory-points-heading2 vp-separate" id="vicPointsR2P2">
                                                         Victory
-                                                        Points:
+                                                        Points: 0
                                                     </h3>
 
 
@@ -1101,7 +1129,7 @@
                                                         3
                                                         -
                                                         Player
-                                                        2</span>
+                                                        2 - [0]</span>
                                             </button>
                                         </div>
                                         <div id="collapseNine" class="accordion-collapse collapse"
@@ -1171,7 +1199,7 @@
                                                     <br>
                                                     <h3 class="victory-points-heading2 vp-separate" id="vicPointsR3P2">
                                                         Victory
-                                                        Points:
+                                                        Points: 0
                                                     </h3>
 
 
@@ -1199,7 +1227,7 @@
                                                         4
                                                         -
                                                         Player
-                                                        2</span>
+                                                        2 - [0]</span>
                                             </button>
                                         </div>
                                         <div id="collapseTen" class="accordion-collapse collapse"
@@ -1269,7 +1297,7 @@
                                                     <br>
                                                     <h3 class="victory-points-heading2 vp-separate" id="vicPointsR4P2">
                                                         Victory
-                                                        Points:
+                                                        Points: 0
                                                     </h3>
 
 
@@ -1297,7 +1325,7 @@
                                                         5
                                                         -
                                                         Player
-                                                        2</span>
+                                                        2 - [0]</span>
                                             </button>
                                         </div>
                                         <div id="collapseEleven" class="accordion-collapse collapse"
@@ -1367,7 +1395,7 @@
                                                     <br>
                                                     <h3 class="victory-points-heading2 vp-separate" id="vicPointsR5P2">
                                                         Victory
-                                                        Points:
+                                                        Points: 0
                                                     </h3>
 
                                                 </div>
@@ -1412,7 +1440,7 @@
                                                     <h3 class="victory-points-heading2 vp-separate" id="totalPointsP2">
                                                         Total
                                                         Victory
-                                                        Points:
+                                                        Points: 0
                                                     </h3>
 
 
@@ -1433,290 +1461,34 @@
 
 
 
+        <!-- ===========scoring Section Ends Here========== -->
 
 
+        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+        <script src="assets/js/circularProgressBar.min.js"></script>
+        <script src="assets/js/isotope.pkgd.min.js"></script>
+        <script src="assets/js/swiper.min.js"></script>
+        <script src="assets/js/lightcase.js"></script>
+        <script src="assets/js/wayVictory Points.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/score-sheet.js"></script>
 
-
-        <div class="scoring-section padding-top padding-bottom">
-            <div class="container">
-                <div class="section-wrapper">
-                    <div class="row g-4">
-                        <div class="col-lg-6 col-12">
-                            <div class="scoring-list" id="accordionExample">
-                                <div class="row g-4 justify-content-center">
-                                    <div class="col-12">
-                                        <div class="accordion-item">
-                                            <div class="accordion-header" id="headingSetup1">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapseSetup1"
-                                                    aria-expanded="true" aria-controls="collapseSetup1">
-                                                    <span
-                                                        class="accor-header-inner d-flex flex-wrap align-items-center">
-                                                        <span class="accor-thumb scoring-icons-display">
-                                                            <img src="assets/images/scoring-dice.png"
-                                                                alt="scoring-thumb">
-                                                        </span>
-                                                        <span class="accor-title"
-                                                            style="font-family: 'mistlock_regular'; font-size: 25pt">
-                                                            Setup
-                                                            -
-                                                            Player
-                                                            1</span>
-                                                    </span>
-                                                </button>
-                                            </div>
-                                            <div id="collapseSetup1" class="accordion-collapse collapse"
-                                                aria-labelledby="headingSetup1" data-bs-parent="#accordionExample">
-                                                <div class="scoring-row">
-                                                    <div class="scoring-tiles">
-
-                                                        <div class="form-group">
-                                                            <label class="scoring-center" for="player-name1">
-                                                            </label>
-                                                            <input id="player-name1" class="form-control" type="text"
-                                                                placeholder="Name" />
-
-                                                        </div>
-                                                        <br>
-                                                        <label for="factionP1"
-                                                            class="score-sheet-dropdown1">FACTION:</label>
-                                                        <select name="factionP1" id="factionP1">
-                                                            <option value="Beasts of Chaos">Beasts of Chaos</option>
-                                                            <option value="Blades of Khorne">Blades of Khorne</option>
-                                                            <option value="Cities of Sigmar">Cities of Sigmar</option>
-                                                            <option value="Daughters of Khaine">Daughters of Khaine
-                                                            </option>
-                                                            <option value="Disciples of Tzeentch">Disciples of Tzeentch
-                                                            </option>
-                                                            <option value="Flesh-eater Courts">Flesh-eater Courts
-                                                            </option>
-                                                            <option value="Fyreslayers">Fyreslayers</option>
-                                                            <option value="Gloomspite Gitz">Gloomspite Gitz</option>
-                                                            <option value="Hedonites of Slaanesh">Hedonites of Slaanesh
-                                                            </option>
-                                                            <option value="Idoneth Deepkin">Idoneth Deepkin</option>
-                                                            <option value="Kharadron Overlords">Kharadron Overlords
-                                                            </option>
-                                                            <option value="Legion of the First Prince">Legion of the
-                                                                First
-                                                                Prince</option>
-                                                            <option value="Lumineth Realm Lords">Lumineth Realm Lords
-                                                            </option>
-                                                            <option value="Maggotkin of Nurgle">Maggotkin of Nurgle
-                                                            </option>
-                                                            <option value="Nighthaunt">Nighthaunt</option>
-                                                            <option value="Ogor Mawtribes">Ogor Mawtribes</option>
-                                                            <option value="Orruk Warclans">Orruk Warclans</option>
-                                                            <option value="Ossiarch Bonereapers">Ossiarch Bonereapers
-                                                            </option>
-                                                            <option value="Seraphon">Seraphon</option>
-                                                            <option value="Skaven">Skaven</option>
-                                                            <option value="Slaves to Darkness">Slaves to Darkness
-                                                            </option>
-                                                            <option value="Sons of Behemat">Sons of Behemat</option>
-                                                            <option value="Soulblight Gravelords">Soulblight Gravelords
-                                                            </option>
-                                                            <option value="Stormcast Eternals">Stormcast Eternals
-                                                            </option>
-                                                            <option value="Sylvaneth">Sylvaneth</option>
-                                                        </select>
-                                                        <br>
-                                                        <br>
-                                                        <div class="form-group">
-                                                            <label class="scoring-center" for="subfaction1">
-                                                            </label>
-                                                            <input id="subfaction1" class="form-control" type="text"
-                                                                placeholder="Subfaction" />
-
-                                                        </div>
-                                                        <br>
-                                                        <label for="grandStrategySelect"
-                                                            class="score-sheet-dropdown1">GRAND
-                                                            STRATEGY:</label>
-                                                        <select name="grandStrategySelect" id="grandStrategySelect">
-                                                            <option value="Beast Master">Beast Master</option>
-                                                            <option value="Dominating Presence">Dominating Presence
-                                                            </option>
-                                                            <option value="Hold the Line">Hold the Line</option>
-                                                            <option value="Pillars of Belief">Pillars of Belief</option>
-                                                            <option value="Predator's Domain">Predator's Domain</option>
-                                                            <option value="Prized Sorcery">Prized Sorcery</option>
-                                                            <option value="Sever the Head">Sever the Head</option>
-                                                            <option value="Vendetta">Vendetta</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="accordion-item">
-                                            <div class="accordion-header" id="headingOne">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                                    aria-expanded="true" aria-controls="collapseOne">
-                                                    <span
-                                                        class="accor-header-inner d-flex flex-wrap align-items-center">
-                                                        <span class="accor-thumb scoring-icons-display">
-                                                            <img src="assets/images/scoring-icon-1.png"
-                                                                alt="scoring-thumb">
-                                                        </span>
-                                                        <span class="accor-title" id="headerR1P1"
-                                                            style="font-family: 'mistlock_regular'; font-size: 25pt">
-                                                            Round
-                                                            1
-                                                            -
-                                                            Player
-                                                            1</span>
-                                                    </span>
-                                                </button>
-                                            </div>
-
-                                            <div id="collapseOne" class="accordion-collapse collapse"
-                                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                <div class="scoring-row flex-space-evenly">
-                                                    <div class="scoring-tiles">
-
-                                                        <div class="container flex-space-evenly">
-                                                            <label class="checkbox-inline first-priority">
-                                                                <input type="checkbox" class="checkbox-medium"
-                                                                    id="priority-checkbox-p1-r1" value="Priority">
-                                                                Priority
-                                                            </label>
-                                                            <label class="checkbox-inline first-priority">
-                                                                <input type="checkbox" class="checkbox-medium"
-                                                                    id="first-turn-checkbox-p1-r1" value="First Turn">
-                                                                First Turn
-                                                            </label>
-                                                        </div>
-
-
-                                                        <div class="battle-tactic-position scoring-sheet-space">
-                                                            <label class="checkbox-inline">
-                                                                <input type="checkbox" class="checkbox-large"
-                                                                    id="priority-checkbox-p1-r1" value="Achieved">
-                                                            </label>
-
-                                                            <label for="battleTacticR1P1"
-                                                                class="score-sheet-dropdown-label">BATTLE
-                                                                TACTIC:</label>
-                                                            <select name="battleTacticR1P1" class="score-sheet-dropdown"
-                                                                id="battleTacticR1P1">
-                                                                <option value="Aggressive Expansion">Aggressive
-                                                                    Expansion
-                                                                </option>
-                                                                <option value="Bring It Down!">Bring It Down!
-                                                                </option>
-                                                                <option value="Broken Ranks">Broken Ranks</option>
-                                                                <option value="Conquer">Conquer</option>
-                                                                <option value="Ferocious Advance">Ferocious Advance
-                                                                </option>
-                                                                <option value="Monstrous Takeover">Monstrous
-                                                                    Takeover
-                                                                </option>
-                                                                <option value="Savage Spearhead">Savage Spearhead
-                                                                </option>
-                                                                <option value="Slay The Warlord">Slay The Warlord
-                                                                </option>
-                                                                <option value="Other">(Other - Faction Specific)
-                                                                </option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="container flex-space-evenly scoring-sheet-space">
-                                                            <label class="checkbox-inline first-priority">
-                                                                <input type="checkbox"
-                                                                    class="checkbox-medium totals-relevant"
-                                                                    id="withMonsterR1P1" value="With
-                                                Monster/s">
-                                                                With
-                                                                Monster/s
-                                                            </label>
-                                                            <label class="checkbox-inline first-priority">
-                                                                <input type="checkbox"
-                                                                    class="checkbox-medium totals-relevant"
-                                                                    id="slainMonsterR1P1" value="Monster
-                                                Slain">
-                                                                Monster
-                                                                Slain
-                                                            </label>
-                                                        </div>
-                                                        <!--
-                                                        <div
-                                                            class="first-priority scoring-sheet-space vp-input-box flex-space-evenly">
-                                                            <label class="first-priority"
-                                                                for="battle-tactic-text1">Objective VPs:</label>
-                                                            <input class="totals-relevant" id="objectiveVPR1P1"
-                                                                type="number" />
-                                                        </div>
--->
-                                                        <h5 class="objective-vps1 scoring-sheet-space">Objective VPs:
-                                                        </h5>
-
-                                                        <div class="cart-plus-minus">
-                                                            <div class="dec qtybutton">-</div>
-                                                            <input class="cart-plus-minus-box totals-relevant"
-                                                                type="text" name="qtybutton" value="1"
-                                                                id="objectiveVPR1P1">
-                                                            <div class="inc qtybutton">+</div>
-                                                        </div>
-
-                                                        <h3 class="victory-points-heading1 vp-separate"
-                                                            id="vicPointsR1P1">
-                                                            Victory
-                                                            Points:
-                                                        </h3>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <!-- ===========scoring Section Ends Here========== -->
-
-
-
-
-
-
-
-
-
-                                    <script
-                                        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                                        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                                        crossorigin="anonymous"></script>
-                                    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-                                    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-                                    <script src="assets/js/circularProgressBar.min.js"></script>
-                                    <script src="assets/js/isotope.pkgd.min.js"></script>
-                                    <script src="assets/js/swiper.min.js"></script>
-                                    <script src="assets/js/lightcase.js"></script>
-                                    <script src="assets/js/wayVictory Points.min.js"></script>
-                                    <script src="assets/js/wow.min.js"></script>
-                                    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-                                    <script src="assets/js/plugins.js"></script>
-                                    <script src="assets/js/main.js"></script>
-                                    <script src="assets/js/score-sheet.js"></script>
-
-                                    <script>
-                                        window.ga = function () {
-                                            ga.q.push(arguments)
-                                        };
-                                        ga.q = [];
-                                        ga.l = +new Date;
-                                        ga('create', 'UA-XXXXX-Y', 'auto');
-                                        ga('set', 'anonymizeIp', true);
-                                        ga('set', 'transport', 'beacon');
-                                        ga('send', 'pageview')
-                                    </script>
-                                    <script src="https://www.google-analytics.com/analytics.js" async></script>
+        <script>
+            window.ga = function () {
+                ga.q.push(arguments)
+            };
+            ga.q = [];
+            ga.l = +new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('set', 'anonymizeIp', true);
+            ga('set', 'transport', 'beacon');
+            ga('send', 'pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async></script>
 
 
 
