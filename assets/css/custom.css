@@ -7,6 +7,10 @@
 
 }
 
+.flex-space-evenly {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 #battleplan-icon1 {
     color: white;
@@ -486,9 +490,7 @@ input.checkbox-large {
 
 @media screen and (min-width: 1025px) {
     .first-priority {
-        margin-left: 15%;
-        margin-right: 10%;
-        font-size: 20px;
+        font-size: 22px;
     }
 }
 
@@ -500,15 +502,15 @@ input.checkbox-large {
     .score-sheet-dropdown-label {
         font-size: 20px;
         font-weight: bold;
-        color: #000080;
+
     }
 }
 
 @media screen and (min-width: 1025px) {
     .score-sheet-dropdown-label {
-        font-size: 30px;
+        font-size: 25px;
         font-weight: bold;
-        color: #000080;
+
         margin-left: 10px;
         margin-right: 5%;
     }
@@ -527,4 +529,31 @@ input.checkbox-large {
         width: 50%;
         margin-right: 20px;
     }
+}
+
+.battle-tactic-position {
+    text-align: center;
+}
+
+.scoring-sheet-space {
+    margin-top: 20px;
+}
+
+.vp-input-box {
+    border: blue;
+    background-color: yellow;
+
+}
+
+input[type='number'] {
+    width: 50px;
+    color: red;
+
+}
+
+.objective-vps1 {
+    font-family: 'mistlock_regular';
+    font-size: 25px;
+    text-align: center;
+    color: black;
 }

@@ -6,7 +6,9 @@
     <title>Scoring Sheet | AOS Toolbox</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/icofont.min.css">
     <link rel="stylesheet" href="assets/css/swiper.min.css">
@@ -15,10 +17,8 @@
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="assets/fonts/stylesheet.css" type="text/css" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/e95bd3114f.js" crossorigin="anonymous"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e95bd3114f.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -1545,11 +1545,7 @@
                                                             <option value="Vendetta">Vendetta</option>
                                                             <option value="Other">(Other - Faction Specific)</option>
                                                         </select>
-
                                                     </div>
-
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -1577,13 +1573,13 @@
                                                     </span>
                                                 </button>
                                             </div>
+
                                             <div id="collapseOne" class="accordion-collapse collapse"
                                                 aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                <div class="scoring-row">
+                                                <div class="scoring-row flex-space-evenly">
                                                     <div class="scoring-tiles">
 
-
-                                                        <div class="container">
+                                                        <div class="container flex-space-evenly">
                                                             <label class="checkbox-inline first-priority">
                                                                 <input type="checkbox" class="checkbox-medium"
                                                                     id="priority-checkbox-p1-r1" value="Priority">
@@ -1597,7 +1593,11 @@
                                                         </div>
 
 
-                                                        <div class="scoring-tiles">
+                                                        <div class="battle-tactic-position scoring-sheet-space">
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" class="checkbox-large"
+                                                                    id="priority-checkbox-p1-r1" value="Achieved">
+                                                            </label>
 
                                                             <label for="battleTacticR1P1"
                                                                 class="score-sheet-dropdown-label">BATTLE
@@ -1622,81 +1622,101 @@
                                                                 </option>
                                                                 <option value="Other">(Other - Faction Specific)
                                                                 </option>
-
-                                                                <label class="checkbox-inline score-sheet-dropdown1">
-                                                                    <input type="checkbox" class="checkbox-large"
-                                                                        id="priority-checkbox-p1-r1" value="Achieved">
-                                                                </label>
-                                                                </label>
-
-                                                                <label class="Arial-font">
-                                                                    <input class="checkbox Arial-font totals-relevant"
-                                                                        type="checkbox" id="withMonsterR1P1" />
-                                                                    With
-                                                                    Monster/s
-                                                                </label>
-
-                                                                <label class="Arial-font">
-                                                                    <input
-                                                                        class="checkbox checkbox-inline totals-relevant"
-                                                                        type="checkbox" id="slainMonsterR1P1" />
-                                                                    Monster
-                                                                    Slain
-                                                                </label>
-                                                                <br>
-                                                                <div class="form-group">
-                                                                    <label class="scoring-center"
-                                                                        for="battle-tactic-text1">Objective VPs:</label>
-                                                                    <input class="totals-relevant" id="objectiveVPR1P1"
-                                                                        type="number" />
-                                                                </div>
-                                                                <br>
-                                                                <h3 class="victory-points-heading1 vp-separate"
-                                                                    id="vicPointsR1P1">
-                                                                    Victory
-                                                                    Points:
-                                                                </h3>
-
+                                                            </select>
                                                         </div>
 
+                                                        <div class="container flex-space-evenly scoring-sheet-space">
+                                                            <label class="checkbox-inline first-priority">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-medium totals-relevant"
+                                                                    id="withMonsterR1P1" value="With
+                                                Monster/s">
+                                                                With
+                                                                Monster/s
+                                                            </label>
+                                                            <label class="checkbox-inline first-priority">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-medium totals-relevant"
+                                                                    id="slainMonsterR1P1" value="Monster
+                                                Slain">
+                                                                Monster
+                                                                Slain
+                                                            </label>
+                                                        </div>
+                                                        <!--
+                                                        <div
+                                                            class="first-priority scoring-sheet-space vp-input-box flex-space-evenly">
+                                                            <label class="first-priority"
+                                                                for="battle-tactic-text1">Objective VPs:</label>
+                                                            <input class="totals-relevant" id="objectiveVPR1P1"
+                                                                type="number" />
+                                                        </div>
+-->
+                                                        <h5 class="objective-vps1 scoring-sheet-space">Objective VPs:
+                                                        </h5>
+
+                                                        <div class="cart-plus-minus">
+                                                            <div class="dec qtybutton">-</div>
+                                                            <input class="cart-plus-minus-box totals-relevant"
+                                                                type="text" name="qtybutton" value="1"
+                                                                id="objectiveVPR1P1">
+                                                            <div class="inc qtybutton">+</div>
+                                                        </div>
+
+                                                        <h3 class="victory-points-heading1 vp-separate"
+                                                            id="vicPointsR1P1">
+                                                            Victory
+                                                            Points:
+                                                        </h3>
+
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
 
 
-                                        <!-- ===========scoring Section Ends Here========== -->
+                                    <!-- ===========scoring Section Ends Here========== -->
 
-                                        <script
-                                            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                                            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                                            crossorigin="anonymous"></script>
-                                        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-                                        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-                                        <script src="assets/js/circularProgressBar.min.js"></script>
-                                        <script src="assets/js/isotope.pkgd.min.js"></script>
-                                        <script src="assets/js/swiper.min.js"></script>
-                                        <script src="assets/js/lightcase.js"></script>
-                                        <script src="assets/js/wayVictory Points.min.js"></script>
-                                        <script src="assets/js/wow.min.js"></script>
-                                        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-                                        <script src="assets/js/plugins.js"></script>
-                                        <script src="assets/js/main.js"></script>
-                                        <script src="assets/js/score-sheet.js"></script>
 
-                                        <script>
-                                            window.ga = function () {
-                                                ga.q.push(arguments)
-                                            };
-                                            ga.q = [];
-                                            ga.l = +new Date;
-                                            ga('create', 'UA-XXXXX-Y', 'auto');
-                                            ga('set', 'anonymizeIp', true);
-                                            ga('set', 'transport', 'beacon');
-                                            ga('send', 'pageview')
-                                        </script>
-                                        <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+
+
+
+
+
+                                    <script
+                                        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                                        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                                        crossorigin="anonymous"></script>
+                                    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+                                    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+                                    <script src="assets/js/circularProgressBar.min.js"></script>
+                                    <script src="assets/js/isotope.pkgd.min.js"></script>
+                                    <script src="assets/js/swiper.min.js"></script>
+                                    <script src="assets/js/lightcase.js"></script>
+                                    <script src="assets/js/wayVictory Points.min.js"></script>
+                                    <script src="assets/js/wow.min.js"></script>
+                                    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+                                    <script src="assets/js/plugins.js"></script>
+                                    <script src="assets/js/main.js"></script>
+                                    <script src="assets/js/score-sheet.js"></script>
+
+                                    <script>
+                                        window.ga = function () {
+                                            ga.q.push(arguments)
+                                        };
+                                        ga.q = [];
+                                        ga.l = +new Date;
+                                        ga('create', 'UA-XXXXX-Y', 'auto');
+                                        ga('set', 'anonymizeIp', true);
+                                        ga('set', 'transport', 'beacon');
+                                        ga('send', 'pageview')
+                                    </script>
+                                    <script src="https://www.google-analytics.com/analytics.js" async></script>
 
 
 
