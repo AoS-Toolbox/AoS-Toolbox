@@ -17,11 +17,17 @@ let rulerOn = false;
 let rulerLine = null;
 let measurementObj = null;
 
+let measureMovementCheckbox = document.getElementById("measure-movement-checkbox");
+let measureMovement = false;
+
 // INIIIALISE STAGE
 function init() {
     stage = new createjs.Stage("game-board");
+    stage.enableMouseOver();
     stage.enableDOMEvents(true);
     loadBackground();
+  
+    measureMovementCheckbox.addEventListener("input", toggleMeasureMovement);
   
     // Global event listeners
     stage.addEventListener("stagemousedown", clearObjectSelection);
@@ -105,8 +111,8 @@ function toggleTokenPlacement(forceOff) {
   }
 }
 
-function toggleRuler() {
-    if (!rulerOn) {
+function toggleRuler(forceOff) {
+    if (!rulerOn && forceOff === undefined) {
         // Turn ruler on, force placement to toggle off, listen for mouse on stage,
         // show ruler button status
         rulerOn = true;
@@ -119,6 +125,10 @@ function toggleRuler() {
         stage.removeEventListener("stagemousedown", beginRuler);
         document.getElementById('btn-ruler').classList.remove("button-on");
     }
+}
+
+function toggleMeasureMovement() {
+  measureMovement = (measureMovementCheckbox.checked === true) ? true : false;
 }
 
 // OBJECTIVE & MODEL PLACING
@@ -571,15 +581,18 @@ function keyboardHandler(event) {
 }
 
 function drag(event) {
-    event.target.x = event.stageX;
-    event.target.y = event.stageY;
+    if (!rulerOn || measureMovement) {
+      event.target.x = event.stageX;
+      event.target.y = event.stageY;
   
-    if (event.target.type === "token") {
-      event.target.text.x = event.stageX;
-      event.target.text.y = event.stageY;
+      if (event.target.type === "token") {
+        event.target.text.x = event.stageX;
+        event.target.text.y = event.stageY;
+      }
+  
+      stage.update();
     }
-  
-    stage.update();
+    
 }
 
 function deleteObject() {
