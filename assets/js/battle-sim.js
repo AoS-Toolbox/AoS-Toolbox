@@ -23,6 +23,7 @@ let measureMovement = false;
 // INIIIALISE STAGE
 function init() {
     stage = new createjs.Stage("game-board");
+    stage.enableMouseOver();
     stage.enableDOMEvents(true);
     loadBackground();
   
