@@ -52,7 +52,7 @@ class Player {
     if (values.tacticScored.checked === true) this.scores["round" + roundNum] += 2;
     if (values.withMonster.checked === true) this.scores["round" + roundNum]++;
     if (values.slainMonster.checked === true) this.scores["round" + roundNum]++;
-    if (values.objectivePoints.value > 0) this.scores["round" + roundNum] += parseInt(values.objectivePoints.value);
+    this.scores["round" + roundNum] += parseInt(values.objectivePoints.value);
     
     console.log("Round " + roundNum + ", Player " + this.id + ": scored " + this.scores["round" + roundNum]);
   }
