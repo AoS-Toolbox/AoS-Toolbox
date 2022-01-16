@@ -83,6 +83,7 @@ const player2Obj = new Player(2);
 // Update values on interaction with value-relevant input field
 document.querySelectorAll(".totals-relevant").forEach((input) => {
   input.addEventListener("input", updateAll);
+  input.addEventListener("change", updateAll);
 })
 
 // Update values when custom buttons pressed for Objective VPs
