@@ -52,7 +52,7 @@ class Player {
     if (values.tacticScored.checked === true) this.scores["round" + roundNum] += 2;
     if (values.withMonster.checked === true) this.scores["round" + roundNum]++;
     if (values.slainMonster.checked === true) this.scores["round" + roundNum]++;
-    if (values.objectivePoints.value > 0) this.scores["round" + roundNum] += parseInt(values.objectivePoints.value);
+    this.scores["round" + roundNum] += parseInt(values.objectivePoints.value);
     
     console.log("Round " + roundNum + ", Player " + this.id + ": scored " + this.scores["round" + roundNum]);
   }
@@ -79,8 +79,16 @@ class Player {
 
 const player1Obj = new Player(1);
 const player2Obj = new Player(2);
+
+// Update values on interaction with value-relevant input field
 document.querySelectorAll(".totals-relevant").forEach((input) => {
   input.addEventListener("input", updateAll);
+  input.addEventListener("change", updateAll);
+})
+
+// Update values when custom buttons pressed for Objective VPs
+document.querySelectorAll(".number-input-btn").forEach((input) => {
+  input.addEventListener("click", updateAll);
 })
 
 function updateAll() {
