@@ -2,6 +2,7 @@
 <html class="no-js" lang="zxx">
 
 <head>
+
     <meta charset="utf-8">
     <title>Scoring Sheet | AOS Toolbox</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,10 +56,11 @@
                         <div class="header-top-area">
                             <ul class="left">
                                 <li>
-                                    <i class="icofont-ui-call"></i> <span>+61 0000 000 000</span>
+                                    <i class="icofont-email"></i> <a
+                                        href="mailto:aos.tools.dev@gmail.com"><span>aos.tools.dev@gmail.com</span></a>
                                 </li>
                                 <li>
-                                    <i class="icofont-location-pin"></i> Australia
+                                    <i class=""></i>
                                 </li>
                             </ul>
                             <ul class="social-icons d-flex align-items-center">
@@ -175,7 +177,7 @@
                                         </div>
                                         <div id="collapseSetup1" class="accordion-collapse collapse"
                                             aria-labelledby="headingSetup1" data-bs-parent="#accordionExample">
-                                            <div class="scoring-row">
+                                            <div class="scoring-row flex-space-evenly">
                                                 <div class="scoring-tiles">
 
                                                     <div class="form-group">
@@ -183,46 +185,54 @@
                                                         </label>
                                                         <input id="player-name1" class="form-control" type="text"
                                                             placeholder="Name" />
-
                                                     </div>
-                                                    <br>
-                                                    <label for="factionP1"
-                                                        class="score-sheet-dropdown1">FACTION:</label>
-                                                    <select name="factionP1" id="factionP1">
-                                                        <option value="Beasts of Chaos">Beasts of Chaos</option>
-                                                        <option value="Blades of Khorne">Blades of Khorne</option>
-                                                        <option value="Cities of Sigmar">Cities of Sigmar</option>
-                                                        <option value="Daughters of Khaine">Daughters of Khaine</option>
-                                                        <option value="Disciples of Tzeentch">Disciples of Tzeentch
-                                                        </option>
-                                                        <option value="Flesh-eater Courts">Flesh-eater Courts</option>
-                                                        <option value="Fyreslayers">Fyreslayers</option>
-                                                        <option value="Gloomspite Gitz">Gloomspite Gitz</option>
-                                                        <option value="Hedonites of Slaanesh">Hedonites of Slaanesh
-                                                        </option>
-                                                        <option value="Idoneth Deepkin">Idoneth Deepkin</option>
-                                                        <option value="Kharadron Overlords">Kharadron Overlords</option>
-                                                        <option value="Legion of the First Prince">Legion of the First
-                                                            Prince</option>
-                                                        <option value="Lumineth Realm Lords">Lumineth Realm Lords
-                                                        </option>
-                                                        <option value="Maggotkin of Nurgle">Maggotkin of Nurgle</option>
-                                                        <option value="Nighthaunt">Nighthaunt</option>
-                                                        <option value="Ogor Mawtribes">Ogor Mawtribes</option>
-                                                        <option value="Orruk Warclans">Orruk Warclans</option>
-                                                        <option value="Ossiarch Bonereapers">Ossiarch Bonereapers
-                                                        </option>
-                                                        <option value="Seraphon">Seraphon</option>
-                                                        <option value="Skaven">Skaven</option>
-                                                        <option value="Slaves to Darkness">Slaves to Darkness</option>
-                                                        <option value="Sons of Behemat">Sons of Behemat</option>
-                                                        <option value="Soulblight Gravelords">Soulblight Gravelords
-                                                        </option>
-                                                        <option value="Stormcast Eternals">Stormcast Eternals</option>
-                                                        <option value="Sylvaneth">Sylvaneth</option>
-                                                    </select>
-                                                    <br>
-                                                    <br>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+                                                        <label for="factionP1"
+                                                            class="score-sheet-dropdown-label1">FACTION:</label>
+                                                        <select name="factionP1" id="factionP1"
+                                                            class="score-sheet-dropdown-setup">
+                                                            <option value="Beasts of Chaos">Beasts of Chaos</option>
+                                                            <option value="Blades of Khorne">Blades of Khorne</option>
+                                                            <option value="Cities of Sigmar">Cities of Sigmar</option>
+                                                            <option value="Daughters of Khaine">Daughters of Khaine
+                                                            </option>
+                                                            <option value="Disciples of Tzeentch">Disciples of Tzeentch
+                                                            </option>
+                                                            <option value="Flesh-eater Courts">Flesh-eater Courts
+                                                            </option>
+                                                            <option value="Fyreslayers">Fyreslayers</option>
+                                                            <option value="Gloomspite Gitz">Gloomspite Gitz</option>
+                                                            <option value="Hedonites of Slaanesh">Hedonites of Slaanesh
+                                                            </option>
+                                                            <option value="Idoneth Deepkin">Idoneth Deepkin</option>
+                                                            <option value="Kharadron Overlords">Kharadron Overlords
+                                                            </option>
+                                                            <option value="Legion of the First Prince">Legion of the
+                                                                First
+                                                                Prince</option>
+                                                            <option value="Lumineth Realm Lords">Lumineth Realm Lords
+                                                            </option>
+                                                            <option value="Maggotkin of Nurgle">Maggotkin of Nurgle
+                                                            </option>
+                                                            <option value="Nighthaunt">Nighthaunt</option>
+                                                            <option value="Ogor Mawtribes">Ogor Mawtribes</option>
+                                                            <option value="Orruk Warclans">Orruk Warclans</option>
+                                                            <option value="Ossiarch Bonereapers">Ossiarch Bonereapers
+                                                            </option>
+                                                            <option value="Seraphon">Seraphon</option>
+                                                            <option value="Skaven">Skaven</option>
+                                                            <option value="Slaves to Darkness">Slaves to Darkness
+                                                            </option>
+                                                            <option value="Sons of Behemat">Sons of Behemat</option>
+                                                            <option value="Soulblight Gravelords">Soulblight Gravelords
+                                                            </option>
+                                                            <option value="Stormcast Eternals">Stormcast Eternals
+                                                            </option>
+                                                            <option value="Sylvaneth">Sylvaneth</option>
+                                                        </select>
+                                                    </div>
+
                                                     <div class="form-group">
                                                         <label class="scoring-center" for="subfaction1">
                                                         </label>
@@ -231,23 +241,30 @@
 
                                                     </div>
                                                     <br>
-                                                    <label for="grandStrategySelect" class="score-sheet-dropdown1">GRAND
-                                                        STRATEGY:</label>
-                                                    <select name="grandStrategySelect" id="grandStrategySelect">
-                                                        <option value="Beast Master">Beast Master</option>
-                                                        <option value="Dominating Presence">Dominating Presence</option>
-                                                        <option value="Hold the Line">Hold the Line</option>
-                                                        <option value="Pillars of Belief">Pillars of Belief</option>
-                                                        <option value="Predator's Domain">Predator's Domain</option>
-                                                        <option value="Prized Sorcery">Prized Sorcery</option>
-                                                        <option value="Sever the Head">Sever the Head</option>
-                                                        <option value="Vendetta">Vendetta</option>
-                                                        <option value="Other">(Other - Faction Specific)</option>
-                                                    </select>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+                                                        <label for="grandStrategySelect"
+                                                            class="score-sheet-dropdown-label1"
+                                                            class="score-sheet-dropdown-setup">GRAND
+                                                            STRATEGY:</label>
+                                                        <select name="grandStrategySelect" id="grandStrategySelect"
+                                                            class="score-sheet-dropdown-setup">
+                                                            <option value="Beast Master">Beast Master</option>
+                                                            <option value="Dominating Presence">Dominating Presence
+                                                            </option>
+                                                            <option value="Hold the Line">Hold the Line</option>
+                                                            <option value="Pillars of Belief">Pillars of Belief</option>
+                                                            <option value="Predator's Domain">Predator's Domain</option>
+                                                            <option value="Prized Sorcery">Prized Sorcery</option>
+                                                            <option value="Sever the Head">Sever the Head</option>
+                                                            <option value="Vendetta">Vendetta</option>
+                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                        </select>
+                                                    </div>
+
+
 
                                                 </div>
-
-
 
                                             </div>
                                         </div>
@@ -297,7 +314,7 @@
                                                     <div class="battle-tactic-position scoring-sheet-space">
 
                                                         <label for="battleTacticR1P1"
-                                                            class="score-sheet-dropdown-label">BATTLE
+                                                            class="score-sheet-dropdown-label1">BATTLE
                                                             TACTIC:</label>
                                                         <select name="battleTacticR1P1" class="score-sheet-dropdown"
                                                             id="battleTacticR1P1">
@@ -353,8 +370,8 @@
 
                                                     <div class="cart-plus-minus">
                                                         <div class="dec qtybutton number-input-btn">-</div>
-                                                        <input class="cart-plus-minus-box" type="text"
-                                                            name="qtybutton" value="0" id="objectiveVPR1P1">
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0" id="objectiveVPR1P1">
                                                         <div class="inc qtybutton number-input-btn">+</div>
                                                     </div>
 
@@ -414,19 +431,25 @@
 
                                                     <label class="scoring-tiles Arial-font">
                                                         <label for="battleTacticR2P1"
-                                                            class="score-sheet-dropdown1">BATTLE TACTIC:</label>
+                                                            class="score-sheet-dropdown1">BATTLE
+                                                            TACTIC:</label>
                                                         <select name="battleTacticR2P1" id="battleTacticR2P1">
-                                                            <option value="Aggressive Expansion">Aggressive Expansion
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
                                                             </option>
                                                             <option value="Bring It Down!">Bring It Down!</option>
                                                             <option value="Broken Ranks">Broken Ranks</option>
                                                             <option value="Conquer">Conquer</option>
-                                                            <option value="Ferocious Advance">Ferocious Advance</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
                                                             <option value="Monstrous Takeover">Monstrous Takeover
                                                             </option>
-                                                            <option value="Savage Spearhead">Savage Spearhead</option>
-                                                            <option value="Slay The Warlord">Slay The Warlord</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
                                                     </label>
                                                     <label>
                                                         <input id="tacticCheckboxR2P1"
@@ -449,7 +472,8 @@
                                                     <br>
                                                     <div class="form-group">
                                                         <label class="scoring-center"
-                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                            for="battle-tactic-text1">Objective
+                                                            VPs:</label>
                                                         <input id="objectiveVPR2P1" type="number"
                                                             class="totals-relevant" />
                                                     </div>
@@ -511,19 +535,25 @@
                                                     <label class="scoring-tiles Arial-font">
 
                                                         <label for="battleTacticR3P1"
-                                                            class="score-sheet-dropdown1">BATTLE TACTIC:</label>
+                                                            class="score-sheet-dropdown1">BATTLE
+                                                            TACTIC:</label>
                                                         <select name="battleTacticR3P1" id="battleTacticR3P1">
-                                                            <option value="Aggressive Expansion">Aggressive Expansion
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
                                                             </option>
                                                             <option value="Bring It Down!">Bring It Down!</option>
                                                             <option value="Broken Ranks">Broken Ranks</option>
                                                             <option value="Conquer">Conquer</option>
-                                                            <option value="Ferocious Advance">Ferocious Advance</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
                                                             <option value="Monstrous Takeover">Monstrous Takeover
                                                             </option>
-                                                            <option value="Savage Spearhead">Savage Spearhead</option>
-                                                            <option value="Slay The Warlord">Slay The Warlord</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
                                                     </label>
                                                     <label>
                                                         <input id="tacticCheckboxR3P1"
@@ -546,7 +576,8 @@
                                                     <br>
                                                     <div class="form-group">
                                                         <label class="scoring-center"
-                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                            for="battle-tactic-text1">Objective
+                                                            VPs:</label>
                                                         <input id="objectiveVPR3P1" type="number"
                                                             class="totals-relevant" />
                                                     </div>
@@ -606,19 +637,25 @@
                                                     <label class="scoring-tiles Arial-font">
 
                                                         <label for="battleTacticR4P1"
-                                                            class="score-sheet-dropdown1">BATTLE TACTIC:</label>
+                                                            class="score-sheet-dropdown1">BATTLE
+                                                            TACTIC:</label>
                                                         <select name="battleTacticR4P1" id="battleTacticR4P1">
-                                                            <option value="Aggressive Expansion">Aggressive Expansion
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
                                                             </option>
                                                             <option value="Bring It Down!">Bring It Down!</option>
                                                             <option value="Broken Ranks">Broken Ranks</option>
                                                             <option value="Conquer">Conquer</option>
-                                                            <option value="Ferocious Advance">Ferocious Advance</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
                                                             <option value="Monstrous Takeover">Monstrous Takeover
                                                             </option>
-                                                            <option value="Savage Spearhead">Savage Spearhead</option>
-                                                            <option value="Slay The Warlord">Slay The Warlord</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
                                                     </label>
                                                     <label>
                                                         <input id="tacticCheckboxR4P1"
@@ -641,7 +678,8 @@
                                                     <br>
                                                     <div class="form-group">
                                                         <label class="scoring-center"
-                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                            for="battle-tactic-text1">Objective
+                                                            VPs:</label>
                                                         <input id="objectiveVPR4P1" type="number"
                                                             class="totals-relevant" />
                                                     </div>
@@ -703,19 +741,25 @@
                                                     <label class="scoring-tiles Arial-font">
 
                                                         <label for="battleTacticR5P1"
-                                                            class="score-sheet-dropdown1">BATTLE TACTIC:</label>
+                                                            class="score-sheet-dropdown1">BATTLE
+                                                            TACTIC:</label>
                                                         <select name="battleTacticR5P1" id="battleTacticR5P1">
-                                                            <option value="Aggressive Expansion">Aggressive Expansion
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
                                                             </option>
                                                             <option value="Bring It Down!">Bring It Down!</option>
                                                             <option value="Broken Ranks">Broken Ranks</option>
                                                             <option value="Conquer">Conquer</option>
-                                                            <option value="Ferocious Advance">Ferocious Advance</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
                                                             <option value="Monstrous Takeover">Monstrous Takeover
                                                             </option>
-                                                            <option value="Savage Spearhead">Savage Spearhead</option>
-                                                            <option value="Slay The Warlord">Slay The Warlord</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
                                                     </label>
                                                     <label>
                                                         <input id="tacticCheckboxR5P1"
@@ -738,7 +782,8 @@
                                                     <br>
                                                     <div class="form-group">
                                                         <label class="scoring-center"
-                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                            for="battle-tactic-text1">Objective
+                                                            VPs:</label>
                                                         <input id="objectiveVPR5P1" type="number"
                                                             class="totals-relevant" />
                                                     </div>
@@ -773,19 +818,19 @@
                                         </div>
                                         <div id="collapseSummary1" class="accordion-collapse collapse"
                                             aria-labelledby="headingSummary1" data-bs-parent="#accordionExample">
-                                            <div class="scoring-row">
+                                            <div class="scoring-row flex-space-evenly summary">
                                                 <div class="scoring-tiles">
 
-                                                    <label class="Arial-font">
-                                                        <input class="checkbox-large totals-relevant" type="checkbox"
-                                                            id="grandStratP1" />
-                                                        Grand
-                                                        Strategy
-                                                        Achieved
+                                                    <div class="flex-space-evenly">
+                                                        <label class="first-priority">
+                                                            <input class="checkbox-large totals-relevant"
+                                                                type="checkbox" id="grandStratP1" />
+                                                            Grand
+                                                            Strategy
+                                                            Achieved
+                                                        </label>
+                                                    </div>
 
-                                                    </label>
-                                                    <br>
-                                                    <br>
                                                     <h3 class="victory-points-heading1 vp-separate" id="totalPointsP1">
                                                         Total
                                                         Victory
@@ -846,21 +891,26 @@
                                                         <option value="Beasts of Chaos">Beasts of Chaos</option>
                                                         <option value="Blades of Khorne">Blades of Khorne</option>
                                                         <option value="Cities of Sigmar">Cities of Sigmar</option>
-                                                        <option value="Daughters of Khaine">Daughters of Khaine</option>
+                                                        <option value="Daughters of Khaine">Daughters of Khaine
+                                                        </option>
                                                         <option value="Disciples of Tzeentch">Disciples of Tzeentch
                                                         </option>
-                                                        <option value="Flesh-eater Courts">Flesh-eater Courts</option>
+                                                        <option value="Flesh-eater Courts">Flesh-eater Courts
+                                                        </option>
                                                         <option value="Fyreslayers">Fyreslayers</option>
                                                         <option value="Gloomspite Gitz">Gloomspite Gitz</option>
                                                         <option value="Hedonites of Slaanesh">Hedonites of Slaanesh
                                                         </option>
                                                         <option value="Idoneth Deepkin">Idoneth Deepkin</option>
-                                                        <option value="Kharadron Overlords">Kharadron Overlords</option>
-                                                        <option value="Legion of the First Prince">Legion of the First
+                                                        <option value="Kharadron Overlords">Kharadron Overlords
+                                                        </option>
+                                                        <option value="Legion of the First Prince">Legion of the
+                                                            First
                                                             Prince</option>
                                                         <option value="Lumineth Realm Lords">Lumineth Realm Lords
                                                         </option>
-                                                        <option value="Maggotkin of Nurgle">Maggotkin of Nurgle</option>
+                                                        <option value="Maggotkin of Nurgle">Maggotkin of Nurgle
+                                                        </option>
                                                         <option value="Nighthaunt">Nighthaunt</option>
                                                         <option value="Ogor Mawtribes">Ogor Mawtribes</option>
                                                         <option value="Orruk Warclans">Orruk Warclans</option>
@@ -868,11 +918,13 @@
                                                         </option>
                                                         <option value="Seraphon">Seraphon</option>
                                                         <option value="Skaven">Skaven</option>
-                                                        <option value="Slaves to Darkness">Slaves to Darkness</option>
+                                                        <option value="Slaves to Darkness">Slaves to Darkness
+                                                        </option>
                                                         <option value="Sons of Behemat">Sons of Behemat</option>
                                                         <option value="Soulblight Gravelords">Soulblight Gravelords
                                                         </option>
-                                                        <option value="Stormcast Eternals">Stormcast Eternals</option>
+                                                        <option value="Stormcast Eternals">Stormcast Eternals
+                                                        </option>
                                                         <option value="Sylvaneth">Sylvaneth</option>
                                                     </select>
                                                     <br>
@@ -889,7 +941,8 @@
                                                         STRATEGY:</label>
                                                     <select name="grandStrategySelect" id="grandStrategySelect">
                                                         <option value="Beast Master">Beast Master</option>
-                                                        <option value="Dominating Presence">Dominating Presence</option>
+                                                        <option value="Dominating Presence">Dominating Presence
+                                                        </option>
                                                         <option value="Hold the Line">Hold the Line</option>
                                                         <option value="Pillars of Belief">Pillars of Belief</option>
                                                         <option value="Predator's Domain">Predator's Domain</option>
@@ -955,19 +1008,25 @@
                                                     <label class="scoring-tiles Arial-font">
 
                                                         <label for="battleTacticR1P2"
-                                                            class="score-sheet-dropdown2">BATTLE TACTIC:</label>
+                                                            class="score-sheet-dropdown2">BATTLE
+                                                            TACTIC:</label>
                                                         <select name="battleTacticR1P2" id="battleTacticR1P2">
-                                                            <option value="Aggressive Expansion">Aggressive Expansion
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
                                                             </option>
                                                             <option value="Bring It Down!">Bring It Down!</option>
                                                             <option value="Broken Ranks">Broken Ranks</option>
                                                             <option value="Conquer">Conquer</option>
-                                                            <option value="Ferocious Advance">Ferocious Advance</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
                                                             <option value="Monstrous Takeover">Monstrous Takeover
                                                             </option>
-                                                            <option value="Savage Spearhead">Savage Spearhead</option>
-                                                            <option value="Slay The Warlord">Slay The Warlord</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
                                                     </label>
                                                     <label>
                                                         <input id="tacticCheckboxR1P2"
@@ -990,7 +1049,8 @@
                                                     <br>
                                                     <div class="form-group">
                                                         <label class="scoring-center"
-                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                            for="battle-tactic-text1">Objective
+                                                            VPs:</label>
                                                         <input id="objectiveVPR1P2" type="number"
                                                             class="totals-relevant" />
                                                     </div>
@@ -1052,19 +1112,25 @@
                                                     <label class="scoring-tiles Arial-font">
 
                                                         <label for="battleTacticR2P2"
-                                                            class="score-sheet-dropdown2">BATTLE TACTIC:</label>
+                                                            class="score-sheet-dropdown2">BATTLE
+                                                            TACTIC:</label>
                                                         <select name="battleTacticR2P2" id="battleTacticR2P2">
-                                                            <option value="Aggressive Expansion">Aggressive Expansion
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
                                                             </option>
                                                             <option value="Bring It Down!">Bring It Down!</option>
                                                             <option value="Broken Ranks">Broken Ranks</option>
                                                             <option value="Conquer">Conquer</option>
-                                                            <option value="Ferocious Advance">Ferocious Advance</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
                                                             <option value="Monstrous Takeover">Monstrous Takeover
                                                             </option>
-                                                            <option value="Savage Spearhead">Savage Spearhead</option>
-                                                            <option value="Slay The Warlord">Slay The Warlord</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
                                                     </label>
                                                     <label>
                                                         <input id="tacticCheckboxR2P2"
@@ -1087,7 +1153,8 @@
                                                     <br>
                                                     <div class="form-group">
                                                         <label class="scoring-center"
-                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                            for="battle-tactic-text1">Objective
+                                                            VPs:</label>
                                                         <input id="objectiveVPR2P2" type="number"
                                                             class="totals-relevant" />
                                                     </div>
@@ -1150,19 +1217,25 @@
                                                     <label class="scoring-tiles Arial-font">
 
                                                         <label for="battleTacticR3P2"
-                                                            class="score-sheet-dropdown2">BATTLE TACTIC:</label>
+                                                            class="score-sheet-dropdown2">BATTLE
+                                                            TACTIC:</label>
                                                         <select name="battleTacticR3P2" id="battleTacticR3P2">
-                                                            <option value="Aggressive Expansion">Aggressive Expansion
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
                                                             </option>
                                                             <option value="Bring It Down!">Bring It Down!</option>
                                                             <option value="Broken Ranks">Broken Ranks</option>
                                                             <option value="Conquer">Conquer</option>
-                                                            <option value="Ferocious Advance">Ferocious Advance</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
                                                             <option value="Monstrous Takeover">Monstrous Takeover
                                                             </option>
-                                                            <option value="Savage Spearhead">Savage Spearhead</option>
-                                                            <option value="Slay The Warlord">Slay The Warlord</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
                                                     </label>
                                                     <label>
                                                         <input id="tacticCheckboxR3P2"
@@ -1185,7 +1258,8 @@
                                                     <br>
                                                     <div class="form-group">
                                                         <label class="scoring-center"
-                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                            for="battle-tactic-text1">Objective
+                                                            VPs:</label>
                                                         <input id="objectiveVPR3P2" type="number"
                                                             class="totals-relevant" />
                                                     </div>
@@ -1248,19 +1322,25 @@
                                                     <label class="scoring-tiles Arial-font">
 
                                                         <label for="battleTacticR4P2"
-                                                            class="score-sheet-dropdown2">BATTLE TACTIC:</label>
+                                                            class="score-sheet-dropdown2">BATTLE
+                                                            TACTIC:</label>
                                                         <select name="battleTacticR4P2" id="battleTacticR4P2">
-                                                            <option value="Aggressive Expansion">Aggressive Expansion
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
                                                             </option>
                                                             <option value="Bring It Down!">Bring It Down!</option>
                                                             <option value="Broken Ranks">Broken Ranks</option>
                                                             <option value="Conquer">Conquer</option>
-                                                            <option value="Ferocious Advance">Ferocious Advance</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
                                                             <option value="Monstrous Takeover">Monstrous Takeover
                                                             </option>
-                                                            <option value="Savage Spearhead">Savage Spearhead</option>
-                                                            <option value="Slay The Warlord">Slay The Warlord</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
                                                     </label>
                                                     <label>
                                                         <input id="tacticCheckboxR4P2"
@@ -1283,7 +1363,8 @@
                                                     <br>
                                                     <div class="form-group">
                                                         <label class="scoring-center"
-                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                            for="battle-tactic-text1">Objective
+                                                            VPs:</label>
                                                         <input id="objectiveVPR4P2" type="number"
                                                             class="totals-relevant" />
                                                     </div>
@@ -1346,19 +1427,25 @@
                                                     <label class="scoring-tiles Arial-font">
 
                                                         <label for="battleTacticR5P2"
-                                                            class="score-sheet-dropdown2">BATTLE TACTIC:</label>
+                                                            class="score-sheet-dropdown2">BATTLE
+                                                            TACTIC:</label>
                                                         <select name="battleTacticR5P2" id="battleTacticR5P2">
-                                                            <option value="Aggressive Expansion">Aggressive Expansion
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
                                                             </option>
                                                             <option value="Bring It Down!">Bring It Down!</option>
                                                             <option value="Broken Ranks">Broken Ranks</option>
                                                             <option value="Conquer">Conquer</option>
-                                                            <option value="Ferocious Advance">Ferocious Advance</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
                                                             <option value="Monstrous Takeover">Monstrous Takeover
                                                             </option>
-                                                            <option value="Savage Spearhead">Savage Spearhead</option>
-                                                            <option value="Slay The Warlord">Slay The Warlord</option>
-                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
                                                     </label>
                                                     <label>
                                                         <input id="tacticCheckboxR5P2"
@@ -1381,7 +1468,8 @@
                                                     <br>
                                                     <div class="form-group">
                                                         <label class="scoring-center"
-                                                            for="battle-tactic-text1">Objective VPs:</label>
+                                                            for="battle-tactic-text1">Objective
+                                                            VPs:</label>
                                                         <input id="objectiveVPR5P2" type="number"
                                                             class="totals-relevant" />
                                                     </div>

@@ -34,9 +34,6 @@
     }
 }
 
-
-
-
 #battleplan-icon1 {
     color: white;
 }
@@ -93,13 +90,65 @@
 .victory-points-heading1 {
     color: #000080;
     font-family: 'mistlock_regular';
-    font-size: 35px;
 }
 
 .victory-points-heading2 {
     color: darkred;
     font-family: 'mistlock_regular';
-    font-size: 35px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+    .victory-points-heading1 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .victory-points-heading1 {
+        font-size: 35px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .victory-points-heading2 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .victory-points-heading2 {
+        font-size: 35px;
+        text-align: center;
+
+    }
+}
+
+.vp-separate {
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+    .vp-separate {
+        margin-top: 25px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .vp-separate {}
+}
+
+.summary {}
+
+@media screen and (max-width: 1024px) {
+    .summary {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .summary {}
 }
 
 .scoring-center {
@@ -228,10 +277,6 @@ input.checkbox-large {
     margin-left: 30px;
 }
 
-.vp-separate {
-    margin-top: 50px;
-}
-
 .name-separate {
     margin-bottom: 30px;
 }
@@ -304,13 +349,13 @@ input.checkbox-large {
 }
 
 .battle-sim-btn:hover {
-    background: radial-gradient(circle, white, #333399);
+    background: radial-gradient(circle, #e52b2b, #8b0000);
     box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2);
 
 }
 
 .battle-sim-btn:active {
-    background: radial-gradient(circle, white, #333399);
+    background: radial-gradient(circle, #ec6a6a, #e52b2b);
     box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2);
 
 }
@@ -386,15 +431,13 @@ input.checkbox-large {
 }
 
 .battle-sim-small-control-btn:hover {
-    background: radial-gradient(circle, white, #333399);
-    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2);
-
+    background: radial-gradient(circle, #e52b2b, #8b0000);
+    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2)
 }
 
 .battle-sim-small-control-btn:active {
-    background: radial-gradient(circle, white, #333399);
-    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2);
-
+    background: radial-gradient(circle, #ec6a6a, #e52b2b);
+    box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2)
 }
 
 .battle-sim-control-center {
@@ -519,25 +562,41 @@ input.checkbox-large {
     }
 }
 
-.score-sheet-dropdown-label {
+.score-sheet-dropdown-label1 {
     font-family: 'mistlock_regular';
+    font-weight: bold;
+    color: #000080;
 }
 
 @media screen and (max-width: 1024px) {
-    .score-sheet-dropdown-label {
+    .score-sheet-dropdown-label1 {
         font-size: 20px;
-        font-weight: bold;
-
     }
 }
 
 @media screen and (min-width: 1025px) {
-    .score-sheet-dropdown-label {
+    .score-sheet-dropdown-label1 {
         font-size: 25px;
-        font-weight: bold;
-
         margin-left: 10px;
         margin-right: 5%;
+    }
+}
+
+.objective-vps1 {
+    font-family: 'mistlock_regular';
+    text-align: center;
+    color: #000080;
+}
+
+@media screen and (max-width: 1024px) {
+    .objective-vps1 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .objective-vps1 {
+        font-size: 25px;
     }
 }
 
@@ -552,6 +611,20 @@ input.checkbox-large {
 @media screen and (min-width: 1025px) {
     .score-sheet-dropdown {
         width: 50%;
+        margin-right: 20px;
+    }
+}
+
+.score-sheet-dropdown-setup {
+    font-family: 'mistlock_regular';
+}
+
+@media screen and (max-width: 1024px) {
+    .score-sheet-dropdown-setup {}
+}
+
+@media screen and (min-width: 1025px) {
+    .score-sheet-dropdown-setup {
         margin-right: 20px;
     }
 }
@@ -574,11 +647,4 @@ input[type='number'] {
     width: 50px;
     color: red;
 
-}
-
-.objective-vps1 {
-    font-family: 'mistlock_regular';
-    font-size: 25px;
-    text-align: center;
-    color: black;
 }
