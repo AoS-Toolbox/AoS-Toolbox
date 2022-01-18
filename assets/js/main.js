@@ -286,7 +286,7 @@
                 //} else {
                     // newVal = 1;
                 //}
-            }
+            //}
             //$button.parent().find("input").val(newVal);
         //});
 
