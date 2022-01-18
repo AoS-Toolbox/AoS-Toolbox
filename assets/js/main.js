@@ -274,21 +274,21 @@
 
 
         // shop cart + - start here
-        var CartPlusMinus = $('.cart-plus-minus');
-        $(".qtybutton").on("click", function() {
-            var $button = $(this);
-            var oldValue = $button.parent().find("input").val();
-            if ($button.text() === "+") {
-                var newVal = parseFloat(oldValue) + 1;
-            } else {
+        //var CartPlusMinus = $('.cart-plus-minus');
+        //$(".qtybutton").on("click", function() {
+            //var $button = $(this);
+            //var oldValue = $button.parent().find("input").val();
+            //if ($button.text() === "+") {
+            //    var newVal = parseFloat(oldValue) + 1;
+            //} else {
                 //if (oldValue > 0) {
-                    var newVal = parseFloat(oldValue) - 1;
+                //    var newVal = parseFloat(oldValue) - 1;
                 //} else {
                     // newVal = 1;
                 //}
             }
-            $button.parent().find("input").val(newVal);
-        });
+            //$button.parent().find("input").val(newVal);
+        //});
 
 
         // shop sidebar menu
