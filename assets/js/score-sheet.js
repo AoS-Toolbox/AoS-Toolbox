@@ -83,12 +83,25 @@ const player2Obj = new Player(2);
 // Update values on interaction with value-relevant input field
 document.querySelectorAll(".totals-relevant").forEach((input) => {
   input.addEventListener("input", updateAll);
-  input.addEventListener("change", updateAll);
 })
 
 // Update values when custom buttons pressed for Objective VPs
-document.querySelectorAll(".number-input-btn").forEach((input) => {
-  input.addEventListener("click", updateAll);
+document.querySelectorAll(".cart-plus-minus").forEach((div) => {
+     // div.addEventListener("click", updateAll);
+     
+     const plusButton = div.querySelector(".inc");
+     const minusButton = div.querySelector(".dec");
+     const numBox = div.querySelector(".cart-plus-minus-box");
+     
+     plusButton.addEventListener("click", function(event, numBox) {
+          numBox.value = parseInt(numBox.value)++;
+          updateAll();
+     });
+     
+     minusButton.addEventListener("click", function(event, numBox) {
+          numBox.value = parseInt(numBox.value)--;
+          updateAll();
+     });
 })
 
 function updateAll() {
