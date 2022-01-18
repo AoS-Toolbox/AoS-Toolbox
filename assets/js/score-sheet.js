@@ -93,12 +93,12 @@ document.querySelectorAll(".cart-plus-minus").forEach((div) => {
      const minusButton = div.querySelector(".dec");
      const numBox = div.querySelector(".cart-plus-minus-box");
      
-     plusButton.addEventListener("click", function(event, numBox) {
+     plusButton.addEventListener("click", function() {
           numBox.value = parseInt(numBox.value)++;
           updateAll();
      });
      
-     minusButton.addEventListener("click", function(event, numBox) {
+     minusButton.addEventListener("click", function() {
           numBox.value = parseInt(numBox.value)--;
           updateAll();
      });
