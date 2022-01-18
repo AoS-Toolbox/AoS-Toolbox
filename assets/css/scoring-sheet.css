@@ -1,0 +1,267 @@
+/* Create and even space between scoring elements (including mobile styling) */
+
+.flex-space-evenly {}
+
+
+@media screen and (max-width: 1024px) {
+    .flex-space-evenly {}
+}
+
+@media screen and (min-width: 1025px) {
+    .flex-space-evenly {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+/* Margin between label and checkbox for monster options */
+
+.flex-space-monsters {}
+
+
+@media screen and (max-width: 1024px) {
+    .flex-space-monsters {}
+}
+
+@media screen and (min-width: 1025px) {
+    .flex-space-monsters {
+        margin-right: 5px;
+    }
+}
+
+/* General classes for visual display */
+
+.scoring-tiles {
+    padding: 20px;
+}
+
+.scoring-center {
+    text-align: center;
+}
+
+.scoring-row {
+    display: flex;
+}
+
+.battle-tactic-position {
+    text-align: center;
+}
+
+.scoring-icons-display {
+    margin-bottom: 10px;
+}
+
+/* Checkbox styling */
+
+input.checkbox-medium {
+    height: 40px;
+    width: 40px;
+    position: relative;
+}
+
+
+input.checkbox-large {
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+/* Create different colour Victory Points heading for both players */
+
+.victory-points-heading1 {
+    color: #000080;
+    font-family: 'mistlock_regular';
+}
+
+.victory-points-heading2 {
+    color: darkred;
+    font-family: 'mistlock_regular';
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1024px) {
+    .victory-points-heading1 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .victory-points-heading1 {
+        font-size: 35px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .victory-points-heading2 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .victory-points-heading2 {
+        font-size: 35px;
+        text-align: center;
+    }
+}
+
+/* Increase text size for labels on desktop */
+
+.first-priority {
+    font-family: 'mistlock_regular';
+}
+
+@media screen and (max-width: 1024px) {
+    .first-priority {}
+}
+
+@media screen and (min-width: 1025px) {
+    .first-priority {
+        font-size: 22px;
+    }
+}
+
+/* Create different colour Label headings for both players */
+
+.score-sheet-dropdown-label1 {
+    font-family: 'mistlock_regular';
+    font-weight: bold;
+    color: #000080;
+}
+
+@media screen and (max-width: 1024px) {
+    .score-sheet-dropdown-label1 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .score-sheet-dropdown-label1 {
+        font-size: 25px;
+        margin-left: 10px;
+        margin-right: 5%;
+    }
+}
+
+.score-sheet-dropdown-label2 {
+    font-family: 'mistlock_regular';
+    font-weight: bold;
+    color: darkred;
+}
+
+@media screen and (max-width: 1024px) {
+    .score-sheet-dropdown-label2 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .score-sheet-dropdown-label2 {
+        font-size: 25px;
+        margin-left: 10px;
+        margin-right: 5%;
+    }
+}
+
+/* Style dropdown content */
+
+.score-sheet-dropdown {
+    font-family: 'mistlock_regular';
+}
+
+@media screen and (max-width: 1024px) {
+    .score-sheet-dropdown {}
+}
+
+@media screen and (min-width: 1025px) {
+    .score-sheet-dropdown {
+        width: 50%;
+        margin-right: 20px;
+    }
+}
+
+.score-sheet-dropdown-setup {
+    font-family: 'mistlock_regular';
+}
+
+@media screen and (max-width: 1024px) {
+    .score-sheet-dropdown-setup {}
+}
+
+@media screen and (min-width: 1025px) {
+    .score-sheet-dropdown-setup {
+        margin-right: 20px;
+    }
+}
+
+/* Create different colour Objective Points heading for both players */
+
+.objective-vps1 {
+    font-family: 'mistlock_regular';
+    text-align: center;
+    color: #000080;
+}
+
+@media screen and (max-width: 1024px) {
+    .objective-vps1 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .objective-vps1 {
+        font-size: 25px;
+    }
+}
+
+.objective-vps2 {
+    font-family: 'mistlock_regular';
+    text-align: center;
+    color: darkred;
+}
+
+@media screen and (max-width: 1024px) {
+    .objective-vps2 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .objective-vps2 {
+        font-size: 25px;
+    }
+}
+
+/* Separate Victory Points section from other elements */
+
+.vp-separate {
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+    .vp-separate {
+        margin-top: 25px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .vp-separate {}
+}
+
+/* Alignment for Summary section - mobile */
+
+.summary {}
+
+@media screen and (max-width: 1024px) {
+    .summary {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .summary {}
+}
+
+.scoring-sheet-space {
+    margin-top: 20px;
+}
