@@ -116,3 +116,79 @@ function updateAll() {
   player1Obj.updateView();
   player2Obj.updateView();
 }
+
+function createGameSummary() {
+  const nameP1 = document.getElementById("player-name1").value;
+  const factionP1 = document.getElementById("factionP1").value;
+  const subfactionP1 = document.getElementById("subfaction1").value;
+  const grandStratP1 = document.getElementById("grandStrategySelectP1").value;
+
+  const nameP2 = document.getElementById("player-name2").value;
+  const factionP2 = document.getElementById("factionP2").value;
+  const subfactionP2 = document.getElementById("subfaction2").value;
+  const grandStratP2 = document.getElementById("grandStrategySelectP2").value;
+
+  function createRoundSummary(playerNum, roundNum) {
+    return `
+    TURN ${roundNum} - ${(playerNum === 1) ? nameP1 : nameP2}
+    Priority: ${(element(`priority-checkbox-p${playerNum}-r${roundNum}`).checked) ? "YES" : "NO"}
+    Went First: ${(element(`first-turn-checkbox-p${playerNum}-r${roundNum}`).checked) ? "YES" : "NO"}
+  
+      BATTLE TACTIC: ${element(`battleTacticR${roundNum}P${playerNum}`).value}
+      Scored - ${(element(`tacticCheckboxR${roundNum}P${playerNum}`).checked) ? "YES" : "NO"}
+      w/ Monsters - ${(element(`withMonsterR${roundNum}P${playerNum}`).checked) ? "YES" : "NO"}
+      Monster Slain - ${(element(`slainMonsterR${roundNum}P${playerNum}`).checked) ? "YES" : "NO"}
+
+      Objective VPs - ${element(`objectiveVPR${roundNum}P${playerNum}`).value}
+
+      VICTORY POINTS: ${element(`vicPointsR${roundNum}P${playerNum}`).innerText.split(':').pop()}
+      
+    `
+  }
+
+  let summaryString = `
+  PLAYER 1 - ${nameP1}
+  ${factionP1} (${subfactionP1})
+  GRAND STRATEGY: ${grandStratP1}
+
+  PLAYER 2 - ${nameP2}
+  ${factionP2} (${subfactionP2})
+  GRAND STRATEGY: ${grandStratP2} 
+
+  ROUND 1:
+
+  ${(element("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 1) : createRoundSummary(2, 1)}
+  ${(!element("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 1) : createRoundSummary(2, 1)}
+
+  ROUND 2:
+
+  ${(element("first-turn-checkbox-p1-r2").checked) ? createRoundSummary(1, 2) : createRoundSummary(2, 2)}
+  ${(!element("first-turn-checkbox-p1-r2").checked) ? createRoundSummary(1, 2) : createRoundSummary(2, 2)}
+
+  ROUND 3:
+
+  ${(element("first-turn-checkbox-p1-r3").checked) ? createRoundSummary(1, 3) : createRoundSummary(2, 3)}
+  ${(!element("first-turn-checkbox-p1-r3").checked) ? createRoundSummary(1, 3) : createRoundSummary(2, 3)}
+
+  ROUND 4:
+
+  ${(element("first-turn-checkbox-p1-r4").checked) ? createRoundSummary(1, 4) : createRoundSummary(2, 4)}
+  ${(!element("first-turn-checkbox-p1-r4").checked) ? createRoundSummary(1, 4) : createRoundSummary(2, 4)}
+
+  ROUND 5:
+
+  ${(element("first-turn-checkbox-p1-r5").checked) ? createRoundSummary(1, 5) : createRoundSummary(2, 5)}
+  ${(!element("first-turn-checkbox-p1-r5").checked) ? createRoundSummary(1, 5) : createRoundSummary(2, 5)}
+
+  SUMMARY:
+
+
+  
+  `;
+
+  console.log(summaryString);
+}
+
+function element(id) {
+  return document.getElementById(id);
+}
