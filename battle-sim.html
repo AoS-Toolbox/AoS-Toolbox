@@ -243,7 +243,7 @@
 
             <span id="base-buttons">
 
-                <label for="baseSelect">BASE SIZE:</label>
+                <label for="baseSelect" class="base-title">BASE SIZE:</label>
                 <select name="baseSelect" id="baseSelect" onfocus="this.selectedIndex = -1;"
                     onchange="toggleBasePlacement()">
                     <option value="25mm">25mm</option>
@@ -266,7 +266,8 @@
                 <!-- <button id="place-base-btn" class="battle-sim-btn" onclick="toggleBasePlacement()">[P] PLACE:
                     OFF</button>-->
             </span>
-            <button id="place-base-btn" class="battle-sim-btn place-button" onclick="toggleBasePlacement()">[P] PLACE:
+            <button id="place-base-btn" class="battle-sim-btn place-button" onclick="toggleBasePlacement()">[P]
+                PLACE:
                 OFF</button>
             <div class="input-color">
                 <input type="color" class="input-color canvas-border" id="base-color" />
@@ -297,31 +298,9 @@
             <div class="wrap-flex-bottom">
 
                 <img class="battle-sim-images" src="assets/images/obj-icon.png"><button style="margin-left: 10px"
-                    class="battle-sim-btn" onclick='toggleObjectivePlacement()' id="obj-btn">[O]
+                    class="battle-sim-btn objective-button" onclick='toggleObjectivePlacement()' id="obj-btn">[O]
                     OBJECTIVES</button></img>
-                <!--
-                <br>
-                <label for="battleplanSelect">
-                    <h3 class="deployment-title">DEPLOYMENT ZONES -</h3>
-                </label>
-                <div>
-                    <select name="battleplanSelect" id="battleplanSelect" class="battle-plan-dropdown"
-                        onchange="showDeployments()">
-                        <option value="N/A">(hide)</option>
-                        <option value="Marking Territory">Marking Territory</option>
-                        <option value="Savage Gains">Savage Gains</option>
-                        <option value="First Blood">First Blood</option>
-                        <option value="Power Struggle">Power Struggle</option>
-                        <option value="Survival of the Fittest">Survival of the Fittest</option>
-                        <option value="Tectonic Interference">Tectonic Interference</option>
-                        <option value="Apex Predators">Apex Predators</option>
-                        <option value="The Vice">The Vice</option>
-                        <option value="Tooth And Nail">Tooth And Nail</option>
-                        <option value="Feral Foray">Feral Foray</option>
-                        <option value="Power In Numbers">Power In Numbers</option>
-                        <option value="The Veins Of Ghur">The Veins Of Ghur</option>
-                    </select>
-                    -->
+
             </div>
         </div>
     </div>
