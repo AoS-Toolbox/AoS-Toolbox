@@ -27,21 +27,9 @@ canvas#game-board {
 
 }
 
-.battle-sim-bottom {
-    width: 1349px;
-    height: 500px;
-    margin-top: 750px;
-    padding-left: 280px;
-}
-
-.battle-sim-padding {
-    padding-top: 165px;
-    background-color: yellow;
-}
-
 .unit-title {
     font-family: 'mistlock_regular';
-    margin-top: 15px;
+    margin-top: 40px;
     margin-right: 5px;
     margin-left: 25px;
     width: 350px;
@@ -50,7 +38,7 @@ canvas#game-board {
 
 .deployment-title {
     font-family: 'mistlock_regular';
-    margin-top: 15px;
+    margin-top: 35px;
     margin-right: 10px;
     margin-left: 15px;
     font-size: 20px;
@@ -78,7 +66,7 @@ canvas#game-board {
 }
 
 .battle-sim-btn:hover {
-    background: radial-gradient(circle, #e52b2b, #8b0000);
+    background: radial-gradient(circle, #e52b2b, #ff3800);
     box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2);
 
 }
@@ -108,6 +96,7 @@ canvas#game-board {
     width: 50px;
     height: 50px;
     margin-left: 20px;
+    margin-top: 20px;
 }
 
 .input-color {
@@ -115,7 +104,7 @@ canvas#game-board {
     height: 45px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 1px;
+    margin-top: 9px;
 
 }
 
@@ -137,6 +126,7 @@ canvas#game-board {
 .unit-text {
     width: 300px;
     margin-right: 20px;
+    margin-top: 25px;
 
 }
 
@@ -156,11 +146,11 @@ canvas#game-board {
     text-shadow: 0 1px 1px #000;
     text-align: center;
     padding: 10px 0;
-    background: radial-gradient(circle, #ff6347, #fe2712);
+    background: radial-gradient(circle, #ff6347, #ff2400);
 }
 
 .battle-sim-small-control-btn:hover {
-    background: radial-gradient(circle, #e52b2b, #8b0000);
+    background: radial-gradient(circle, #e52b2b, #ff3800);
     box-shadow: 0px 0 5px 5px rgba(255, 255, 255, 0.2)
 }
 
@@ -199,7 +189,7 @@ canvas#game-board {
     color: black;
     padding-left: 20px;
     padding-right: 20px;
-    font-family: 'Mysteria';
+    font-family: 'mistlock_regular';
 }
 
 .battle-sim-unit-text {
@@ -224,15 +214,29 @@ canvas#game-board {
     text-shadow: 0 1px 1px #000;
     text-align: center;
     padding: 10px 0;
-    background: radial-gradient(circle, #ff6347, #fe2712);
+    background: radial-gradient(circle, #ff6347, #ff2400);
 
 }
 
 .battle-plan-dropdown {
     width: 200px;
+    margin-top: 30px;
 }
 
 .place-button {
     margin-left: 20px;
-    width: 400px;
+    width: 420px;
+    margin-top: 40px;
+}
+
+.base-title {
+    font-size: 20px;
+    color: white;
+    font-family: 'mistlock_regular';
+    width: 100px;
+    text-align: center;
+}
+
+.objective-button {
+    margin-top: 35px;
 }
