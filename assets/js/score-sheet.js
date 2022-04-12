@@ -175,12 +175,12 @@ function createGameSummary() {
 
   SUMMARY:
 
-  PLAYER 1 -
-  GRAND STRATEGY: ${(player1Obj.scores.grandStrat === 3) ? "YES" : "NO"};
+  PLAYER 1 - ${(player1Obj.score.total > player2Obj.score.total) ? "(WINNER)" : ""}
+  GRAND STRATEGY: ${(player1Obj.scores.grandStrat === 3) ? "YES" : "NO"}
   TOTAL VICTORY POINTS: ${player1Obj.scores.total}
 
   PLAYER 2 -
-  GRAND STRATEGY: ${(player2Obj.scores.grandStrat === 3) ? "YES" : "NO"};
+  GRAND STRATEGY: ${(player2Obj.scores.grandStrat === 3) ? "YES" : "NO"}
   TOTAL VICTORY POINTS: ${player2Obj.scores.total}
   
   `;
