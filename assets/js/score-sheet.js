@@ -131,16 +131,9 @@ function createGameSummary() {
   function createRoundSummary(playerNum, roundNum) {
     return `
     TURN ${roundNum} - ${(playerNum === 1) ? nameP1 : nameP2}
-    Priority: ${(element(`priority-checkbox-p${playerNum}-r${roundNum}`).checked) ? "YES" : "NO"}
-    Went First: ${(element(`first-turn-checkbox-p${playerNum}-r${roundNum}`).checked) ? "YES" : "NO"}
+    Priority: ${(element(`priority-checkbox-p${playerNum}-r${roundNum}`).checked) ? "YES" : "NO"}, Went First: ${(element(`first-turn-checkbox-p${playerNum}-r${roundNum}`).checked) ? "YES" : "NO"}
   
-      BATTLE TACTIC: ${element(`battleTacticR${roundNum}P${playerNum}`).value}
-      Scored - ${(element(`tacticCheckboxR${roundNum}P${playerNum}`).checked) ? "YES" : "NO"}
-      w/ Monsters - ${(element(`withMonsterR${roundNum}P${playerNum}`).checked) ? "YES" : "NO"}
-      Monster Slain - ${(element(`slainMonsterR${roundNum}P${playerNum}`).checked) ? "YES" : "NO"}
-
-      Objective VPs - ${element(`objectiveVPR${roundNum}P${playerNum}`).value}
-
+      BATTLE TACTIC: ${element(`battleTacticR${roundNum}P${playerNum}`).value} ${(element(`tacticCheckboxR${roundNum}P${playerNum}`).checked) ? "(COMPLETED)" : "(FAILED)"}
       VICTORY POINTS: ${element(`vicPointsR${roundNum}P${playerNum}`).innerText.split(':').pop()}
       
     `
@@ -182,10 +175,17 @@ function createGameSummary() {
 
   SUMMARY:
 
+  PLAYER 1 -
+  GRAND STRATEGY: ${(player1Obj.scores.grandStrat === 3) ? "YES" : "NO"};
+  TOTAL VICTORY POINTS: ${player1Obj.scores.total}
 
+  PLAYER 2 -
+  GRAND STRATEGY: ${(player2Obj.scores.grandStrat === 3) ? "YES" : "NO"};
+  TOTAL VICTORY POINTS: ${player2Obj.scores.total}
   
   `;
 
+  // >>> DEBUG ONLY
   console.log(summaryString);
 }
 
