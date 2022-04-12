@@ -22,6 +22,7 @@ class Player {
       // for e.g: player1Obj.elements.round1.tacticScored.checked
       for (let j = 1; j <= 5; j++) {
         this.elements["round" + j] = {
+          battleTactic: document.getElementById(`battleTacticR${j}P${num}`),
           tacticScored: document.getElementById(`tacticCheckboxR${j}P${num}`),
           withMonster: document.getElementById(`withMonsterR${j}P${num}`),
           slainMonster: document.getElementById(`slainMonsterR${j}P${num}`),
@@ -197,9 +198,42 @@ function element(id) {
 }
 
 function loadFromLocalStorage() {
-     // TO-DO: IMPLEMENT
+     /** PLAYER 1 LOAD FROM LOCAL STORAGE **/
+     
+     // LOAD PLAYER 1 SETUP
+     document.getElementById("player-name1").value = window.localStorage.getItem("player-name1");
+     document.getElementById("factionP1").value = window.localStorage.getItem("factionP1");
+     document.getElementById("subfaction1").value = window.localStorage.getItem("subfaction1");
+     document.getElementById("grandStrategySelectP1").value = window.localStorage.getItem("grandStrategySelectP1");
+     
+     
+     /** PLAYER 2 LOAD FROM LOCAL STORAGE **/
+     
+     // LOAD PLAYER 2 SETUP
+     document.getElementById("player-name2").value = window.localStorage.getItem("player-name2");
+     document.getElementById("factionP2").value = window.localStorage.getItem("factionP2");
+     document.getElementById("subfaction2").value = window.localStorage.getItem("subfaction2");
+     document.getElementById("grandStrategySelectP2").value = window.localStorage.getItem("grandStrategySelectP2");
+     
+     /** UPDATE **/
+     updateAll();
 }
 
 function updateLocalStorage() {
-     // TO-DO: IMPLEMENT
+     /** PLAYER 1 OUTPUT TO LOCAL STORAGE **/
+     
+     // SAVE PLAYER 1 SETUP
+     window.localStorage.setItem("player-name1", document.getElementById("player-name1").value);
+     window.localStorage.setItem("factionP1", document.getElementById("factionP1").value);
+     window.localStorage.setItem("subfaction1", document.getElementById("subfaction1").value);
+     window.localStorage.setItem("grandStrategySelectP1", document.getElementById("grandStrategySelectP1").value);
+     
+     
+     /** PLAYER 2 OUTPUT TO LOCAL STORAGE **/
+     
+     // SAVE PLAYER 2 SETUP
+     window.localStorage.setItem("player-name2", document.getElementById("player-name2").value);
+     window.localStorage.setItem("factionP2", document.getElementById("factionP2").value);
+     window.localStorage.setItem("subfaction2", document.getElementById("subfaction2").value);
+     window.localStorage.setItem("grandStrategySelectP2", document.getElementById("grandStrategySelectP2").value);
 }
