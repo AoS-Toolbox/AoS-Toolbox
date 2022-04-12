@@ -19,6 +19,7 @@ class Player {
         totalPoints: document.getElementById(`totalPointsP${num}`)
       };
 
+      // for e.g: player1Obj.elements.round1.tacticScored.checked
       for (let j = 1; j <= 5; j++) {
         this.elements["round" + j] = {
           tacticScored: document.getElementById(`tacticCheckboxR${j}P${num}`),
@@ -54,7 +55,8 @@ class Player {
     if (values.slainMonster.checked === true) this.scores["round" + roundNum]++;
     this.scores["round" + roundNum] += parseInt(values.objectivePoints.value);
     
-    console.log("Round " + roundNum + ", Player " + this.id + ": scored " + this.scores["round" + roundNum]);
+    // >>>>> DEBUG ONLY
+    //console.log("Round " + roundNum + ", Player " + this.id + ": scored " + this.scores["round" + roundNum]);
   }
 
   calcTotal() {
@@ -75,7 +77,7 @@ class Player {
     this.elements.totalPoints.innerText = "TOTAL VICTORY POINTS: " + this.scores.total;
   }
   
-}
+} // END OF PLAYER CLASS DEFINITION
 
 const player1Obj = new Player(1);
 const player2Obj = new Player(2);
@@ -115,6 +117,8 @@ function updateAll() {
   
   player1Obj.updateView();
   player2Obj.updateView();
+     
+  updateLocalStorage();
 }
 
 function createGameSummary() {
@@ -135,7 +139,6 @@ function createGameSummary() {
   
       BATTLE TACTIC: ${element(`battleTacticR${roundNum}P${playerNum}`).value} ${(element(`tacticCheckboxR${roundNum}P${playerNum}`).checked) ? "(COMPLETED)" : "(FAILED)"}
       VICTORY POINTS: ${element(`vicPointsR${roundNum}P${playerNum}`).innerText.split(':').pop()}
-      
     `
   }
 
@@ -176,12 +179,12 @@ function createGameSummary() {
   SUMMARY:
 
   PLAYER 1 - ${(player1Obj.score.total > player2Obj.score.total) ? "(WINNER)" : ""}
-  GRAND STRATEGY: ${(player1Obj.scores.grandStrat === 3) ? "YES" : "NO"}
-  TOTAL VICTORY POINTS: ${player1Obj.scores.total}
+     GRAND STRATEGY: ${(player1Obj.scores.grandStrat === 3) ? "YES" : "NO"}
+     TOTAL VICTORY POINTS: ${player1Obj.scores.total}
 
-  PLAYER 2 -
-  GRAND STRATEGY: ${(player2Obj.scores.grandStrat === 3) ? "YES" : "NO"}
-  TOTAL VICTORY POINTS: ${player2Obj.scores.total}
+  PLAYER 2 - ${(player2Obj.score.total > player1Obj.score.total) ? "(WINNER)" : ""}
+     GRAND STRATEGY: ${(player2Obj.scores.grandStrat === 3) ? "YES" : "NO"}
+     TOTAL VICTORY POINTS: ${player2Obj.scores.total}
   
   `;
 
@@ -191,4 +194,12 @@ function createGameSummary() {
 
 function element(id) {
   return document.getElementById(id);
+}
+
+function loadFromLocalStorage() {
+     // TO-DO: IMPLEMENT
+}
+
+function updateLocalStorage() {
+     // TO-DO: IMPLEMENT
 }
