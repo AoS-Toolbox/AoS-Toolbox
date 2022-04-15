@@ -22,8 +22,8 @@ class Player {
       // for e.g: player1Obj.elements.round1.tacticScored.checked
       for (let j = 1; j <= 5; j++) {
         this.elements["round" + j] = {
-          priority: document.getElementById(`priority-checkbox-p${num}-r{j}`),
-          wentFirst: document.getElementById(`first-turn-checkbox-p${num}-r{j}`),
+          priority: document.getElementById(`priority-checkbox-p${num}-r${j}`),
+          wentFirst: document.getElementById(`first-turn-checkbox-p${num}-r${j}`),
           battleTactic: document.getElementById(`battleTacticR${j}P${num}`),
           tacticScored: document.getElementById(`tacticCheckboxR${j}P${num}`),
           withMonster: document.getElementById(`withMonsterR${j}P${num}`),
