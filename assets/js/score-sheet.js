@@ -210,7 +210,7 @@ function setItem(key, value) {
 // syntactic sugar / console reporting
 function getItem(key) {
      let value = window.localStorage.getItem(key);
-     //console.log("Just fetched value " + value + " from key " + key);
+     console.log("Just fetched value " + value + " from key " + key);
      return value;
 }
 
@@ -268,13 +268,13 @@ function updateLocalStorage() {
      
      // SAVE PLAYER 1 TURNS
      for (let i = 1; i < 6; i++) {
-          setItem(`priorityP1R${i}`, !player1Obj.elements[`round${i}`].priority.checked);
-          setItem(`wentFirstP1R${i}`, !player1Obj.elements[`round${i}`].wentFirst.checked);
+          setItem(`priorityP1R${i}`, player1Obj.elements[`round${i}`].priority.checked);
+          setItem(`wentFirstP1R${i}`, player1Obj.elements[`round${i}`].wentFirst.checked);
           setItem(`battleTacticP1R${i}`, player1Obj.elements[`round${i}`].battleTactic.value);
-          setItem(`tacticScoredP1R${i}`, !player1Obj.elements[`round${i}`].tacticScored.checked);
-          setItem(`withMonsterP1R${i}`, !player1Obj.elements[`round${i}`].withMonster.checked);
-          setItem(`slainMonsterP1R${i}`, !player1Obj.elements[`round${i}`].slainMonster.checked);
-          setItem(`objectivePointsP1R${i}`, player1Obj.elements[`round${i}`].objectivePoints.value - 300);
+          setItem(`tacticScoredP1R${i}`, player1Obj.elements[`round${i}`].tacticScored.checked);
+          setItem(`withMonsterP1R${i}`, player1Obj.elements[`round${i}`].withMonster.checked);
+          setItem(`slainMonsterP1R${i}`, player1Obj.elements[`round${i}`].slainMonster.checked);
+          setItem(`objectivePointsP1R${i}`, player1Obj.elements[`round${i}`].objectivePoints.value);
           setItem(`victoryPointsP1R${i}`, player1Obj.elements[`round${i}`].victoryPoints.value);
      }
      
