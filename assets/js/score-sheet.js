@@ -88,6 +88,7 @@ const player2Obj = new Player(2);
 // Update values on interaction with value-relevant input field
 document.querySelectorAll(".totals-relevant").forEach((input) => {
   input.addEventListener("input", updateAll);
+  input.addEventListener("input", updateLocalStorage);
 })
 
 // Update values when custom buttons pressed for Objective VPs
@@ -101,11 +102,13 @@ document.querySelectorAll(".cart-plus-minus").forEach((div) => {
      plusButton.addEventListener("click", function() {
           numBox.value = parseInt(numBox.value) + 1;
           updateAll();
+          updateLocalStorage();
      });
      
      minusButton.addEventListener("click", function() {
           numBox.value = parseInt(numBox.value) - 1;
           updateAll();
+          updateLocalStorage();
      });
 })
 
@@ -120,8 +123,6 @@ function updateAll() {
   
   player1Obj.updateView();
   player2Obj.updateView();
-     
-  updateLocalStorage();
 }
 
 function createGameSummary() {
@@ -203,13 +204,13 @@ function element(id) {
 // syntactic sugar / console reporting
 function setItem(key, value) {
      window.localStorage.setItem(key, value);
-     console.log("Added value " + value + " to key " + key);
+     //console.log("Added value " + value + " to key " + key);
 }
 
 // syntactic sugar / console reporting
 function getItem(key) {
      let value = window.localStorage.getItem(key);
-     console.log("Just fetched value " + value + " from key " + key);
+     //console.log("Just fetched value " + value + " from key " + key);
      return value;
 }
 
@@ -235,12 +236,12 @@ function loadFromLocalStorage() {
           
           if (window.localStorage.getItem(`priorityP1R${i}`) != null) player1Obj.elements[`round${i}`].priority.checked = getItem(`priorityP1R${i}`);
           if (window.localStorage.getItem(`wentFirstP1R${i}`) != null) player1Obj.elements[`round${i}`].wentFirst.checked = getItem(`wentFirstP1R${i}`);
-          if (window.localStorage.getItem(`battleTacticP1R${i}`) != null) player1Obj.elements[`round${i}`].battleTactic.checked = getItem(`battleTacticP1R${i}`);
+          if (window.localStorage.getItem(`battleTacticP1R${i}`) != null) player1Obj.elements[`round${i}`].battleTactic.value = getItem(`battleTacticP1R${i}`);
           if (window.localStorage.getItem(`tacticScoredP1R${i}`) != null) player1Obj.elements[`round${i}`].tacticScored.checked = getItem(`tacticScoredP1R${i}`);
           if (window.localStorage.getItem(`withMonsterP1R${i}`) != null) player1Obj.elements[`round${i}`].withMonster.checked = getItem(`withMonsterP1R${i}`);
           if (window.localStorage.getItem(`slainMonsterP1R${i}`) != null) player1Obj.elements[`round${i}`].slainMonster.checked = getItem(`slainMonsterP1R${i}`);
-          if (window.localStorage.getItem(`objectivePointsP1R${i}`) != null) player1Obj.elements[`round${i}`].objectivePoints.checked = getItem(`objectivePointsP1R${i}`);
-          if (window.localStorage.getItem(`victoryPointsP1R${i}`) != null) player1Obj.elements[`round${i}`].victoryPoints.checked = getItem(`victoryPointsP1R${i}`);
+          if (window.localStorage.getItem(`objectivePointsP1R${i}`) != null) player1Obj.elements[`round${i}`].objectivePoints.value = getItem(`objectivePointsP1R${i}`);
+          if (window.localStorage.getItem(`victoryPointsP1R${i}`) != null) player1Obj.elements[`round${i}`].victoryPoints.value = getItem(`victoryPointsP1R${i}`);
      }
      
      
