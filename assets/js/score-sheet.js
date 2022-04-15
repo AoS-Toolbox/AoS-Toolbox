@@ -210,6 +210,7 @@ function setItem(key, value) {
 function getItem(key) {
      let value = window.localStorage.getItem(key);
      console.log("Just fetched value " + value + " from key " + key);
+     return value;
 }
 
 function loadFromLocalStorage() {
