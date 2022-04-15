@@ -22,6 +22,8 @@ class Player {
       // for e.g: player1Obj.elements.round1.tacticScored.checked
       for (let j = 1; j <= 5; j++) {
         this.elements["round" + j] = {
+          priority: document.getElementById(`priority-checkbox-p${num}-r{j}`),
+          wentFirst: document.getElementById(`first-turn-checkbox-p${num}-r{j}`),
           battleTactic: document.getElementById(`battleTacticR${j}P${num}`),
           tacticScored: document.getElementById(`tacticCheckboxR${j}P${num}`),
           withMonster: document.getElementById(`withMonsterR${j}P${num}`),
@@ -193,6 +195,7 @@ function createGameSummary() {
   console.log(summaryString);
 }
 
+// syntactic sugar
 function element(id) {
   return document.getElementById(id);
 }
@@ -215,7 +218,7 @@ function loadFromLocalStorage() {
      document.getElementById("subfaction2").value = window.localStorage.getItem("subfaction2");
      document.getElementById("grandStrategySelectP2").value = window.localStorage.getItem("grandStrategySelectP2");
      
-     /** UPDATE **/
+     /** AFTER FIELDS RE-FILLED, UPDATE SCORES IN PLAYER OBJECTS **/
      updateAll();
 }
 
@@ -228,6 +231,17 @@ function updateLocalStorage() {
      window.localStorage.setItem("subfaction1", document.getElementById("subfaction1").value);
      window.localStorage.setItem("grandStrategySelectP1", document.getElementById("grandStrategySelectP1").value);
      
+     // SAVE PLAYER 1 TURNS
+     for (let i = 1; i < 6; i++) {
+          window.localStorage.setItem(`priorityP1R${i}`, player1Obj.elements[`round${i}`].priority.checked);
+          window.localStorage.setItem(`wentFirstP1R${i}`, player1Obj.elements[`round${i}`].wentFirst.checked);
+          window.localStorage.setItem(`battleTacticP1R${i}`, player1Obj.elements[`round${i}`].battleTactic.value);
+          window.localStorage.setItem(`tacticScoredP1R${i}`, player1Obj.elements[`round${i}`].tacticScored.checked);
+          window.localStorage.setItem(`withMonsterP1R${i}`, player1Obj.elements[`round${i}`].withMonster.checked);
+          window.localStorage.setItem(`slainMonsterP1R${i}`, player1Obj.elements[`round${i}`].slainMonster.checked);
+          window.localStorage.setItem(`objectivePointsP1R${i}`, player1Obj.elements[`round${i}`].objectivePoints.value);
+          window.localStorage.setItem(`victoryPointsP1R${i}`, player1Obj.elements[`round${i}`].victoryPoints.value);
+     }
      
      /** PLAYER 2 OUTPUT TO LOCAL STORAGE **/
      
