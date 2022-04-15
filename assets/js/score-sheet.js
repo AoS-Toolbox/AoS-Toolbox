@@ -224,14 +224,23 @@ function loadFromLocalStorage() {
      
      // LOAD PLAYER 1 TURNS
      for (let i = 1; i < 6; i++) {
-          player1Obj.elements[`round${i}`].priority.checked = getItem(`priorityP1R${i}`) ?? false;
-          player1Obj.elements[`round${i}`].wentFirst.checked = getItem(`wentFirstP1R${i}`) ?? false;
-          player1Obj.elements[`round${i}`].battleTactic.value = getItem(`battleTacticP1R${i}`) ?? "";
-          player1Obj.elements[`round${i}`].tacticScored.checked = getItem(`tacticScoredP1R${i}`) ?? false;
-          player1Obj.elements[`round${i}`].withMonster.checked = getItem(`withMonsterP1R${i}`) ?? false;
-          player1Obj.elements[`round${i}`].slainMonster.checked = getItem(`slainMonsterP1R${i}`) ?? false;
-          player1Obj.elements[`round${i}`].objectivePoints.value = getItem(`objectivePointsP1R${i}`) ?? 0;
-          player1Obj.elements[`round${i}`].victoryPoints.value = getItem(`victoryPointsP1R${i}`) ?? "Victory Points: 0";
+          // player1Obj.elements[`round${i}`].priority.checked = getItem(`priorityP1R${i}`) ?? false;
+          // player1Obj.elements[`round${i}`].wentFirst.checked = getItem(`wentFirstP1R${i}`) ?? false;
+          // player1Obj.elements[`round${i}`].battleTactic.value = getItem(`battleTacticP1R${i}`) ?? "";
+          // player1Obj.elements[`round${i}`].tacticScored.checked = getItem(`tacticScoredP1R${i}`) ?? false;
+          // player1Obj.elements[`round${i}`].withMonster.checked = getItem(`withMonsterP1R${i}`) ?? false;
+          // player1Obj.elements[`round${i}`].slainMonster.checked = getItem(`slainMonsterP1R${i}`) ?? false;
+          // player1Obj.elements[`round${i}`].objectivePoints.value = getItem(`objectivePointsP1R${i}`) ?? 0;
+          // player1Obj.elements[`round${i}`].victoryPoints.value = getItem(`victoryPointsP1R${i}`) ?? "Victory Points: 0";
+          
+          if (window.localStorage.getItem(`priorityP1R${i}`) != null) player1Obj.elements[`round${i}`].priority.checked = getItem(`priorityP1R${i}`);
+          if (window.localStorage.getItem(`wentFirstP1R${i}`) != null) player1Obj.elements[`round${i}`].wentFirst.checked = getItem(`wentFirstP1R${i}`);
+          if (window.localStorage.getItem(`battleTacticP1R${i}`) != null) player1Obj.elements[`round${i}`].battleTactic.checked = getItem(`battleTacticP1R${i}`);
+          if (window.localStorage.getItem(`tacticScoredP1R${i}`) != null) player1Obj.elements[`round${i}`].tacticScored.checked = getItem(`tacticScoredP1R${i}`);
+          if (window.localStorage.getItem(`withMonsterP1R${i}`) != null) player1Obj.elements[`round${i}`].withMonster.checked = getItem(`withMonsterP1R${i}`);
+          if (window.localStorage.getItem(`slainMonsterP1R${i}`) != null) player1Obj.elements[`round${i}`].slainMonster.checked = getItem(`slainMonsterP1R${i}`);
+          if (window.localStorage.getItem(`objectivePointsP1R${i}`) != null) player1Obj.elements[`round${i}`].objectivePoints.checked = getItem(`objectivePointsP1R${i}`);
+          if (window.localStorage.getItem(`victoryPointsP1R${i}`) != null) player1Obj.elements[`round${i}`].victoryPoints.checked = getItem(`victoryPointsP1R${i}`);
      }
      
      
