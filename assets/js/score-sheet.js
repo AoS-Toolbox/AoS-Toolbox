@@ -209,7 +209,7 @@ function setItem(key, value) {
 // syntactic sugar / console reporting
 function getItem(key) {
      let value = window.localStorage.getItem(key);
-     console.log("Just fetched value " + value " + " from key " + key);
+     console.log("Just fetched value " + value + " from key " + key);
 }
 
 function loadFromLocalStorage() {
