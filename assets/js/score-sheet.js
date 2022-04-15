@@ -200,6 +200,18 @@ function element(id) {
   return document.getElementById(id);
 }
 
+// syntactic sugar / console reporting
+function setItem(key, value) {
+     window.localStorage.setItem(key, value);
+     console.log("Added value " + value + " to key " + key);
+}
+
+// syntactic sugar / console reporting
+function getItem(key) {
+     let value = window.localStorage.getItem(key);
+     console.log("Just fetched value " + value " + " from key " + key);
+}
+
 function loadFromLocalStorage() {
      /** PLAYER 1 LOAD FROM LOCAL STORAGE **/
      
