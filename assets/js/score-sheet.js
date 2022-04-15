@@ -211,14 +211,14 @@ function loadFromLocalStorage() {
      
      // LOAD PLAYER 1 TURNS
      for (let i = 1; i < 6; i++) {
-          player1Obj.elements[`round${i}`].priority.checked = window.localStorage.setItem(`priorityP1R${i}`);
-          player1Obj.elements[`round${i}`].wentFirst.checked = window.localStorage.setItem(`wentFirstP1R${i}`);
-          player1Obj.elements[`round${i}`].battleTactic.value = window.localStorage.setItem(`battleTacticP1R${i}`);
-          player1Obj.elements[`round${i}`].tacticScored.checked = window.localStorage.setItem(`tacticScoredP1R${i}`);
-          player1Obj.elements[`round${i}`].withMonster.checked = window.localStorage.setItem(`withMonsterP1R${i}`);
-          player1Obj.elements[`round${i}`].slainMonster.checked = window.localStorage.setItem(`slainMonsterP1R${i}`);
-          player1Obj.elements[`round${i}`].objectivePoints.value = window.localStorage.setItem(`objectivePointsP1R${i}`);
-          player1Obj.elements[`round${i}`].victoryPoints.value = window.localStorage.setItem(`victoryPointsP1R${i}`);
+          player1Obj.elements[`round${i}`].priority.checked = window.localStorage.getItem(`priorityP1R${i}`);
+          player1Obj.elements[`round${i}`].wentFirst.checked = window.localStorage.getItem(`wentFirstP1R${i}`);
+          player1Obj.elements[`round${i}`].battleTactic.value = window.localStorage.getItem(`battleTacticP1R${i}`);
+          player1Obj.elements[`round${i}`].tacticScored.checked = window.localStorage.getItem(`tacticScoredP1R${i}`);
+          player1Obj.elements[`round${i}`].withMonster.checked = window.localStorage.getItem(`withMonsterP1R${i}`);
+          player1Obj.elements[`round${i}`].slainMonster.checked = window.localStorage.getItem(`slainMonsterP1R${i}`);
+          player1Obj.elements[`round${i}`].objectivePoints.value = window.localStorage.getItem(`objectivePointsP1R${i}`);
+          player1Obj.elements[`round${i}`].victoryPoints.value = window.localStorage.getItem(`victoryPointsP1R${i}`);
      }
      
      
