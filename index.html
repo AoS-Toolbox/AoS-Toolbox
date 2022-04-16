@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
 <head>
+
     <meta charset="utf-8">
-    <title>AOS Toolbox</title>
+    <title>Scoring Sheet | AOS Toolbox</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,22 +16,15 @@
     <link rel="stylesheet" href="assets/css/lightcase.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/scoring-sheet.css">
     <link rel="stylesheet" href="assets/fonts/stylesheet.css" type="text/css" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src="https://kit.fontawesome.com/e95bd3114f.js" crossorigin="anonymous"></script>
-
-    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
-    <script src="assets/js/battle-sim-script.js"></script>
-    <link rel="stylesheet" href="assets/css/battle-sim.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
-
 
 </head>
 
-<body>
+<body onload="loadFromLocalStorage()">
 
     <div class="preloader">
         <div class="preloader-inner">
@@ -47,7 +41,7 @@
         <img src="assets/images/shape/body-shape.png" alt="shape">
     </div>
 
-
+<!--
     <header class="header-section">
         <div class="container">
             <div class="header-holder d-flex flex-wrap justify-content-between align-items-center">
@@ -115,7 +109,6 @@
                                             <li><a href="@"></a></li>
                                         </ul>
                                     </li>
-
                                     <li><a href="blog.html">Blog</a></li>
                                 </ul>
                                 <a href="login.html" class="login"><i class="icofont-user"></i> <span>LOG IN</span> </a>
@@ -138,109 +131,1462 @@
             </div>
         </div>
 
-    </header>
+    </header>-->
 
-
-    <section class="pageheader-section" style="background-image: url(assets/images/banner/placeholder1.jpg);">
+    <section class="pageheader-section" style="background-image: url(assets/images/banner/lava.png);">
         <div class="container">
             <div class="section-wrapper text-center text-uppercase">
                 <h2 class="pageheader-title" style="font-family: 'mistlock_regular'">
-                    AOS Toolbox</h2>
+                    AOS 3.0 Scoring</h2>
 
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><button onclick="clearGame()" id="clear-game-button" class="placeholder-buttons">CLEAR GAME</button></li>
+                        <li class="breadcrumb-item active" aria-current="page"><button onclick="exportGame()" id="export-game-button" class="placeholder-buttons">EXPORT GAME</button></li>
+                    </ol>
+                </nav>
             </div>
         </div>
     </section>
-
-    <div class="player-section padding-top padding-bottom">
+    <!-- ===========Scoring Section Starts Here========== -->
+    <div class="scoring-section padding-top padding-bottom">
         <div class="container">
             <div class="section-wrapper">
-                <div class="row g-4 justify-content-center">
-                    <div class="col-lg-4 col-sm-6 col-12">
-                        <div class="player-item-2 text-center"
-                            style="background-image: url(assets/images/home/stone-bgr/04.jpg);">
-                            <div class="player-inner-2">
-                                <div class="player-thumb-2">
-                                    <a href="scoring-sheet.html"><img src="assets/images/home/book.png"
-                                            alt="team-img"></a>
-                                </div>
-                                <div class="player-content-2">
-                                    <a href="scoring-sheet.html">
-                                        <h1 class="home-page-tile-titles">Scoring Sheet</h1>
+                <div class="row g-4">
+                    <div class="col-lg-6 col-12">
+                        <div class="scoring-list" id="accordionExample">
+                            <div class="row g-4 justify-content-center">
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingSetup1">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseSetup1"
+                                                aria-expanded="true" aria-controls="collapseSetup1">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-dice.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Setup
+                                                        -
+                                                        Player
+                                                        1</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseSetup1" class="accordion-collapse collapse"
+                                            aria-labelledby="headingSetup1" data-bs-parent="#accordionExample">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
 
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 col-12">
-                        <div class="player-item-2 text-center"
-                            style="background-image: url(assets/images/home/stone-bgr/05.jpg);">
-                            <div class="player-inner-2">
-                                <div class="player-thumb-2">
-                                    <a href="battle-sim.html"><img src="assets/images/home/axes.png" alt="team-img"></a>
-                                </div>
-                                <div class="player-content-2">
-                                    <a href="battle-sim.html">
-                                        <h1 class="home-page-tile-titles">Battle Sim</h1>
+                                                    <div class="form-group">
+                                                        <label class="scoring-center" for="player-name1">
+                                                        </label>
+                                                        <input id="player-name1" class="form-control totals-relevant" type="text"
+                                                            placeholder="Name" />
+                                                    </div>
 
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 col-12">
-                        <div class="player-item-2 text-center" style="background-image: url();">
-                            <div class="player-inner-2">
-                                <div class="player-thumb-2">
-                                    <a href=""><img src="" alt="Coming Soon"></a>
-                                </div>
-                                <div class="player-content-2">
-                                    <a href="">
-                                        <h2>(Coming Soon)</h2>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 col-12">
-                        <div class="player-item-2 text-center" style="background-image: url();">
-                            <div class="player-inner-2">
-                                <div class="player-thumb-2">
-                                    <a href=""><img src="" alt="Coming Soon"></a>
-                                </div>
-                                <div class="player-content-2">
-                                    <a href="">
-                                        <h2></h2>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 col-12">
-                        <div class="player-item-2 text-center" style="background-image: url();">
-                            <div class="player-inner-2">
-                                <div class="player-thumb-2">
-                                    <a href=""><img src="" alt="Coming Soon"></a>
-                                </div>
-                                <div class="player-content-2">
-                                    <a href="">
-                                        <h2></h2>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 col-12">
-                        <div class="player-item-2 text-center" style="background-image: url();">
-                            <div class="player-inner-2">
-                                <div class="player-thumb-2">
-                                    <a href=""><img src="" alt="Coming Soon"></a>
-                                </div>
-                                <div class="player-content-2">
-                                    <a href="">
-                                        <h2></h2>
-                                    </a>
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+                                                        <label for="factionP1"
+                                                            class="score-sheet-dropdown-label1">FACTION:</label>
+                                                        <select name="factionP1" id="factionP1"
+                                                            class="score-sheet-dropdown-setup totals-relevant">
+                                                            <option value="Beasts of Chaos">Beasts of Chaos</option>
+                                                            <option value="Blades of Khorne">Blades of Khorne</option>
+                                                            <option value="Cities of Sigmar">Cities of Sigmar</option>
+                                                            <option value="Daughters of Khaine">Daughters of Khaine
+                                                            </option>
+                                                            <option value="Disciples of Tzeentch">Disciples of Tzeentch
+                                                            </option>
+                                                            <option value="Flesh-eater Courts">Flesh-eater Courts
+                                                            </option>
+                                                            <option value="Fyreslayers">Fyreslayers</option>
+                                                            <option value="Gloomspite Gitz">Gloomspite Gitz</option>
+                                                            <option value="Hedonites of Slaanesh">Hedonites of Slaanesh
+                                                            </option>
+                                                            <option value="Idoneth Deepkin">Idoneth Deepkin</option>
+                                                            <option value="Kharadron Overlords">Kharadron Overlords
+                                                            </option>
+                                                            <option value="Legion of the First Prince">Legion of the
+                                                                First
+                                                                Prince</option>
+                                                            <option value="Lumineth Realm Lords">Lumineth Realm Lords
+                                                            </option>
+                                                            <option value="Maggotkin of Nurgle">Maggotkin of Nurgle
+                                                            </option>
+                                                            <option value="Nighthaunt">Nighthaunt</option>
+                                                            <option value="Ogor Mawtribes">Ogor Mawtribes</option>
+                                                            <option value="Orruk Warclans">Orruk Warclans</option>
+                                                            <option value="Ossiarch Bonereapers">Ossiarch Bonereapers
+                                                            </option>
+                                                            <option value="Seraphon">Seraphon</option>
+                                                            <option value="Skaven">Skaven</option>
+                                                            <option value="Slaves to Darkness">Slaves to Darkness
+                                                            </option>
+                                                            <option value="Sons of Behemat">Sons of Behemat</option>
+                                                            <option value="Soulblight Gravelords">Soulblight Gravelords
+                                                            </option>
+                                                            <option value="Stormcast Eternals">Stormcast Eternals
+                                                            </option>
+                                                            <option value="Sylvaneth">Sylvaneth</option>
+                                                        </select>
+                                                    </div>
 
+                                                    <div class="form-group">
+                                                        <label class="scoring-center" for="subfaction1">
+                                                        </label>
+                                                        <input id="subfaction1" class="form-control totals-relevant" type="text"
+                                                            placeholder="Subfaction" />
+
+                                                    </div>
+                                                    <br>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+                                                        <label for="grandStrategySelectP1"
+                                                            class="score-sheet-dropdown-label1"
+                                                            class="score-sheet-dropdown-setup">GRAND
+                                                            STRATEGY:</label>
+                                                        <select name="grandStrategySelectP1" id="grandStrategySelectP1"
+                                                            class="score-sheet-dropdown-setup totals-relevant">
+                                                            <option value="Beast Master">Beast Master</option>
+                                                            <option value="Dominating Presence">Dominating Presence
+                                                            </option>
+                                                            <option value="Hold the Line">Hold the Line</option>
+                                                            <option value="Pillars of Belief">Pillars of Belief</option>
+                                                            <option value="Predator's Domain">Predator's Domain</option>
+                                                            <option value="Prized Sorcery">Prized Sorcery</option>
+                                                            <option value="Sever the Head">Sever the Head</option>
+                                                            <option value="Vendetta">Vendetta</option>
+                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingOne">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                aria-expanded="true" aria-controls="collapseOne">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-icon-1.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title" id="headerR1P1"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Round
+                                                        1
+                                                        -
+                                                        Player
+                                                        1 - [0]</span>
+                                                </span>
+                                            </button>
+                                        </div>
+
+                                        <div id="collapseOne" class="accordion-collapse collapse"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p1-r1" value="Priority">
+                                                            Priority
+                                                        </label>
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p1-r1" value="First Turn">
+                                                            First Turn
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
+                                                        <label for="battleTacticR1P1"
+                                                            class="score-sheet-dropdown-label1">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR1P1" class="score-sheet-dropdown"
+                                                            id="battleTacticR1P1">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
+                                                            </option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
+                                                            <option value="Broken Ranks">Broken Ranks</option>
+                                                            <option value="Conquer">Conquer</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-large totals-relevant"
+                                                                    id="tacticCheckboxR1P1" value="Achieved">
+                                                            </label>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR1P1" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR1P1" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+
+                                                    <h5 class="objective-vps1 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton number-input-btn">-</div>
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0" id="objectiveVPR1P1">
+                                                        <div class="inc qtybutton number-input-btn">+</div>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading1 vp-separate" id="vicPointsR1P1">
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                aria-expanded="true" aria-controls="collapseTwo">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-icon-2.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title" id="headerR2P1"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Round
+                                                        2
+                                                        -
+                                                        Player
+                                                        1 - [0]</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseTwo" class="accordion-collapse collapse"
+                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p1-r2" value="Priority">
+                                                            Priority
+                                                        </label>
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p1-r2" value="First Turn">
+                                                            First Turn
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
+                                                        <label for="battleTacticR2P1"
+                                                            class="score-sheet-dropdown-label1">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR2P1" class="score-sheet-dropdown"
+                                                            id="battleTacticR2P1">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
+                                                            </option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
+                                                            <option value="Broken Ranks">Broken Ranks</option>
+                                                            <option value="Conquer">Conquer</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-large totals-relevant"
+                                                                    id="tacticCheckboxR2P1" value="Achieved">
+                                                            </label>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR2P1" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR2P1" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+
+                                                    <h5 class="objective-vps1 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton number-input-btn">-</div>
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0" id="objectiveVPR2P1">
+                                                        <div class="inc qtybutton number-input-btn">+</div>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading1 vp-separate" id="vicPointsR2P1">
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                aria-expanded="true" aria-controls="collapseThree">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-icon-3.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title" id="headerR3P1"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Round
+                                                        3
+                                                        -
+                                                        Player
+                                                        1 - [0]</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseThree" class="accordion-collapse collapse"
+                                            aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p1-r3" value="Priority">
+                                                            Priority
+                                                        </label>
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p1-r3" value="First Turn">
+                                                            First Turn
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
+                                                        <label for="battleTacticR3P1"
+                                                            class="score-sheet-dropdown-label1">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR3P1" class="score-sheet-dropdown"
+                                                            id="battleTacticR3P1">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
+                                                            </option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
+                                                            <option value="Broken Ranks">Broken Ranks</option>
+                                                            <option value="Conquer">Conquer</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-large totals-relevant"
+                                                                    id="tacticCheckboxR3P1" value="Achieved">
+                                                            </label>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR3P1" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR3P1" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+
+                                                    <h5 class="objective-vps1 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton number-input-btn">-</div>
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0" id="objectiveVPR3P1">
+                                                        <div class="inc qtybutton number-input-btn">+</div>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading1 vp-separate" id="vicPointsR3P1">
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                                aria-expanded="true" aria-controls="collapseFour">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-icon-4.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title" id="headerR4P1"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Round
+                                                        4
+                                                        -
+                                                        Player
+                                                        1 - [0]</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseFour" class="accordion-collapse collapse"
+                                            aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p1-r4" value="Priority">
+                                                            Priority
+                                                        </label>
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p1-r4" value="First Turn">
+                                                            First Turn
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
+                                                        <label for="battleTacticR4P1"
+                                                            class="score-sheet-dropdown-label1">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR4P1" class="score-sheet-dropdown"
+                                                            id="battleTacticR4P1">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
+                                                            </option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
+                                                            <option value="Broken Ranks">Broken Ranks</option>
+                                                            <option value="Conquer">Conquer</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-large totals-relevant"
+                                                                    id="tacticCheckboxR4P1" value="Achieved">
+                                                            </label>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR4P1" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR4P1" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+
+                                                    <h5 class="objective-vps1 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton number-input-btn">-</div>
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0" id="objectiveVPR4P1">
+                                                        <div class="inc qtybutton number-input-btn">+</div>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading1 vp-separate" id="vicPointsR4P1">
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingFive">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                                aria-expanded="true" aria-controls="collapseFive">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-icon-5.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title" id="headerR5P1"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Round
+                                                        5
+                                                        -
+                                                        Player
+                                                        1 - [0]</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseFive" class="accordion-collapse collapse"
+                                            aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p1-r5" value="Priority">
+                                                            Priority
+                                                        </label>
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p1-r5" value="First Turn">
+                                                            First Turn
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
+                                                        <label for="battleTacticR5P1"
+                                                            class="score-sheet-dropdown-label1">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR5P1" class="score-sheet-dropdown"
+                                                            id="battleTacticR5P1">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
+                                                            </option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
+                                                            <option value="Broken Ranks">Broken Ranks</option>
+                                                            <option value="Conquer">Conquer</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-large totals-relevant"
+                                                                    id="tacticCheckboxR5P1" value="Achieved">
+                                                            </label>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR5P1" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR5P1" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+
+                                                    <h5 class="objective-vps1 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton number-input-btn">-</div>
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0" id="objectiveVPR5P1">
+                                                        <div class="inc qtybutton number-input-btn">+</div>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading1 vp-separate" id="vicPointsR5P1">
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingSummary1">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseSummary1"
+                                                aria-expanded="true" aria-controls="collapseSummary1">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/trophy.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Summary - Player 1</span>
+                                                </span>
+                                            </button>
+                                        </div>
+
+                                        <div id="collapseSummary1" class="accordion-collapse collapse"
+                                            aria-labelledby="headingSummary1" data-bs-parent="#accordionExample">
+                                            <div class="scoring-row flex-space-evenly summary">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="flex-space-evenly">
+                                                        <label class="first-priority">
+                                                            <input class="checkbox-large totals-relevant"
+                                                                type="checkbox" id="grandStratP1" />
+                                                            Grand
+                                                            Strategy
+                                                            Achieved
+                                                        </label>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading1 vp-separate" id="totalPointsP1">
+                                                        Total
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="scoring-list" id="accordionExample-2">
+                            <div class="row g-4 justify-content-center">
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingSetup2">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseSetup2"
+                                                aria-expanded="true" aria-controls="collapseSetup2">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-dice.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Setup
+                                                        -
+                                                        Player
+                                                        2</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseSetup2" class="accordion-collapse collapse"
+                                            aria-labelledby="headingSetup2" data-bs-parent="#accordionExample">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="form-group">
+                                                        <label class="scoring-center" for="player-name2">
+                                                        </label>
+                                                        <input id="player-name2" class="form-control totals-relevant" type="text"
+                                                            placeholder="Name" />
+                                                    </div>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+                                                        <label for="factionP2"
+                                                            class="score-sheet-dropdown-label2">FACTION:</label>
+                                                        <select name="factionP2" id="factionP2"
+                                                            class="score-sheet-dropdown-setup totals-relevant">
+                                                            <option value="Beasts of Chaos">Beasts of Chaos</option>
+                                                            <option value="Blades of Khorne">Blades of Khorne</option>
+                                                            <option value="Cities of Sigmar">Cities of Sigmar</option>
+                                                            <option value="Daughters of Khaine">Daughters of Khaine
+                                                            </option>
+                                                            <option value="Disciples of Tzeentch">Disciples of Tzeentch
+                                                            </option>
+                                                            <option value="Flesh-eater Courts">Flesh-eater Courts
+                                                            </option>
+                                                            <option value="Fyreslayers">Fyreslayers</option>
+                                                            <option value="Gloomspite Gitz">Gloomspite Gitz</option>
+                                                            <option value="Hedonites of Slaanesh">Hedonites of Slaanesh
+                                                            </option>
+                                                            <option value="Idoneth Deepkin">Idoneth Deepkin</option>
+                                                            <option value="Kharadron Overlords">Kharadron Overlords
+                                                            </option>
+                                                            <option value="Legion of the First Prince">Legion of the
+                                                                First
+                                                                Prince</option>
+                                                            <option value="Lumineth Realm Lords">Lumineth Realm Lords
+                                                            </option>
+                                                            <option value="Maggotkin of Nurgle">Maggotkin of Nurgle
+                                                            </option>
+                                                            <option value="Nighthaunt">Nighthaunt</option>
+                                                            <option value="Ogor Mawtribes">Ogor Mawtribes</option>
+                                                            <option value="Orruk Warclans">Orruk Warclans</option>
+                                                            <option value="Ossiarch Bonereapers">Ossiarch Bonereapers
+                                                            </option>
+                                                            <option value="Seraphon">Seraphon</option>
+                                                            <option value="Skaven">Skaven</option>
+                                                            <option value="Slaves to Darkness">Slaves to Darkness
+                                                            </option>
+                                                            <option value="Sons of Behemat">Sons of Behemat</option>
+                                                            <option value="Soulblight Gravelords">Soulblight Gravelords
+                                                            </option>
+                                                            <option value="Stormcast Eternals">Stormcast Eternals
+                                                            </option>
+                                                            <option value="Sylvaneth">Sylvaneth</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="scoring-center" for="subfaction2">
+                                                        </label>
+                                                        <input id="subfaction2" class="form-control totals-relevant" type="text"
+                                                            placeholder="Subfaction" />
+
+                                                    </div>
+                                                    <br>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+                                                        <label for="grandStrategySelectP2"
+                                                            class="score-sheet-dropdown-label2"
+                                                            class="score-sheet-dropdown-setup">GRAND
+                                                            STRATEGY:</label>
+                                                        <select name="grandStrategySelectP2" id="grandStrategySelectP2"
+                                                            class="score-sheet-dropdown-setup totals-relevant">
+                                                            <option value="Beast Master">Beast Master</option>
+                                                            <option value="Dominating Presence">Dominating Presence
+                                                            </option>
+                                                            <option value="Hold the Line">Hold the Line</option>
+                                                            <option value="Pillars of Belief">Pillars of Belief</option>
+                                                            <option value="Predator's Domain">Predator's Domain</option>
+                                                            <option value="Prized Sorcery">Prized Sorcery</option>
+                                                            <option value="Sever the Head">Sever the Head</option>
+                                                            <option value="Vendetta">Vendetta</option>
+                                                            <option value="Other">(Other - Faction Specific)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingSeven">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseSeven"
+                                                aria-expanded="true" aria-controls="collapseSeven">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-icon-1.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title" id="headerR1P2"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Round
+                                                        1
+                                                        -
+                                                        Player
+                                                        2 - [0]</span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseSeven" class="accordion-collapse collapse"
+                                            aria-labelledby="headingSeven" data-bs-parent="#accordionExample-2">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p2-r1" value="Priority">
+                                                            Priority
+                                                        </label>
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p2-r1" value="First Turn">
+                                                            First Turn
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
+                                                        <label for="battleTacticR1P2"
+                                                            class="score-sheet-dropdown-label2">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR1P2" class="score-sheet-dropdown"
+                                                            id="battleTacticR1P2">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
+                                                            </option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
+                                                            <option value="Broken Ranks">Broken Ranks</option>
+                                                            <option value="Conquer">Conquer</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-large totals-relevant"
+                                                                    id="tacticCheckboxR1P2" value="Achieved">
+                                                            </label>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR1P2" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR1P2" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+
+                                                    <h5 class="objective-vps2 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton number-input-btn">-</div>
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0" id="objectiveVPR1P2">
+                                                        <div class="inc qtybutton number-input-btn">+</div>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading2 vp-separate" id="vicPointsR1P2">
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingEight">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseEight"
+                                                aria-expanded="true" aria-controls="collapseEight">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-icon-2.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title" id="headerR2P2"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Round
+                                                        2
+                                                        -
+                                                        Player
+                                                        2 - [0]</span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseEight" class="accordion-collapse collapse"
+                                            aria-labelledby="headingEight" data-bs-parent="#accordionExample-2">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p2-r2" value="Priority">
+                                                            Priority
+                                                        </label>
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p2-r2" value="First Turn">
+                                                            First Turn
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
+                                                        <label for="battleTacticR2P2"
+                                                            class="score-sheet-dropdown-label2">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR2P2" class="score-sheet-dropdown"
+                                                            id="battleTacticR2P2">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
+                                                            </option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
+                                                            <option value="Broken Ranks">Broken Ranks</option>
+                                                            <option value="Conquer">Conquer</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-large totals-relevant"
+                                                                    id="tacticCheckboxR2P2" value="Achieved">
+                                                            </label>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR2P2" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR2P2" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+
+                                                    <h5 class="objective-vps2 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton number-input-btn">-</div>
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0" id="objectiveVPR2P2">
+                                                        <div class="inc qtybutton number-input-btn">+</div>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading2 vp-separate" id="vicPointsR2P2">
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingNine">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseNine"
+                                                aria-expanded="true" aria-controls="collapseNine">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-icon-3.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title" id="headerR3P2"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Round
+                                                        3
+                                                        -
+                                                        Player
+                                                        2 - [0]</span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseNine" class="accordion-collapse collapse"
+                                            aria-labelledby="headingNine" data-bs-parent="#accordionExample-2">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p2-r3" value="Priority">
+                                                            Priority
+                                                        </label>
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p2-r3" value="First Turn">
+                                                            First Turn
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
+                                                        <label for="battleTacticR3P2"
+                                                            class="score-sheet-dropdown-label2">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR3P2" class="score-sheet-dropdown"
+                                                            id="battleTacticR3P2">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
+                                                            </option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
+                                                            <option value="Broken Ranks">Broken Ranks</option>
+                                                            <option value="Conquer">Conquer</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-large totals-relevant"
+                                                                    id="tacticCheckboxR3P2" value="Achieved">
+                                                            </label>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR3P2" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR3P2" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+
+                                                    <h5 class="objective-vps2 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton number-input-btn">-</div>
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0" id="objectiveVPR3P2">
+                                                        <div class="inc qtybutton number-input-btn">+</div>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading2 vp-separate" id="vicPointsR3P2">
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingTen">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTen"
+                                                aria-expanded="true" aria-controls="collapseTen">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-icon-4.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title" id="headerR4P2"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Round
+                                                        4
+                                                        -
+                                                        Player
+                                                        2 - [0]</span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseTen" class="accordion-collapse collapse"
+                                            aria-labelledby="headingTen" data-bs-parent="#accordionExample-2">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p2-r4" value="Priority">
+                                                            Priority
+                                                        </label>
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p2-r4" value="First Turn">
+                                                            First Turn
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
+                                                        <label for="battleTacticR4P2"
+                                                            class="score-sheet-dropdown-label2">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR4P2" class="score-sheet-dropdown"
+                                                            id="battleTacticR4P2">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
+                                                            </option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
+                                                            <option value="Broken Ranks">Broken Ranks</option>
+                                                            <option value="Conquer">Conquer</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-large totals-relevant"
+                                                                    id="tacticCheckboxR4P2" value="Achieved">
+                                                            </label>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR4P2" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR4P2" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+
+                                                    <h5 class="objective-vps2 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton number-input-btn">-</div>
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0" id="objectiveVPR4P2">
+                                                        <div class="inc qtybutton number-input-btn">+</div>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading2 vp-separate" id="vicPointsR4P2">
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingEleven">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseEleven"
+                                                aria-expanded="true" aria-controls="collapseEleven">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/scoring-icon-5.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title" id="headerR5P2"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Round
+                                                        5
+                                                        -
+                                                        Player
+                                                        2 - [0]</span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseEleven" class="accordion-collapse collapse"
+                                            aria-labelledby="headingEleven" data-bs-parent="#accordionExample-2">
+                                            <div class="scoring-row flex-space-evenly">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="container flex-space-evenly">
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="priority-checkbox-p2-r5" value="Priority">
+                                                            Priority
+                                                        </label>
+                                                        <label class="checkbox-inline first-priority">
+                                                            <input type="checkbox" class="checkbox-medium"
+                                                                id="first-turn-checkbox-p2-r5" value="First Turn">
+                                                            First Turn
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="battle-tactic-position scoring-sheet-space">
+
+                                                        <label for="battleTacticR5P2"
+                                                            class="score-sheet-dropdown-label2">BATTLE
+                                                            TACTIC:</label>
+                                                        <select name="battleTacticR5P2" class="score-sheet-dropdown"
+                                                            id="battleTacticR5P2">
+                                                            <option value="Aggressive Expansion">Aggressive
+                                                                Expansion
+                                                            </option>
+                                                            <option value="Bring It Down!">Bring It Down!
+                                                            </option>
+                                                            <option value="Broken Ranks">Broken Ranks</option>
+                                                            <option value="Conquer">Conquer</option>
+                                                            <option value="Ferocious Advance">Ferocious Advance
+                                                            </option>
+                                                            <option value="Monstrous Takeover">Monstrous
+                                                                Takeover
+                                                            </option>
+                                                            <option value="Savage Spearhead">Savage Spearhead
+                                                            </option>
+                                                            <option value="Slay The Warlord">Slay The Warlord
+                                                            </option>
+                                                            <option value="Other">(Other - Faction Specific)
+                                                            </option>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox"
+                                                                    class="checkbox-large totals-relevant"
+                                                                    id="tacticCheckboxR5P2" value="Achieved">
+                                                            </label>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="container flex-space-evenly scoring-sheet-space">
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="withMonsterR5P2" value="With
+                                            Monster/s">
+                                                            With
+                                                            Monster/s
+                                                        </label>
+                                                        <label
+                                                            class="checkbox-inline first-priority flex-space-monsters">
+                                                            <input type="checkbox"
+                                                                class="checkbox-medium totals-relevant"
+                                                                id="slainMonsterR5P2" value="Monster
+                                            Slain">
+                                                            Monster
+                                                            Slain
+                                                        </label>
+                                                    </div>
+
+                                                    <h5 class="objective-vps2 scoring-sheet-space">Objective VPs:
+                                                    </h5>
+                                                    <div class="cart-plus-minus">
+                                                        <div class="dec qtybutton number-input-btn">-</div>
+                                                        <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                            value="0" id="objectiveVPR5P2">
+                                                        <div class="inc qtybutton number-input-btn">+</div>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading2 vp-separate" id="vicPointsR5P2">
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" id="headingSummary2">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseSummary2"
+                                                aria-expanded="true" aria-controls="collapseSummary2">
+                                                <span class="accor-header-inner d-flex flex-wrap align-items-center">
+                                                    <span class="accor-thumb scoring-icons-display">
+                                                        <img src="assets/images/trophy.png" alt="scoring-thumb">
+                                                    </span>
+                                                    <span class="accor-title"
+                                                        style="font-family: 'mistlock_regular'; font-size: 25pt">
+                                                        Summary - Player 2</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div id="collapseSummary2" class="accordion-collapse collapse"
+                                            aria-labelledby="headingSummary2" data-bs-parent="#accordionExample">
+                                            <div class="scoring-row flex-space-evenly summary">
+                                                <div class="scoring-tiles">
+
+                                                    <div class="flex-space-evenly">
+                                                        <label class="first-priority">
+                                                            <input class="checkbox-large totals-relevant"
+                                                                type="checkbox" id="grandStratP2" />
+                                                            Grand
+                                                            Strategy
+                                                            Achieved
+                                                        </label>
+                                                    </div>
+
+                                                    <h3 class="victory-points-heading2 vp-separate" id="totalPointsP2">
+                                                        Total
+                                                        Victory
+                                                        Points: 0
+                                                    </h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -248,33 +1594,37 @@
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="assets/js/circularProgressBar.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/swiper.min.js"></script>
-    <script src="assets/js/lightcase.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
 
-    <script>
-        window.ga = function () {
-            ga.q.push(arguments)
-        };
-        ga.q = [];
-        ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto');
-        ga('set', 'anonymizeIp', true);
-        ga('set', 'transport', 'beacon');
-        ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
+        <!-- ===========scoring Section Ends Here========== -->
+
+
+        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+        <script src="assets/js/circularProgressBar.min.js"></script>
+        <script src="assets/js/isotope.pkgd.min.js"></script>
+        <script src="assets/js/swiper.min.js"></script>
+        <script src="assets/js/lightcase.js"></script>
+        <script src="assets/js/wayVictory Points.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/score-sheet.js"></script>
+
+        <script>
+            window.ga = function () {
+                ga.q.push(arguments)
+            };
+            ga.q = [];
+            ga.l = +new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('set', 'anonymizeIp', true);
+            ga('set', 'transport', 'beacon');
+            ga('send', 'pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async></script>
 
 
 
