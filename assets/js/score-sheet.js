@@ -94,16 +94,22 @@ function clearGame() {
 }
 
 function exportGame() {
-  //alert("This feature will be available soon.");
-  // build a game summary, and then pass it into copyText(), then notify the user
-  copyText("DEBUG >>> TESTING");
+  alert(createGameSummary());
 }
 
-function copyText(string) {
-  el("clipboard-textarea").value = string;
-  el("clipboard-textarea").select();
-  document.execCommand("copy");
-  alert("Copied to clipboard!");
+function createGameSummary() {
+  return
+  `PLAYER 1: ${el("player-name1").value} - ${el("factionP1").value}, ${el("subfaction1").value} - ${el("grandStrategySelectP1").value}
+  PLAYER 2: ${el("player-name2").value} - ${el("factionP2").value}, ${el("subfaction2").value} - ${el("grandStrategySelectP2").value}
+  
+  ${(el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 1) : createRoundSummary(2, 1)}
+  ${(!el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 1) : createRoundSummary(2, 1)}
+  `
+}
+
+function createRoundSummary(player, round) {
+  return 
+  `${el("playername" + player).value}: (${el("battleTacticR" + round + "P" + player).value}) ${(el("tacticCheckboxR" + round + "P" + player).checked) ? "✓" : "✗"} - ${el("vicPointsR" + round + "P" + player).value.split(": ")[1]}` 
 }
   
 // shortened syntax for getElementById
