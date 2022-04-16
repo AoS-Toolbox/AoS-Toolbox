@@ -265,3 +265,13 @@ input.checkbox-large {
 .scoring-sheet-space {
     margin-top: 20px;
 }
+
+.placeholder-buttons {
+    height: 180%;
+    background-color: rgb(88, 96, 154);
+}
+
+.placeholder-buttons:hover {
+    background-color: white;
+    background-color: rgb(120, 127, 179);
+}
