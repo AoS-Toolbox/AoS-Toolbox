@@ -17,7 +17,7 @@ document.querySelectorAll("input[type='checkbox']").forEach(e => {
 // On any change event, call updateTotals();
 document.querySelectorAll("input").forEach(e => {
   e.addEventListener("change", () => {
-    
+    updateTotals();
   });
 });
 
