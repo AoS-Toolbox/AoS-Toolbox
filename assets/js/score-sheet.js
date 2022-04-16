@@ -149,7 +149,7 @@ function turnOrderComplete() {
   
   for (let i = 0; i < 5; i++) {
     // for each round, ensure that one (and only one) player has ticked First Turn
-    round[i] = ((el("first-turn-checkbox-p1-r" + (i + 1)).checked && !el("first-turn-checkbox-p2-r" + (i + 1)).checked) || 
+    rounds[i] = ((el("first-turn-checkbox-p1-r" + (i + 1)).checked && !el("first-turn-checkbox-p2-r" + (i + 1)).checked) || 
                 (el("first-turn-checkbox-p2-r" + (i + 1)).checked && !el("first-turn-checkbox-p1-r" + (i + 1)).checked));
   }
   
