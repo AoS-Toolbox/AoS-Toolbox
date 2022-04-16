@@ -100,8 +100,8 @@ function exportGame() {
 }
 
 function copyText(string) {
-  el("#clipboard-textarea").value = string;
-  el("#clipboard-textarea").select();
+  el("clipboard-textarea").value = string;
+  el("clipboard-textarea").select();
   document.execCommand("copy");
   alert("Copied to clipboard!");
 }
