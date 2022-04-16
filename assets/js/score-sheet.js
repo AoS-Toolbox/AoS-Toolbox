@@ -128,7 +128,7 @@ function createGameSummary() {
 }
 
 function createRoundSummary(player, round) {
-  return `${el("player-name" + player).value} T${round}: (${el("battleTacticR" + round + "P" + player).value.slice(0, 6) + "."}) ${(el("tacticCheckboxR" + round + "P" + player).checked) ? "✓" : "✗"} - ${el("vicPointsR" + round + "P" + player).innerText.split(": ")[1]}` 
+  return `${el("player-name" + player).value} T${round}: (${el("battleTacticR" + round + "P" + player).value.slice(0, 9) + "."}) ${(el("tacticCheckboxR" + round + "P" + player).checked) ? "✓" : "✗"} - ${el("vicPointsR" + round + "P" + player).innerText.split(": ")[1]}` 
 }
 
 function getWinner() {
