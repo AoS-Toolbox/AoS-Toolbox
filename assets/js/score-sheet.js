@@ -94,7 +94,11 @@ function clearGame() {
 }
 
 function exportGame() {
-  alert(createGameSummary());
+  if (turnOrderComplete()) {
+    alert(createGameSummary());
+  } else {
+    alert("Please indicate which player took first turn in each round.");
+  }
 }
 
 function createGameSummary() {
@@ -138,6 +142,19 @@ function getWinner() {
   } else {
     return `${el("player-name2").value}, ${player2Score} - ${player1Score}`;
   }
+}
+
+function turnOrderComplete() {
+  let rounds = [];
+  
+  for (let i = 0; i < 5; i++) {
+    // for each round, ensure that one (and only one) player has ticked First Turn
+    round[i] = ((el("first-turn-checkbox-p1-r" + (i + 1)).checked && !el("first-turn-checkbox-p2-r" + (i + 1)).checked) || 
+                (el("first-turn-checkbox-p2-r" + (i + 1)).checked && !el("first-turn-checkbox-p1-r" + (i + 1)).checked));
+  }
+  
+  // if any rounds include false, return false, else return true
+  return !rounds.includes(false);
 }
   
 // shortened syntax for getElementById
