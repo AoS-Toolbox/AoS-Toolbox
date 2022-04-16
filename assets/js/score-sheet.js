@@ -87,6 +87,16 @@ function updateTotals() {
   }
 }
 
+// clear game data from localStorage and refresh page
+function clearGame() {
+  window.localStorage.clear();
+  window.location.reload();
+}
+
+function exportGame() {
+  alert("This feature will be available soon.");
+}
+
 // shortened syntax for getElementById
 function el(id) {
   return document.getElementById(id);
