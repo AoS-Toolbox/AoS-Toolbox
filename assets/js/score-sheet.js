@@ -27,7 +27,7 @@ document.querySelectorAll(".cart-plus-minus").forEach((div) => {
   minusButton.addEventListener("click", () => {
     numBox.value = parseInt(numBox.value) - 1;
   });
-}
+});
 
 // Dynamically load values back into all fields, >>>> THEN UPDATE SCORES
 function loadFromLocalStorage() {
