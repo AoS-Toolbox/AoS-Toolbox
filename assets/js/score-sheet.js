@@ -103,10 +103,8 @@ function exportGame() {
 
 function createGameSummary() {
   return `
-  PLAYER 1: ${el("player-name1").value} - ${el("factionP1").value},
-  ${el("subfaction1").value} - ${el("grandStrategySelectP1").value}
-  PLAYER 2: ${el("player-name2").value} - ${el("factionP2").value}, 
-  ${el("subfaction2").value} - ${el("grandStrategySelectP2").value}
+  ${el("player-name1").value} - ${el("factionP1").value}, ${el("grandStrategySelectP1").value}
+  ${el("player-name2").value} - ${el("factionP2").value}, ${el("grandStrategySelectP2").value}
   
   ${(el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 1) : createRoundSummary(2, 1)}
   ${(!el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 1) : createRoundSummary(2, 1)}
@@ -123,16 +121,14 @@ function createGameSummary() {
   ${(el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 5) : createRoundSummary(2, 5)}
   ${(!el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 5) : createRoundSummary(2, 5)}
   
-  GRAND STRATEGIES: 
-  ${el("player-name1").value} ${(el("grandStratP1").checked) ? "✓" : "✗"}
-  ${el("player-name2").value} ${(el("grandStratP2").checked) ? "✓" : "✗"}
+  GRAND STRATS: ${el("player-name1").value} ${(el("grandStratP1").checked) ? "✓" : "✗"}, ${el("player-name2").value} ${(el("grandStratP2").checked) ? "✓" : "✗"}
   
   ${getWinner()}
   `
 }
 
 function createRoundSummary(player, round) {
-  return `${el("player-name" + player).value} T${round}: (${el("battleTacticR" + round + "P" + player).value}) ${(el("tacticCheckboxR" + round + "P" + player).checked) ? "✓" : "✗"} - ${el("vicPointsR" + round + "P" + player).innerText.split(": ")[1]}` 
+  return `${el("player-name" + player).value} T${round}: (${el("battleTacticR" + round + "P" + player).value.slice(0, 6) + "."}) ${(el("tacticCheckboxR" + round + "P" + player).checked) ? "✓" : "✗"} - ${el("vicPointsR" + round + "P" + player).innerText.split(": ")[1]}` 
 }
 
 function getWinner() {
