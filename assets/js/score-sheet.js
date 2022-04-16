@@ -10,7 +10,14 @@ document.querySelectorAll("input[type='text']").forEach(e => {
 document.querySelectorAll("input[type='checkbox']").forEach(e => {
   e.addEventListener("change", () => {
     window.localStorage.setItem(e.id, e.checked);
-    console.log("Just saved value " + e.value + " to key " + e.id);
+    console.log("Just saved value " + e.checked + " to key " + e.id);
+  });
+});
+
+// On any change event, call updateTotals();
+document.querySelectorAll("input").forEach(e => {
+  e.addEventListener("change", () => {
+    
   });
 });
 
@@ -48,4 +55,39 @@ function loadFromLocalStorage() {
       console.log("Just loaded in checkbox value " + window.localStorage.getItem(e.id) + " from key " + e.id);
     }
   });
+  
+  // Finally, call updateTotals()
+  updateTotals();
+}
+
+function updateTotals() {
+  let grandTotals = {
+    1: 0,
+    2: 0
+  }
+  
+  // outer loop: once per player
+  for (let i = 1; i < 3; i++) {
+    // inner loop: once per turn, per player
+    for (let j = 1; j < 6; j++) {
+      let tacticScored = (el(`tacticCheckboxR${j}P${i}`).checked) ? 2 : 0;
+      let withMonster = (el(`withMonsterR${j}P${i}`).checked) ? 1 : 0;
+      let slainMonster = (el(`slainMonsterR${j}P${i}`).checked) ? 1 : 0;
+      let objectiveVPs = parseInt(el(`objectiveVPR${j}P${i}`).value);
+      
+      let roundTotal = tacticScored + withMonster + slainMonster + objectiveVPs;
+      grandTotals[i] += roundTotal;
+      
+      el(`headerR${j}P${i}`).innerText = `Round ${j} - Player ${i} - (${roundTotal})`);
+      el(`vicPointsR${j}P${i}`).innerText = `VICTORY POINTS: ${roundTotal}`;
+    }
+    
+    if (el(`grandStratP${i}`).checked) grandTotals[i]++;
+    el(`totalPointsP${i}`).innerText = "TOTAL VICTORY POINTS: " + grandTotals[i];
+  }
+}
+
+// shortened syntax for getElementById
+function el(id) {
+  return document.getElementById(id);
 }
