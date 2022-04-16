@@ -134,9 +134,9 @@ function getWinner() {
   if (player1Score === player2Score) {
     return `DRAW! - ${player1Score} - ${player2Score}`;
   } else if (player1Score > player2Score) {
-    return `${el("player-name1")}, ${player1Score} - ${player2Score}`;
+    return `${el("player-name1").value}, ${player1Score} - ${player2Score}`;
   } else {
-    return `${el("player-name2")}, ${player2Score} - ${player1Score}`;
+    return `${el("player-name2").value}, ${player2Score} - ${player1Score}`;
   }
 }
   
