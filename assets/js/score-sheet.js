@@ -94,9 +94,18 @@ function clearGame() {
 }
 
 function exportGame() {
-  alert("This feature will be available soon.");
+  //alert("This feature will be available soon.");
+  // build a game summary, and then pass it into copyText(), then notify the user
+  copyText("DEBUG >>> TESTING");
 }
 
+function copyText(string) {
+  el("#clipboard-textarea").value = string;
+  el("#clipboard-textarea").select();
+  document.execCommand("copy");
+  alert("Copied to clipboard!");
+}
+  
 // shortened syntax for getElementById
 function el(id) {
   return document.getElementById(id);
