@@ -22,10 +22,12 @@ document.querySelectorAll(".cart-plus-minus").forEach((div) => {
   
   plusButton.addEventListener("click", () => {
     numBox.value = parseInt(numBox.value) + 1;
+    numBox.dispatchEvent(new Event("change"));
   });
   
   minusButton.addEventListener("click", () => {
     numBox.value = parseInt(numBox.value) - 1;
+    numBox.dispatchEvent(new Event("change"));
   });
 });
 
