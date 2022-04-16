@@ -107,7 +107,7 @@ function createGameSummary() {
 }
 
 function createRoundSummary(player, round) {
-  return `${el("player-name" + player).value}: (${el("battleTacticR" + round + "P" + player).value}) ${(el("tacticCheckboxR" + round + "P" + player).checked) ? "✓" : "✗"} - ${el("vicPointsR" + round + "P" + player).value.split(": ")[1]}` 
+  return `${el("player-name" + player).value}: (${el("battleTacticR" + round + "P" + player).value}) ${(el("tacticCheckboxR" + round + "P" + player).checked) ? "✓" : "✗"} - ${el("vicPointsR" + round + "P" + player).innerText.split(": ")[1]}` 
 }
   
 // shortened syntax for getElementById
