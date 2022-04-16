@@ -82,7 +82,7 @@ function updateTotals() {
       el(`vicPointsR${j}P${i}`).innerText = `VICTORY POINTS: ${roundTotal}`;
     }
     
-    if (el(`grandStratP${i}`).checked) grandTotals[i]++;
+    if (el(`grandStratP${i}`).checked) grandTotals[i] += 3;
     el(`totalPointsP${i}`).innerText = "TOTAL VICTORY POINTS: " + grandTotals[i];
   }
 }
