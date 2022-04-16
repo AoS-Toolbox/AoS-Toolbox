@@ -103,8 +103,10 @@ function exportGame() {
 
 function createGameSummary() {
   return `
-  PLAYER 1: ${el("player-name1").value} - ${el("factionP1").value}, ${el("subfaction1").value} - ${el("grandStrategySelectP1").value}
-  PLAYER 2: ${el("player-name2").value} - ${el("factionP2").value}, ${el("subfaction2").value} - ${el("grandStrategySelectP2").value}
+  PLAYER 1: ${el("player-name1").value} - ${el("factionP1").value},
+  ${el("subfaction1").value} - ${el("grandStrategySelectP1").value}
+  PLAYER 2: ${el("player-name2").value} - ${el("factionP2").value}, 
+  ${el("subfaction2").value} - ${el("grandStrategySelectP2").value}
   
   ${(el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 1) : createRoundSummary(2, 1)}
   ${(!el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 1) : createRoundSummary(2, 1)}
@@ -121,14 +123,16 @@ function createGameSummary() {
   ${(el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 5) : createRoundSummary(2, 5)}
   ${(!el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 5) : createRoundSummary(2, 5)}
   
-  GRAND STRATEGIES: ${el("player-name1").value} ${(el("grandStratP1").checked) ? "✓" : "✗"}, ${el("player-name2").value} ${(el("grandStratP2").checked) ? "✓" : "✗"}
+  GRAND STRATEGIES: 
+  ${el("player-name1").value} ${(el("grandStratP1").checked) ? "✓" : "✗"}
+  ${el("player-name2").value} ${(el("grandStratP2").checked) ? "✓" : "✗"}
   
-  WINNER: ${getWinner()}
+  ${getWinner()}
   `
 }
 
 function createRoundSummary(player, round) {
-  return `${el("player-name" + player).value}: (${el("battleTacticR" + round + "P" + player).value}) ${(el("tacticCheckboxR" + round + "P" + player).checked) ? "✓" : "✗"} - ${el("vicPointsR" + round + "P" + player).innerText.split(": ")[1]}` 
+  return `${el("player-name" + player).value} T${round}: (${el("battleTacticR" + round + "P" + player).value}) ${(el("tacticCheckboxR" + round + "P" + player).checked) ? "✓" : "✗"} - ${el("vicPointsR" + round + "P" + player).innerText.split(": ")[1]}` 
 }
 
 function getWinner() {
@@ -136,11 +140,11 @@ function getWinner() {
   let player2Score = parseInt(el("totalPointsP2").innerText.split(": ")[1]);
   
   if (player1Score === player2Score) {
-    return `DRAW! - ${player1Score} - ${player2Score}`;
+    return `DRAW: ${player1Score} - ${player2Score}`;
   } else if (player1Score > player2Score) {
-    return `${el("player-name1").value}, ${player1Score} - ${player2Score}`;
+    return `WINNER: ${el("player-name1").value}, ${player1Score} - ${player2Score}`;
   } else {
-    return `${el("player-name2").value}, ${player2Score} - ${player1Score}`;
+    return `WINNER: ${el("player-name2").value}, ${player2Score} - ${player1Score}`;
   }
 }
 
