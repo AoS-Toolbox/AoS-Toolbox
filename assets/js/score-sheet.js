@@ -18,7 +18,7 @@ document.querySelectorAll("input[type='checkbox']").forEach(e => {
 document.querySelectorAll("select").forEach(e => {
   e.addEventListener("change", () => {
     window.localStorage.setItem(e.id, e.value);
-    console.log("Just saved value " + e.value + " to key " + e.id);
+    console.log("Just saved drop-down value " + e.value + " to key " + e.id);
     updateTotals();
   });
 });
@@ -50,7 +50,7 @@ document.querySelectorAll(".cart-plus-minus").forEach((div) => {
 // Dynamically load values back into all fields, >>>> THEN UPDATE SCORES
 function loadFromLocalStorage() {
   // load .values back into text fields
-  document.querySelectorAll("input[type='text']").forEach(e=> {
+  document.querySelectorAll("input[type='text']").forEach(e => {
     if (window.localStorage.getItem(e.id) != null) {
       e.value = window.localStorage.getItem(e.id);
       console.log("Just loaded in text value " + window.localStorage.getItem(e.id) + " from key " + e.id);
@@ -58,10 +58,18 @@ function loadFromLocalStorage() {
   });
   
   // load boolean values back into checkbox fields
-    document.querySelectorAll("input[type='checkbox']").forEach(e=> {
+  document.querySelectorAll("input[type='checkbox']").forEach(e => {
     if (window.localStorage.getItem(e.id) != null) {
       e.checked = window.localStorage.getItem(e.id);
       console.log("Just loaded in checkbox value " + window.localStorage.getItem(e.id) + " from key " + e.id);
+    }
+  });
+  
+  // load values into drop-down fields
+  document.querySelectorAll("select").forEach(e => {
+    if (window.localStorage.getItem(e.id) != null) {
+      e.value = window.localStorage.getItem(e.id);
+      console.log("Just loaded in drop-down value " + window.localStorage.getItem(e.id) + " from key " + e.id);
     }
   });
   
