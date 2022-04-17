@@ -14,6 +14,15 @@ document.querySelectorAll("input[type='checkbox']").forEach(e => {
   });
 });
 
+// Add auto-saving event listeners to all drop-down fields
+document.querySelectorAll("select").forEach(e => {
+  e.addEventListener("change", () => {
+    window.localStorage.setItem(e.id, e.value);
+    console.log("Just saved value " + e.value + " to key " + e.id);
+    updateTotals();
+  });
+});
+
 // On any change event, call updateTotals();
 document.querySelectorAll("input").forEach(e => {
   e.addEventListener("change", () => {
