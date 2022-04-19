@@ -95,7 +95,7 @@ function updateTotals() {
       let roundTotal = tacticScored + withMonster + slainMonster + objectiveVPs;
       grandTotals[i] += roundTotal;
       
-      el(`headerR${j}P${i}`).innerText = `Round ${j} - Player ${i} - (${roundTotal})`;
+      el(`headerR${j}P${i}`).innerText = `Player ${i} - Round ${j} - (${roundTotal})`;
       el(`vicPointsR${j}P${i}`).innerText = `VICTORY POINTS: ${roundTotal}`;
     }
     
