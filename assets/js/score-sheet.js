@@ -111,10 +111,14 @@ function clearGame() {
 }
 
 function exportGame() {
-  if (turnOrderComplete()) {
+  // ensure that all turn orders and battle tactics have been inputted before exporting a
+  // game summary. if not, direct user to complete these fields.
+  if (getUnreportedFields("turn order").length === 0 && getUnreportedFields("tactics").length === 0) {
     alert(createGameSummary());
-  } else {
-    alert("Please indicate which player took first turn in each round.");
+  } else if (getUnreportedFields("turn order").length != 0) {
+    alert("Please indicate which player took first turn in each round.\n\nTurns outstanding: " + getUnreportedFields("turn order"));
+  } else if (getUnreportedFields("tactics").length != 0) {
+    alert("Please complete missing battle tactics.\n\nTurns outstanding: " + getUnreportedFields("tactics"));
   }
 }
 
@@ -161,17 +165,33 @@ function getWinner() {
   }
 }
 
-function turnOrderComplete() {
+function getUnreportedFields(field) {
   let rounds = [];
   
   for (let i = 0; i < 5; i++) {
-    // for each round, ensure that one (and only one) player has ticked First Turn
-    rounds[i] = ((el("first-turn-checkbox-p1-r" + (i + 1)).checked && !el("first-turn-checkbox-p2-r" + (i + 1)).checked) || 
-                (el("first-turn-checkbox-p2-r" + (i + 1)).checked && !el("first-turn-checkbox-p1-r" + (i + 1)).checked));
+    if (field === "turn order") {
+
+      // equals false if neither player has Went First ticked in the given round
+      let roundStatus = ((el("first-turn-checkbox-p1-r" + (i + 1)).checked && !el("first-turn-checkbox-p2-r" + (i + 1)).checked) || 
+      (el("first-turn-checkbox-p2-r" + (i + 1)).checked && !el("first-turn-checkbox-p1-r" + (i + 1)).checked));
+
+      if (roundStatus === false) {
+        rounds.push(i + 1);
+      }
+
+    } else if (field === "tactics") {
+
+      // equals false if either player in the round did not input their Battle Tactic
+      let tacticsStatus = el("battleTacticR" + (i + 1) + "P1").value !== "" && el("battleTacticR" + (i + 1) + "P2").value !== "";
+      if (tacticsStatus === false) {
+        rounds.push(i + 1);
+      }
+
+    }
   }
   
   // if any rounds include false, return false, else return true
-  return !rounds.includes(false);
+  return rounds;
 }
   
 // shortened syntax for getElementById
