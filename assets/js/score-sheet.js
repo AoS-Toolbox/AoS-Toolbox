@@ -130,17 +130,17 @@ function createGameSummary() {
   ${(el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 1) : createRoundSummary(2, 1)}
   ${(!el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 1) : createRoundSummary(2, 1)}
   
-  ${(el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 2) : createRoundSummary(2, 2)}
-  ${(!el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 2) : createRoundSummary(2, 2)}
+  ${(el("first-turn-checkbox-p1-r2").checked) ? createRoundSummary(1, 2) : createRoundSummary(2, 2)}
+  ${(!el("first-turn-checkbox-p1-r2").checked) ? createRoundSummary(1, 2) : createRoundSummary(2, 2)}
   
-  ${(el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 3) : createRoundSummary(2, 3)}
-  ${(!el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 3) : createRoundSummary(2, 3)}
+  ${(el("first-turn-checkbox-p1-r3").checked) ? createRoundSummary(1, 3) : createRoundSummary(2, 3)}
+  ${(!el("first-turn-checkbox-p1-r3").checked) ? createRoundSummary(1, 3) : createRoundSummary(2, 3)}
   
-  ${(el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 4) : createRoundSummary(2, 4)}
-  ${(!el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 4) : createRoundSummary(2, 4)}
+  ${(el("first-turn-checkbox-p1-r4").checked) ? createRoundSummary(1, 4) : createRoundSummary(2, 4)}
+  ${(!el("first-turn-checkbox-p1-r4").checked) ? createRoundSummary(1, 4) : createRoundSummary(2, 4)}
   
-  ${(el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 5) : createRoundSummary(2, 5)}
-  ${(!el("first-turn-checkbox-p1-r1").checked) ? createRoundSummary(1, 5) : createRoundSummary(2, 5)}
+  ${(el("first-turn-checkbox-p1-r5").checked) ? createRoundSummary(1, 5) : createRoundSummary(2, 5)}
+  ${(!el("first-turn-checkbox-p1-r5").checked) ? createRoundSummary(1, 5) : createRoundSummary(2, 5)}
   
   GRAND STRATS: ${el("player-name1").value} ${(el("grandStratP1").checked) ? "✓" : "✗"}, ${el("player-name2").value} ${(el("grandStratP2").checked) ? "✓" : "✗"}
   
