@@ -123,13 +123,13 @@ function loadFromLocalStorage() {
 }
 
 function updateTotals() {
-  let grandTotals = {
-    1: 0,
-    2: 0
-  }
-  
   // outer loop: once per player (desktop view)
   for (let i = 1; i < 3; i++) {
+    let grandTotals = {
+      1: 0,
+      2: 0
+    }
+    
     // inner loop: once per turn, per player
     for (let j = 1; j < 6; j++) {
       let tacticScored = (el(`tacticCheckboxR${j}P${i}`).checked) ? 2 : 0;
@@ -150,6 +150,11 @@ function updateTotals() {
 
   // outer loop: once per player (mobile view)
   for (let i = 1; i < 3; i++) {
+    let grandTotals = {
+      1: 0,
+      2: 0
+    }
+    
     // inner loop: once per turn, per player
     for (let j = 1; j < 6; j++) {
       let tacticScored = (el(`tacticCheckboxR${j}P${i}-mobile`).checked) ? 2 : 0;
