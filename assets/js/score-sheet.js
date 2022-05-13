@@ -3,6 +3,21 @@ document.querySelectorAll("input[type='text']").forEach(e => {
   e.addEventListener("change", () => {
     window.localStorage.setItem(e.id, e.value);
     console.log("Just saved value " + e.value + " to key " + e.id);
+    if (e.id.indexOf("-mobile") != -1) {
+      const desktopID = e.id.replace("-mobile", "");
+      const desktopEl = document.getElementById(desktopID);
+      
+      desktopEl.value = e.value;
+      window.localStorage.setItem(desktopEl.id, desktopEl.value);
+      console.log("Just saved value " + desktopEl.value + " to key " + desktopEl.id);
+    } else {
+      const mobileID = e.id + "-mobile";
+      const mobileEl = document.getElementById(mobileID);
+      
+      mobileEl.value = e.value;
+      window.localStorage.setItem(mobileEl.id, mobileEl.value);
+      console.log("Just saved value " + mobileEl.value + " to key " + mobileEl.id); 
+    };
   });
 });
 
@@ -11,6 +26,21 @@ document.querySelectorAll("input[type='checkbox']").forEach(e => {
   e.addEventListener("change", () => {
     window.localStorage.setItem(e.id, e.checked);
     console.log("Just saved value " + e.checked + " to key " + e.id);
+    if (e.id.indexOf("-mobile") != -1) {
+      const desktopID = e.id.replace("-mobile", "");
+      const desktopEl = document.getElementById(desktopID);
+      
+      desktopEl.checked = e.checked;
+      window.localStorage.setItem(desktopEl.id, desktopEl.value);
+      console.log("Just saved value " + desktopEl.value + " to key " + desktopEl.id);
+    } else {
+      const mobileID = e.id + "-mobile";
+      const mobileEl = document.getElementById(mobileID);
+      
+      mobileEl.checked = e.checked;
+      window.localStorage.setItem(mobileEl.id, mobileEl.value);
+      console.log("Just saved value " + mobileEl.value + " to key " + mobileEl.id);
+    };
   });
 });
 
@@ -20,6 +50,21 @@ document.querySelectorAll("select").forEach(e => {
     window.localStorage.setItem(e.id, e.value);
     console.log("Just saved drop-down value " + e.value + " to key " + e.id);
     updateTotals();
+    if (e.id.indexOf("-mobile") != -1) {
+      const desktopID = e.id.replace("-mobile", "");
+      const desktopEl = document.getElementById(desktopID);
+      
+      desktopEl.value = e.value;
+      window.localStorage.setItem(desktopEl.id, desktopEl.value);
+      console.log("Just saved value " + desktopEl.value + " to key " + desktopEl.id);
+    } else {
+      const mobileID = e.id + "-mobile";
+      const mobileEl = document.getElementById(mobileID);
+      
+      mobileEl.value = e.value;
+      window.localStorage.setItem(mobileEl.id, mobileEl.value);
+      console.log("Just saved value " + mobileEl.value + " to key " + mobileEl.id); 
+    };
   });
 });
 
