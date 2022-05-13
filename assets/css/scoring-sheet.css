@@ -5,6 +5,8 @@
 
 @media screen and (max-width: 1024px) {
     .flex-space-evenly {}
+    .showOnMobile { display: flex; }
+    .hideOnMobile { display: none; }
 }
 
 @media screen and (min-width: 1025px) {
@@ -12,6 +14,11 @@
         display: flex;
         justify-content: space-evenly;
     }
+    .showOnMobile {
+	display: none;
+    }
+
+    .hideOnMobile { display: flex; }
 }
 
 /* Margin between label and checkbox for monster options */
