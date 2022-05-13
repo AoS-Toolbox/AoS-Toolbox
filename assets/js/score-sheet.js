@@ -3,6 +3,21 @@ document.querySelectorAll("input[type='text']").forEach(e => {
   e.addEventListener("change", () => {
     window.localStorage.setItem(e.id, e.value);
     console.log("Just saved value " + e.value + " to key " + e.id);
+    if (e.id.indexOf("-mobile") != -1) {
+      const desktopID = e.id.replace("-mobile", "");
+      const desktopEl = document.getElementById(desktopID);
+      
+      desktopEl.value = e.value;
+      window.localStorage.setItem(desktopEl.id, desktopEl.value);
+      console.log("Just saved value " + desktopEl.value + " to key " + desktopEl.id);
+    } else {
+      const mobileID = e.id + "-mobile";
+      const mobileEl = document.getElementById(mobileID);
+      
+      mobileEl.value = e.value;
+      window.localStorage.setItem(mobileEl.id, mobileEl.value);
+      console.log("Just saved value " + mobileEl.value + " to key " + mobileEl.id); 
+    };
   });
 });
 
@@ -11,6 +26,21 @@ document.querySelectorAll("input[type='checkbox']").forEach(e => {
   e.addEventListener("change", () => {
     window.localStorage.setItem(e.id, e.checked);
     console.log("Just saved value " + e.checked + " to key " + e.id);
+    if (e.id.indexOf("-mobile") != -1) {
+      const desktopID = e.id.replace("-mobile", "");
+      const desktopEl = document.getElementById(desktopID);
+      
+      desktopEl.checked = e.checked;
+      window.localStorage.setItem(desktopEl.id, desktopEl.checked);
+      console.log("Just saved value " + desktopEl.checked + " to key " + desktopEl.id);
+    } else {
+      const mobileID = e.id + "-mobile";
+      const mobileEl = document.getElementById(mobileID);
+      
+      mobileEl.checked = e.checked;
+      window.localStorage.setItem(mobileEl.id, mobileEl.checked);
+      console.log("Just saved value " + mobileEl.checked + " to key " + mobileEl.id);
+    };
   });
 });
 
@@ -20,6 +50,21 @@ document.querySelectorAll("select").forEach(e => {
     window.localStorage.setItem(e.id, e.value);
     console.log("Just saved drop-down value " + e.value + " to key " + e.id);
     updateTotals();
+    if (e.id.indexOf("-mobile") != -1) {
+      const desktopID = e.id.replace("-mobile", "");
+      const desktopEl = document.getElementById(desktopID);
+      
+      desktopEl.value = e.value;
+      window.localStorage.setItem(desktopEl.id, desktopEl.value);
+      console.log("Just saved value " + desktopEl.value + " to key " + desktopEl.id);
+    } else {
+      const mobileID = e.id + "-mobile";
+      const mobileEl = document.getElementById(mobileID);
+      
+      mobileEl.value = e.value;
+      window.localStorage.setItem(mobileEl.id, mobileEl.value);
+      console.log("Just saved value " + mobileEl.value + " to key " + mobileEl.id); 
+    };
   });
 });
 
@@ -83,7 +128,7 @@ function updateTotals() {
     2: 0
   }
   
-  // outer loop: once per player
+  // outer loop: once per player (desktop view)
   for (let i = 1; i < 3; i++) {
     // inner loop: once per turn, per player
     for (let j = 1; j < 6; j++) {
@@ -101,6 +146,26 @@ function updateTotals() {
     
     if (el(`grandStratP${i}`).checked) grandTotals[i] += 3;
     el(`totalPointsP${i}`).innerText = "TOTAL VICTORY POINTS: " + grandTotals[i];
+  }
+
+  // outer loop: once per player (mobile view)
+  for (let i = 1; i < 3; i++) {
+    // inner loop: once per turn, per player
+    for (let j = 1; j < 6; j++) {
+      let tacticScored = (el(`tacticCheckboxR${j}P${i}-mobile`).checked) ? 2 : 0;
+      let withMonster = (el(`withMonsterR${j}P${i}-mobile`).checked) ? 1 : 0;
+      let slainMonster = (el(`slainMonsterR${j}P${i}-mobile`).checked) ? 1 : 0;
+      let objectiveVPs = parseInt(el(`objectiveVPR${j}P${i}-mobile`).value);
+      
+      let roundTotal = tacticScored + withMonster + slainMonster + objectiveVPs;
+      grandTotals[i] += roundTotal;
+      
+      el(`headerR${j}P${i}-mobile`).innerText = `Player ${i} - Round ${j} - (${roundTotal})`;
+      el(`vicPointsR${j}P${i}-mobile`).innerText = `VICTORY POINTS: ${roundTotal}`;
+    }
+    
+    if (el(`grandStratP${i}-mobile`).checked) grandTotals[i] += 3;
+    el(`totalPointsP${i}-mobile`).innerText = "TOTAL VICTORY POINTS: " + grandTotals[i];
   }
 }
 
