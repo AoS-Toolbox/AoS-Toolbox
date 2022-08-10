@@ -1,3 +1,19 @@
+// New GHB season: clear local storage if scores from last season persist
+window.addEventListener('load', (event) => {
+  let oldValue = false;
+
+  // for each player, enter loop to check all round scores
+  for (let i = 1; i <= 2; i++) {
+    // for each of those player's rounds, check for old data
+    for (let j = 1; j <= 5; j++) {
+      // if an old GHB value exists, assume old data and clear local storage
+      if (el(`withMonsterR${j}P${i}`) != null || el(`slainMonsterR${j}P${i}`) != null) {
+        window.localStorage.clear();
+      }
+    }
+  }
+});
+
 // Add auto-saving event listeners to all text input fields
 document.querySelectorAll("input[type='text']").forEach(e => {
   e.addEventListener("change", () => {
@@ -131,13 +147,12 @@ function updateTotals() {
     }
     
     // inner loop: once per turn, per player
-    for (let j = 1; j < 6; j++) {
+    for (let j = 1; j <= 5; j++) {
       let tacticScored = (el(`tacticCheckboxR${j}P${i}`).checked) ? 2 : 0;
-      let withMonster = (el(`withMonsterR${j}P${i}`).checked) ? 1 : 0;
-      let slainMonster = (el(`slainMonsterR${j}P${i}`).checked) ? 1 : 0;
       let objectiveVPs = parseInt(el(`objectiveVPR${j}P${i}`).value);
+      let otherVPs = parseInt(el(`otherVPR${j}P${i}`).value);
       
-      let roundTotal = tacticScored + withMonster + slainMonster + objectiveVPs;
+      let roundTotal = tacticScored + objectiveVPs + otherVPs;
       grandTotals[i] += roundTotal;
       
       el(`headerR${j}P${i}`).innerText = `Player ${i} - Round ${j} - (${roundTotal})`;
@@ -158,11 +173,10 @@ function updateTotals() {
     // inner loop: once per turn, per player
     for (let j = 1; j < 6; j++) {
       let tacticScored = (el(`tacticCheckboxR${j}P${i}-mobile`).checked) ? 2 : 0;
-      let withMonster = (el(`withMonsterR${j}P${i}-mobile`).checked) ? 1 : 0;
-      let slainMonster = (el(`slainMonsterR${j}P${i}-mobile`).checked) ? 1 : 0;
       let objectiveVPs = parseInt(el(`objectiveVPR${j}P${i}-mobile`).value);
+      let otherVPs = parseInt(el(`otherVPR${j}P${i}-mobile`).value);
       
-      let roundTotal = tacticScored + withMonster + slainMonster + objectiveVPs;
+      let roundTotal = tacticScored + objectiveVPs + otherVPs;
       grandTotals[i] += roundTotal;
       
       el(`headerR${j}P${i}-mobile`).innerText = `Player ${i} - Round ${j} - (${roundTotal})`;
