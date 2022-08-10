@@ -19,7 +19,11 @@ window.addEventListener('load', (event) => {
 // Load battle tactics
 function loadBattleTactics() {
   // clear battle tactics
-  document.querySelectorAll('.score-sheet-dropdown').forEach(o => o.remove());
+  document.querySelectorAll('.score-sheet-dropdown').forEach(s => {
+    while (s.options.length > 0) {
+      s.remove(0);
+    }
+  });
 
   const tactics = [
     'Against the Odds',
