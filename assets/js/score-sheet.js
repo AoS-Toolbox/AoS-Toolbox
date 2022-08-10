@@ -1,7 +1,5 @@
 // New GHB season: clear local storage if scores from last season persist
 window.addEventListener('load', (event) => {
-  loadBattleTactics();
-
   let oldValue = false;
 
   // for each player, enter loop to check all round scores
@@ -15,43 +13,6 @@ window.addEventListener('load', (event) => {
     }
   }
 });
-
-// Load battle tactics
-function loadBattleTactics() {
-  // clear battle tactics
-  document.querySelectorAll('.score-sheet-dropdown').forEach(s => {
-    while (s.options.length > 0) {
-      s.remove(0);
-    }
-  });
-
-  const tactics = [
-    'Against the Odds',
-    'An Eye for an Eye',
-    'Barge Through Enemy Lines',
-    'Desecrate Their Lands',
-    'Gaining Momentum',
-    'Head-to-Head',
-    'Outmuscle',
-    'This One\'s Mine',
-    '(Other - Faction Specific)'
-  ]
-
-  // for each player
-  for (let i = 1; i <= 2; i++) {
-    // for each turn
-    for (let j = 1; j <= 5; j++) {
-      // for each tactic
-      for (let k = 0; k < tactics.length; k++) {
-        let dropdown = el(`battleTacticR${j}P${i}`);
-        dropdown.add(new Option(tactics[k], tactics[k]));
-
-        let dropdownMobile = el(`battleTacticR${j}P${i}-mobile`);
-        dropdownMobile.add(new Option(tactics[k], tactics[k]));
-      }
-    }
-  }
-}
 
 // Add auto-saving event listeners to all text input fields
 document.querySelectorAll("input[type='text']").forEach(e => {
