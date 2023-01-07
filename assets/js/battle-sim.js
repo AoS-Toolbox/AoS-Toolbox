@@ -393,7 +393,7 @@ function showDeployments() {
       clearZones();
       break;
 
-    case: "Prize of Gallet":
+    case "Prize of Gallet":
       redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 1200, 220);
       blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(0, 660, 1200, 220);
       defineObjectives([{x: 600, y: 220}, {x: 300, y: 440}, {x: 600, y: 440}, {x: 900, y: 440}, {x: 600, y: 660}]);
