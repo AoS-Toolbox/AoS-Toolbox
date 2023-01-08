@@ -398,6 +398,11 @@ function showDeployments() {
       blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(0, 660, 1200, 220);
       defineObjectives([{x: 600, y: 220}, {x: 300, y: 440}, {x: 600, y: 440}, {x: 900, y: 440}, {x: 600, y: 660}]);
       break;
+    case "Realmstone Cache":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(300, 0, 900, 220);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(300, 600, 900, 220);
+      defineObjectives([{x: 600, y: 440}]);
+      break;
 
     case "Marking Territory":
       redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 1200, 220);
