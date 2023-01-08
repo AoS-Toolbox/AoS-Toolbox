@@ -403,6 +403,11 @@ function showDeployments() {
       blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(300, 660, 600, 880);
       defineObjectives([{x: 600, y: 440}]);
       break;
+    case "Lukers Below":
+      redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 300, 880);
+      blueDeployment.graphics.beginFill(`rgba(${blueRGB}, ${alpha})`).drawRect(900, 0, 1200, 880);
+      defineObjectives([{x: 300, y: 440}, {x: 600, y: 440}, {x: 900, y: 440}]);
+      break;
 
     case "Marking Territory":
       redDeployment.graphics.beginFill(`rgba(${redRGB}, ${alpha})`).drawRect(0, 0, 1200, 220);
